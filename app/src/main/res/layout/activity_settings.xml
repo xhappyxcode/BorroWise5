@@ -1,0 +1,248 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="com.example.shayanetan.borrowise2.Activities.SettingsActivity">
+
+
+
+    <!--SMS SETTINGS-->
+    <LinearLayout
+        android:id="@+id/layout_SMS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--SMS TITLE-->
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SMS Settings"
+            android:textSize="@dimen/caption_label"
+            android:textColor="@android:color/white"
+            android:background="@color/accentBlueColor"
+            android:padding="5dp"/>
+
+        <!--SMS ALARM TIME-->
+        <LinearLayout
+            android:id="@+id/layout_SMS_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="@dimen/navigation_icon_size"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_time"
+                android:tint="@color/text_primaryColor"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_SMS_alarmTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:text="Set alarm time"
+                    android:textSize="@dimen/subheading_label"/>
+
+                <TextView
+                    android:id="@+id/tv_SMS_alarm"
+                    android:layout_below="@id/tv_SMS_alarmTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:text="10:00"
+                    android:textSize="@dimen/caption_label"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <!--SMS DIVIDER-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dividerColor" />
+
+        <!--SMS DAYS BEFORE-->
+        <LinearLayout
+            android:id="@+id/layout_SMS_days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="@dimen/navigation_icon_size"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_day"
+                android:tint="@color/text_primaryColor"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_SMS_dayTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:text="Set days before"
+                    android:textSize="@dimen/subheading_label"/>
+
+                <Spinner
+                    android:id="@+id/spnr_SMS_days"
+                    android:layout_alignRight="@id/tv_SMS_dayTitle"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subheading_label"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--NOTIFICATION SETTINGS-->
+    <LinearLayout
+        android:layout_below="@id/layout_SMS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <!--NOTIFICATION TITLE-->
+        <TextView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notification Settings"
+            android:textSize="@dimen/caption_label"
+            android:textColor="@android:color/white"
+            android:background="@color/accentBlueColor"
+
+            android:padding="5dp"/>
+
+        <!--NOTIFICATION ALARM TIME-->
+        <LinearLayout
+            android:id="@+id/layout_NOTIF_alarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="@dimen/navigation_icon_size"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_time"
+                android:tint="@color/text_primaryColor"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_NOTIF_alarmTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:text="Set alarm time"
+                    android:textSize="@dimen/subheading_label"/>
+
+                <TextView
+                    android:id="@+id/tv_NOTIF_alarm"
+                    android:layout_below="@id/tv_NOTIF_alarmTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:text="10:00"
+                    android:textSize="@dimen/caption_label"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <!--NOTIFICATION DIVIDER-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dividerColor" />
+
+        <!--NOTIFICATION DAYS BEFORE-->
+        <LinearLayout
+            android:id="@+id/layout_NOTIF_days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="@dimen/navigation_icon_size"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_day"
+                android:tint="@color/text_primaryColor"/>
+
+            <RelativeLayout
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_NOTIF_dayTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="15dp"
+                    android:text="Set days before"
+                    android:textSize="@dimen/subheading_label"/>
+
+                <Spinner
+                    android:id="@+id/spnr_NOTIF_days"
+                    android:layout_alignRight="@id/tv_NOTIF_dayTitle"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subheading_label"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!--BUTTON SETTINGS-->
+    <LinearLayout
+        android:id="@+id/layout_settings_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/accentLightBlueColor"
+            android:text="CANCEL"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/subheading_label"
+            android:padding="12dp"
+            android:id="@+id/btn_cancel"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/accentLightBlueColor"
+            android:text="SAVE"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/subheading_label"
+            android:padding="12dp"
+            android:id="@+id/btn_save" />
+    </LinearLayout>
+</RelativeLayout>

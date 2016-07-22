@@ -1,0 +1,204 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.shayanetan.borrowise2.Fragments.AddMoneyFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@color/accentBlueColor"
+        android:padding="5dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/card_money">
+        <TextView
+            android:id="@+id/tv_lbl_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/currency"
+            android:textSize="25dp"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:id="@+id/et_AMAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/tv_lbl_currency"
+            android:layout_marginTop="30dp"
+            android:hint="0.00"
+            android:textColorHint="@android:color/white"
+            android:textSize="45sp"
+            android:textCursorDrawable = "@null"
+            android:textColor="@android:color/white"
+            android:inputType="numberDecimal"/>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_MoneyToItem"
+        android:src="@drawable/ic_item"
+        app:fabSize="normal"
+        app:backgroundTint="@color/secondaryColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight = "true" />
+
+
+    <LinearLayout
+        android:id="@+id/money_content_section"
+        android:layout_below="@id/card_money"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/text_primaryColor"
+                android:src="@drawable/ic_account"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/atv_AMPersonName"
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:hint="Enter person name"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/subheading_label">
+                <requestFocus />
+            </AutoCompleteTextView>
+<!--    Removed the add button to prevent misunderstandings
+            <ImageView
+                android:layout_width="0dp"
+                android:id="@+id/btn_addContact"
+                android:layout_weight="2"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_marginRight="3dp"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/text_primaryColor"
+                android:src="@drawable/ic_add_plus"/>
+-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_money_startDate"
+            android:layout_below="@id/layout_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/navigation_icon_size"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_marginRight="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_calendar"
+                android:tint="@color/text_primaryColor"/>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subheading_label"
+                    android:text="Start Date"/>
+                <TextView
+                    android:id="@+id/tv_money_startDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/caption_label"
+                    android:text="today"/>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="@color/dividerColor" />
+        <LinearLayout
+            android:id="@+id/layout_money_endDate"
+            android:layout_below="@id/layout_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/navigation_icon_size"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_marginRight="15dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_calendar"
+                android:tint="@color/text_primaryColor"/>
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subheading_label"
+                    android:text="End Date"/>
+                <TextView
+                    android:id="@+id/tv_money_endDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/caption_label"
+                    android:text="today"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignBottom="@id/money_content_section"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_AMBorrow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_borrowed"
+            android:textSize="@dimen/button_label"
+            android:background="@color/accentLightBlueColor"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_AMLend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_lent"
+            android:textSize="@dimen/button_label"
+            android:background="@color/accentLightBlueColor"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</RelativeLayout>
