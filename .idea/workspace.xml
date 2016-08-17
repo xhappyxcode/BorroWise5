@@ -7,51 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74770507-d497-4023-8060-bd0a9ebb95cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/AddTransactionActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/ViewHistoryActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/ViewTransactionListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_23_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_4_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/AlarmReceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/AlarmReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/BaseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/SettingsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/SettingsActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/ViewTransactionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Activities/ViewTransactionActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Adapters/HistoryCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Adapters/HistoryCursorAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Adapters/TransactionsCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Adapters/TransactionsCursorAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/AddAbstractFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/AddAbstractFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/AddItemFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/AddItemFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/AddMoneyFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/AddMoneyFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/AmountDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/AmountDialogFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/HistoryAbstractFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/HistoryAbstractFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/HistoryBorrowedFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/HistoryBorrowedFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/HistoryLendFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/HistoryLendFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/RatingDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/RatingDialogFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/ViewBorrowedFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/ViewBorrowedFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/ViewLentFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/ViewLentFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/ViewTransactionMoneyFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Fragments/ViewTransactionMoneyFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Models/DatabaseOpenHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Models/DatabaseOpenHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Models/Transaction.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise2/Models/Transaction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_transaction.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_transaction.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_money.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_money.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_amount_dialog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_amount_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_money.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_money.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_history.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_history.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_home.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_navigation_drawer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_navigation_drawer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_view_transaction.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_view_transaction.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values-w820dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="BorroWise5.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -2176,7 +2132,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471409519839</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit all">
+      <created>1471410102500</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1471410102500</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2218,7 +2180,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="trial commit2" />
-    <option name="LAST_COMMIT_MESSAGE" value="trial commit2" />
+    <MESSAGE value="commit all" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit all" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
