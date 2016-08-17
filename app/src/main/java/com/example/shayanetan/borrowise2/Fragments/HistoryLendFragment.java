@@ -40,7 +40,8 @@ public class HistoryLendFragment extends HistoryAbstractFragment {
         View layout = inflater.inflate(R.layout.fragment_history_lend, container, false);
         recyclerView = (RecyclerView)layout.findViewById(R.id.recyclerview_history_lent);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(historyCursorAdapter);
         mListener.retrieveTransaction(historyCursorAdapter, HistoryCursorAdapter.TYPE_LEND);
 

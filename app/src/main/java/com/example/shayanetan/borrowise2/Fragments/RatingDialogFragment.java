@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RatingBar;
 
-import com.example.shayanetan.borrowise2.Activities.ViewTransactionActivity;
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.R;
 

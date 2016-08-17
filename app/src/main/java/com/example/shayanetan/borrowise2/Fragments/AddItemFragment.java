@@ -31,6 +31,7 @@ import java.io.ByteArrayOutputStream;
 
 /*
  * Edited by Stephanie Dy on 7/20/2016 removed button addContact
+ *                        on 7/27/2016 removed img_btn_switch, onFragmentSwitch()
  */
 public class AddItemFragment extends AddAbstractFragment {
 
@@ -54,7 +55,7 @@ public class AddItemFragment extends AddAbstractFragment {
         View layout = inflater.inflate(R.layout.fragment_add_item, container, false);
         img_camera = (ImageView) layout.findViewById(R.id.img_camera);
 //        btn_addContact = (ImageView) layout.findViewById(R.id.btn_addContact);
-        img_btn_switch = (FloatingActionButton) layout.findViewById(R.id.btn_ItemToMoney);
+//        img_btn_switch = (FloatingActionButton) layout.findViewById(R.id.btn_ItemToMoney);
         et_AIItemName = (EditText) layout.findViewById(R.id.et_AIItemName);
         atv_person_name = (AutoCompleteTextView) layout.findViewById(R.id.atv_AIPersonName);
 
@@ -205,6 +206,7 @@ public class AddItemFragment extends AddAbstractFragment {
             alertDialog.show();
 
         }
+        getActivity().finish();
     }
 
     public void clearAllFields(){
@@ -229,19 +231,19 @@ public class AddItemFragment extends AddAbstractFragment {
         return cursor.getString(idx);
     }
 
-    @Override
-    protected void onFragmentSwitch() {
-        img_btn_switch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddMoneyFragment fragment = new AddMoneyFragment();
-                FragmentManager fm = myContext.getSupportFragmentManager();
-                transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, fragment);
-                transaction.commit();
-            }
-        });
-    }
+//    @Override
+//    protected void onFragmentSwitch() {
+//        img_btn_switch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AddMoneyFragment fragment = new AddMoneyFragment();
+//                FragmentManager fm = myContext.getSupportFragmentManager();
+//                transaction = fm.beginTransaction();
+//                transaction.replace(R.id.fragment_container, fragment);
+//                transaction.commit();
+//            }
+//        });
+//    }
 
     public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener){
         this.mListener = mListener;

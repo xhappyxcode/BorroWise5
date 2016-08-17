@@ -1,32 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.shayanetan.borrowise2.Activities.ViewTransactionActivity">
+    tools:context=".Activities.ViewTransactionActivity">
 
-    <com.example.shayanetan.borrowise2.Views.SlidingTabLayout
-        android:id="@+id/sliding_tab"
+    <RelativeLayout
+        android:id="@+id/fragment_view_transaction_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/primaryColor" />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_weight="1"
-        android:layout_below="@id/sliding_tab"/>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_addTransaction"
-        android:src="@drawable/ic_add_plus"
-        app:fabSize="normal"
-        app:backgroundTint="@color/secondaryColor"
-        android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight = "true"
-        android:layout_alignParentBottom="true"/>
+        android:layout_height="match_parent">
+    </RelativeLayout>
 
 </RelativeLayout>

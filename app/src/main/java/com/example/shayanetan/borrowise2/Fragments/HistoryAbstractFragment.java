@@ -1,9 +1,11 @@
 package com.example.shayanetan.borrowise2.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +13,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.shayanetan.borrowise2.Activities.ViewHistoryActivity;
+import com.example.shayanetan.borrowise2.Activities.ViewTransactionActivity;
 import com.example.shayanetan.borrowise2.Adapters.HistoryCursorAdapter;
+import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.R;
 
 /**
@@ -36,11 +41,24 @@ public abstract class HistoryAbstractFragment extends Fragment {
     public void init(){
 
         historyCursorAdapter = new HistoryCursorAdapter(getActivity().getBaseContext(),null);
+
         historyCursorAdapter.setmOnLongClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(int id, String type, String classification) {
                 Toast.makeText(getActivity().getBaseContext(), "KEN LEE: " + id, Toast.LENGTH_LONG);
                 mListener.deleteTransaction(historyCursorAdapter,id, type, classification);
+            }
+        });
+
+        historyCursorAdapter.setmOnClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
+            @Override
+            public void onButtonClick(int id, String type, String classification) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), ViewHistoryActivity.class);
+                intent.putExtra(Transaction.COLUMN_ID, id);
+                intent.putExtra(Transaction.COLUMN_TYPE, type);
+
+                startActivity(intent);
             }
         });
     }

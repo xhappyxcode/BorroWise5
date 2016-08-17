@@ -38,6 +38,32 @@
             android:textColor="@android:color/white"
             android:inputType="numberDecimal"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/total_amt"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="@string/currency"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_view_total"
+                android:textColor="@android:color/white"
+                android:text="0.0"
+                android:padding="5dp"/>
+        </LinearLayout>
+
     </RelativeLayout>
 
     <LinearLayout
@@ -63,7 +89,11 @@
                 android:layout_gravity="center_vertical"
                 android:tint="@color/text_primaryColor"
                 android:src="@drawable/ic_account"/>
-
+            <TextView
+                android:id="@+id/view_money_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lent_to"/>
             <TextView
                 android:id="@+id/tv_view_AMPersonName"
                 android:layout_width="0dp"
@@ -148,6 +178,70 @@
         </LinearLayout>
 <!--    add notification settings here  -->
         <LinearLayout
+            android:id="@+id/layout_notif_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/view_item_date_details" >
+
+            <ImageView
+                android:layout_width="@dimen/navigation_icon_size"
+                android:layout_height="@dimen/navigation_icon_size"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:tint="@color/text_primaryColor"
+                android:src="@drawable/ic_notif"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Notification Settings"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/subheading_label">
+
+            </TextView>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp">
+                <LinearLayout
+                    android:id="@+id/layout_notif_days_before"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_notif_days_before"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/caption_label"
+                        android:text="0" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/caption_label"
+                        android:text=" days before due date"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_notif_days_before"
+                    android:layout_centerHorizontal="true">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="at "/>
+                    <TextView
+                        android:id="@+id/tv_notif_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12:00 pm" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/layout_payment_history"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -161,6 +255,7 @@
                     android:id="@+id/payment_history"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/subheading_label"
                     android:text="Payment History: " />
                 <ImageView
                     android:id="@+id/btn_add_payment_history"

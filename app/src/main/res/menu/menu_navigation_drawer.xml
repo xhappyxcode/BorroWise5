@@ -3,11 +3,11 @@
     <group
         android:id="@+id/menu_top"
         android:checkableBehavior="single">
-        <item
+        <!--<item
             android:id="@+id/menuitem_home"
             android:checked="true"
             android:icon="@drawable/ic_home"
-            android:title="Home"/>
+            android:title="Add Transaction"/>-->
         <item
             android:id="@+id/menuitem_transaction"
             android:icon="@drawable/ic_transaction"
@@ -20,7 +20,7 @@
             android:id="@+id/menuitem_account"
             android:icon="@drawable/ic_account"
             android:title="@string/title_activity_people"/>
-    </group>
+    </group> <!--
     <group
         android:id="@+id/menu_bottom"
         android:checkableBehavior="single">
@@ -28,5 +28,5 @@
             android:id="@+id/menuitem_settings"
             android:icon="@drawable/ic_settings"
             android:title="Settings"/>
-    </group>
+    </group>-->
 </menu>

@@ -6,9 +6,9 @@ package com.example.shayanetan.borrowise2.Models;
 public abstract class Transaction {
     public static final String TABLE_NAME = "transactions";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_CLASSIFICATION = "classification";
+    public static final String COLUMN_CLASSIFICATION = "classification"; /* item or money */
     public static final String COLUMN_USER_ID = "user_id";
-    public static final String COLUMN_TYPE = "type";
+    public static final String COLUMN_TYPE = "type"; /* borrowed or lent */
     public static final String COLUMN_STATUS = "status";
     public static final String COLUMN_START_DATE = "start_date";
     public static final String COLUMN_DUE_DATE = "due_date";

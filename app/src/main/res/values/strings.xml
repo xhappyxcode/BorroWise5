@@ -1,23 +1,25 @@
 <resources>
     <string name="app_name">BorroWise</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
 
     <string name="lbl_duedate">Due:</string>
-    <string name="lbl_retdate">Returned:</string>
-    <string name="lbl_startdate">Start:</string>
+    <string name="lbl_retdate">Retd:</string>
     <string name="lbl_status">Status:</string>
+
+    <string name="lbl_start">Start Date</string>
+    <string name="lbl_due">Due Date</string>
+    <string name="lbl_ret">Return Date</string>
+    <string name="lbl_rating">Rating:</string>
 
     <string name="lbl_item">ITEM</string>
     <string name="lbl_money">MONEY</string>
     <string name="lbl_all">ALL</string>
 
     <string name="btn_borrowed">BORROWED</string>
-    <string name="btn_returned">RETURNED</string>
-    <string name="btn_partial">PARTIAL</string>
-    <string name="btn_full">FULL</string>
-    <string name="btn_lost">LOST</string>
     <string name="btn_lent">LENT</string>
+
+    <string name="btn_lost">LOST</string>
+    <string name="btn_returned">RETURNED</string>
 
     <!-- added strings -->
     <string name="lbl_dayleft">days left</string>
@@ -35,30 +37,36 @@
         <item>10</item>
     </string-array>
 
-    <string-array name="menu_item_array">
-        <item>Add Transaction</item>
-        <item>Transactions</item>
-        <item>History</item>
-        <item>Users</item>
-        <item>Settings</item>
-    </string-array>
-
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_add_transaction">Transaction</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_drawer">DrawerActivity</string>
     <string name="title_activity_view_user">People</string>
     <string name="title_activity_home">Add Transaction</string>
     <string name="title_activity_transaction">Transactions</string>
     <string name="title_activity_history">History</string>
     <string name="title_activity_people">People</string>
-    <string name="title_activity_setting">Setting</string>
     <string name="currency">PHP</string>
     <string name="title_activity_view_user_profile">User Profile</string>
-    <string name="title_activity_rating">RatingActivity</string>
+
+    <!-- delete transaction dialog text -->
+    <string name="delete_dialog">Are you sure you want to delete transaction?</string>
+    <string name="dialog_delete">DELETE</string>
+    <string name="dialog_cancel">CANCEL</string>
+    <!-- add transaction dialog text -->
+    <string name="add_transaction_dialog">What kind of transaction do you want to add?</string>
+    <string name="dialog_item">ITEM</string>
+    <string name="dialog_money">MONEY</string>
+
+    <string name="menu_edit">EDIT</string>
+    <string name="menu_delete">DELETE</string>
+
+    <string name="lent_to">LENT TO: </string>
+    <string name="borrowed_from">BORROWED FROM: </string>
+    <string name="total_amt">Original: </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

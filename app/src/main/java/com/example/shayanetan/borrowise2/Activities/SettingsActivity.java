@@ -1,6 +1,5 @@
 package com.example.shayanetan.borrowise2.Activities;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -9,7 +8,6 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +17,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.shayanetan.borrowise2.Adapters.UsersCursorAdapter;
 import com.example.shayanetan.borrowise2.Fragments.TimePickerFragment;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.ItemTransaction;
@@ -31,7 +28,6 @@ import com.example.shayanetan.borrowise2.R;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -69,10 +65,10 @@ public class SettingsActivity extends BaseActivity {
         btn_cancel = (Button) findViewById(R.id.btn_cancel);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String borrowDay = sp.getString(HomeActivity.SP_KEY_BORROW_DAYS, null);
-        String borrowTime = sp.getString(HomeActivity.SP_KEY_BORROW_TIME, null);
-        String lendDay = sp.getString(HomeActivity.SP_KEY_LEND_DAYS, null);
-        String lendTime = sp.getString(HomeActivity.SP_KEY_LEND_TIME, null);
+        String borrowDay = sp.getString(AddTransactionActivity.SP_KEY_BORROW_DAYS, null);
+        String borrowTime = sp.getString(AddTransactionActivity.SP_KEY_BORROW_TIME, null);
+        String lendDay = sp.getString(AddTransactionActivity.SP_KEY_LEND_DAYS, null);
+        String lendTime = sp.getString(AddTransactionActivity.SP_KEY_LEND_TIME, null);
 
         if(borrowTime != null)
             tv_NOTIF_alarm.setText(borrowTime);
@@ -120,13 +116,13 @@ public class SettingsActivity extends BaseActivity {
                 String smsAlarm =  tv_SMS_alarm.getText().toString();
 
                 if (!notifDays.isEmpty())
-                    spEditor.putString(HomeActivity.SP_KEY_BORROW_DAYS, notifDays);
+                    spEditor.putString(AddTransactionActivity.SP_KEY_BORROW_DAYS, notifDays);
                 if(!notifAlarm.isEmpty())
-                    spEditor.putString(HomeActivity.SP_KEY_BORROW_TIME, notifAlarm);
+                    spEditor.putString(AddTransactionActivity.SP_KEY_BORROW_TIME, notifAlarm);
                 if(!smsDays.isEmpty())
-                    spEditor.putString(HomeActivity.SP_KEY_LEND_DAYS, smsDays);
+                    spEditor.putString(AddTransactionActivity.SP_KEY_LEND_DAYS, smsDays);
                 if(!smsAlarm.isEmpty())
-                    spEditor.putString(HomeActivity.SP_KEY_LEND_TIME, smsAlarm);
+                    spEditor.putString(AddTransactionActivity.SP_KEY_LEND_TIME, smsAlarm);
 
 
                 spEditor.commit();
@@ -159,7 +155,7 @@ public class SettingsActivity extends BaseActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    /* for editing alarm for each transaction call this */
     public void updateAlarms(){
         Cursor cursor = dbHelper.querryAllTransactionsJoinUser("0");
 
@@ -177,16 +173,16 @@ public class SettingsActivity extends BaseActivity {
         }
 
     }
-
+    /* for each transaction call this to set alarm */
     public void setItemAlarm(int item_id, long end, String classification, String type){
 
         Toast.makeText(getBaseContext(), "TYPE: " + type, Toast.LENGTH_LONG);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        String borrowDay = sp.getString(HomeActivity.SP_KEY_BORROW_DAYS, null);
-        String borrowTime = sp.getString(HomeActivity.SP_KEY_BORROW_TIME, null);
-        String lendDay = sp.getString(HomeActivity.SP_KEY_LEND_DAYS, null);
-        String lendTime = sp.getString(HomeActivity.SP_KEY_LEND_TIME, null);
+        String borrowDay = sp.getString(AddTransactionActivity.SP_KEY_BORROW_DAYS, null);
+        String borrowTime = sp.getString(AddTransactionActivity.SP_KEY_BORROW_TIME, null);
+        String lendDay = sp.getString(AddTransactionActivity.SP_KEY_LEND_DAYS, null);
+        String lendTime = sp.getString(AddTransactionActivity.SP_KEY_LEND_TIME, null);
 
         if(type.equalsIgnoreCase(Transaction.BORROWED_ACTION)){
             //Create an intent to broadcast

@@ -46,7 +46,14 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
         super(context, cursor);
     }
 
+    public interface OnButtonClickListener {
+        // type is whether it is money or item
+        public void onButtonClick(int id, int type);
+    }
 
+    public void setmOnClickListener(OnButtonClickListener m){
+        this.mOnClickListener = m;
+    }
 
     @Override
     public int getItemViewType(int position) {
@@ -78,11 +85,21 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
                     ((BorrowedItemViewHolder)viewHolder).img_item.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
                 }
-                ((BorrowedItemViewHolder)viewHolder).item_container.setTag(R.id.key_entry_id, id);
-                ((BorrowedItemViewHolder)viewHolder).item_container.setTag(R.id.key_entry_type, TYPE_ITEM);
                 ((BorrowedItemViewHolder)viewHolder).tv_account_item.setText(name);
                 ((BorrowedItemViewHolder)viewHolder).tv_duedate_val.setText(dueDate);
                 ((BorrowedItemViewHolder)viewHolder).tv_itemname.setText(transactionAttribute1);
+                ((BorrowedItemViewHolder)viewHolder).item_container.setTag(R.id.key_entry_id, id);
+                ((BorrowedItemViewHolder)viewHolder).item_container.setTag(R.id.key_entry_type, TYPE_ITEM);
+                ((BorrowedItemViewHolder)viewHolder).item_container.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        BorrowedItemViewHolder vh = (BorrowedItemViewHolder) viewHolder;
+
+                        int tran_id = Integer.parseInt(vh.item_container.getTag(R.id.key_entry_id).toString());
+                        int tran_type = Integer.parseInt(vh.item_container.getTag(R.id.key_entry_type).toString());
+                        mOnClickListener.onButtonClick(tran_id, tran_type);
+                    }
+                });
                 /* get number of days before due date
                 Date currentDate = new Date();
                 int daysleft = currentDate.getDay() - dueDate;
@@ -119,6 +136,16 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
                 ((BorrowedMoneyViewHolder)viewHolder).tv_account_money.setText(name);
                 ((BorrowedMoneyViewHolder)viewHolder).tv_duedate_val.setText(dueDate);
                 ((BorrowedMoneyViewHolder)viewHolder).tv_amount.setText(transactionAttribute2);
+                ((BorrowedMoneyViewHolder)viewHolder).money_container.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        BorrowedMoneyViewHolder vh = (BorrowedMoneyViewHolder) viewHolder;
+
+                        int tran_id = Integer.parseInt(vh.money_container.getTag(R.id.key_entry_id).toString());
+                        int tran_type = Integer.parseInt(vh.money_container.getTag(R.id.key_entry_type).toString());
+                        mOnClickListener.onButtonClick(tran_id, tran_type);
+                    }
+                });
 /*  when shifted to list view, button was removed
                 ((BorrowedMoneyViewHolder)viewHolder).btn_full.setOnClickListener(new OnClickListener() {
                     @Override
@@ -210,18 +237,12 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
         }
     }
 
-    public void setmOnClickListener(OnButtonClickListener m){
-        this.mOnClickListener = m;
-    }
-
     public String parseMillisToDate(long millis){
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
         Date resultdate = new Date(millis);
         return sdf.format(resultdate);
     }
 
-    public interface OnButtonClickListener{
-        public void onButtonClick(int id, int type, int btnType);
-    }
+
 }
 

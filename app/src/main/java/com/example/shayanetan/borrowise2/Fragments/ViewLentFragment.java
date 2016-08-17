@@ -1,5 +1,6 @@
 package com.example.shayanetan.borrowise2.Fragments;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,12 +14,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.shayanetan.borrowise2.Activities.ViewTransactionActivity;
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.R;
 
 /*
  *  Edited by Stephanie Dy on 7/16/2016
+ *                         on 7/29/2016
  */
 
 public class ViewLentFragment extends Fragment {
@@ -56,15 +59,27 @@ public class ViewLentFragment extends Fragment {
         //initiate adapter and set recycler view adapter
         recyclerView = (RecyclerView)layout.findViewById(R.id.recyclerview_transaction_lent);
 
+//        transactionsCursorAdapter.setmOnClickListener(new TransactionsCursorAdapter.OnButtonClickListener() {
+//            @Override
+//            public void onButtonClick(int id, int type, int btnType) {
+//                mListener.updateTransaction(id, type, btnType, transactionsCursorAdapter, VIEW_TYPE, filterType);
+//              //  mListener.retrieveTransaction(transactionsCursorAdapter, VIEW_TYPE);
+//            }
+//        });
+        /* replaced the original OnClickListener of adapter */
         transactionsCursorAdapter.setmOnClickListener(new TransactionsCursorAdapter.OnButtonClickListener() {
             @Override
-            public void onButtonClick(int id, int type, int btnType) {
-                mListener.updateTransaction(id, type, btnType, transactionsCursorAdapter, VIEW_TYPE, filterType);
-              //  mListener.retrieveTransaction(transactionsCursorAdapter, VIEW_TYPE);
+            public void onButtonClick(int id, int type) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), ViewTransactionActivity.class);
+                intent.putExtra(Transaction.COLUMN_ID, id);
+                intent.putExtra(Transaction.COLUMN_TYPE, Transaction.LEND_ACTION);
+                startActivity(intent);
             }
         });
-/*      due to revision, it needs only 1 column
-*/      recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+/*      due to revision, it needs only 1 column */
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(transactionsCursorAdapter);
 
         if(filterType.equalsIgnoreCase("All"))
@@ -117,6 +132,9 @@ public class ViewLentFragment extends Fragment {
         return layout;
     }
 
+    public void onAttach() {
+        mListener.retrieveTransaction(transactionsCursorAdapter, VIEW_TYPE);
+    }
 
     @Override
     public void onDetach() {
@@ -130,7 +148,7 @@ public class ViewLentFragment extends Fragment {
     }
     public interface OnFragmentInteractionListener{
 
-        public void updateTransaction(int id, int type, int btnType, TransactionsCursorAdapter adapter, String viewType, String filterType);
+//        public void updateTransaction(int id, int type, int btnType, TransactionsCursorAdapter adapter, String viewType, String filterType);
         public void retrieveTransaction(TransactionsCursorAdapter adapter, String viewType);
         public void retrieveTransaction(TransactionsCursorAdapter adapter, String viewType, String filterType);
     }

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.annotation.LayoutRes;
 import android.support.design.widget.NavigationView;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,11 +15,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 
-import com.example.shayanetan.borrowise2.Adapters.DrawerAdapter;
 import com.example.shayanetan.borrowise2.R;
-import com.example.shayanetan.borrowise2.Views.DrawerItem;
-
-import java.util.ArrayList;
 
 /*
     Edited 07/16//2016 by Stephanie Dy
@@ -77,11 +72,11 @@ public class BaseActivity extends AppCompatActivity implements
         Intent i = new Intent();
         CURRENT_ID = menuItem.getItemId();
         switch(menuItem.getItemId()) {
-            case R.id.menuitem_home:
-                i.setClass(getBaseContext(),HomeActivity.class);
-                break;
+//            case R.id.menuitem_home:
+//                i.setClass(getBaseContext(),AddTransactionActivity.class);
+//                break;
             case R.id.menuitem_transaction:
-                i.setClass(getBaseContext(),ViewTransactionActivity.class);
+                i.setClass(getBaseContext(),ViewTransactionListActivity.class);
                 break;
             case R.id.menuitem_history:
                 i.setClass(getBaseContext(),HistoryActivity.class);
@@ -89,14 +84,15 @@ public class BaseActivity extends AppCompatActivity implements
             case R.id.menuitem_account:
                 i.setClass(getBaseContext(),ViewUserActivity.class);
                 break;
-            case R.id.menuitem_settings:
-                i.setClass(getBaseContext(),SettingsActivity.class);
-                break;
+            /* removed global notification settings and applied individual transaction settings */
+//            case R.id.menuitem_settings:
+//                i.setClass(getBaseContext(),SettingsActivity.class);
+//                break;
             default:
-                i.setClass(getBaseContext(),HomeActivity.class);
+                i.setClass(getBaseContext(),ViewTransactionListActivity.class);
         }
 
-        if(menuItem.getItemId() == R.id.menuitem_home)
+        if(menuItem.getItemId() == R.id.menuitem_transaction)
             setTitle("BorroWise");
         else
             setTitle(menuItem.getTitle());

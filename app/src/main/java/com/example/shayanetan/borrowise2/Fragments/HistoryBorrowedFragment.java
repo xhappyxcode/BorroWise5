@@ -41,7 +41,7 @@ public class HistoryBorrowedFragment extends HistoryAbstractFragment {
         View layout = inflater.inflate(R.layout.fragment_history_borrowed, container, false);
         recyclerView = (RecyclerView)layout.findViewById(R.id.recyclerview_history_borrowed);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(historyCursorAdapter);
         mListener.retrieveTransaction(historyCursorAdapter, HistoryCursorAdapter.TYPE_BORROWED);
 

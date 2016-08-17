@@ -22,7 +22,7 @@
             android:src="@drawable/ic_item"
             android:scaleType="fitCenter"/>
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -53,6 +53,7 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="right"
@@ -81,22 +82,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:gravity="right">
                 <TextView
                     android:id="@+id/tv_Hretdateitem_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/list_label"
                     android:layout_marginRight="5dp"
-                    android:layout_toRightOf="@id/tv_Hstatusitem_val"
                     android:text="@string/lbl_retdate" />
                 <TextView
                     android:id="@+id/tv_Hretdateitem_val"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/list_username"
                     android:textColor="@color/accentLightBlueColor"
                     android:gravity="right"
+                    android:maxLines="1"
                     android:text="date" />
             </LinearLayout>
             <LinearLayout

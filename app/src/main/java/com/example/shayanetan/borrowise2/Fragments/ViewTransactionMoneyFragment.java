@@ -1,89 +1,86 @@
 package com.example.shayanetan.borrowise2.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.shayanetan.borrowise2.Adapters.CursorRecyclerViewAdapter;
+import com.example.shayanetan.borrowise2.Adapters.PaymentCursorAdapter;
+import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
+import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
+import com.example.shayanetan.borrowise2.Models.MoneyTransaction;
+import com.example.shayanetan.borrowise2.Models.PaymentHistory;
+import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ViewTransactionMoneyFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ViewTransactionMoneyFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ViewTransactionMoneyFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import org.w3c.dom.Text;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class ViewTransactionMoneyFragment extends ViewTransactionAbstractFragment {
 
-    private OnFragmentInteractionListener mListener;
+    private ImageView btn_add_payment;
+    private TextView tv_amount, tv_total;
+    private MoneyTransaction moneyTransaction;
 
-    public ViewTransactionMoneyFragment() {
-        // Required empty public constructor
-    }
+    private RecyclerView recyclerView;
+    private PaymentCursorAdapter paymentCursorAdapter;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ViewTransactionMoneyFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ViewTransactionMoneyFragment newInstance(String param1, String param2) {
-        ViewTransactionMoneyFragment fragment = new ViewTransactionMoneyFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view_transaction_money, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View layout = inflater.inflate(R.layout.fragment_view_transaction_money, container, false);
+        tv_person_name = (TextView) layout.findViewById(R.id.tv_view_AMPersonName);
+        tv_startDate = (TextView) layout.findViewById(R.id.tv_view_money_startDate);
+        tv_endDate = (TextView) layout.findViewById(R.id.tv_view_money_endDate);
+        tv_type = (TextView) layout.findViewById(R.id.view_money_type);
+
+        tv_amount = (TextView) layout.findViewById(R.id.tv_view_AMAmount);
+        btn_add_payment = (ImageView) layout.findViewById(R.id.btn_add_payment_history);
+        tv_total = (TextView) layout.findViewById(R.id.tv_view_total);
+
+        paymentCursorAdapter = new PaymentCursorAdapter(getActivity().getBaseContext(), null);
+        recyclerView = (RecyclerView) layout.findViewById(R.id.recyclerview_payment_history);
+
+        init();
+
+        moneyTransaction = (MoneyTransaction) dbHelper.queryTransaction(trans_id);
+        tv_amount.setText(String.valueOf(moneyTransaction.getAmountDeficit()));
+        tv_total.setText(String.valueOf(moneyTransaction.getTotalAmountDue()));
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(paymentCursorAdapter);
+        retreivePayments();
+
+        btn_add_payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: add payment history
+                mListener.updateTransaction(trans_id, TransactionsCursorAdapter.TYPE_MONEY, TransactionsCursorAdapter.BTN_TYPE_PARTIAL);
+            }
+        });
+        return layout;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener){
+        this.mListener = mListener;
     }
 
     @Override
@@ -92,18 +89,11 @@ public class ViewTransactionMoneyFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    private void retreivePayments() {
+        Cursor cursor = null;
+        cursor = (Cursor) dbHelper.querryPaymentHistory(trans_id);
+        if(cursor != null)
+            paymentCursorAdapter.swapCursor(cursor);
     }
+
 }

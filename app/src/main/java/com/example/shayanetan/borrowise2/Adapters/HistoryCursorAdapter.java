@@ -4,7 +4,6 @@ package com.example.shayanetan.borrowise2.Adapters;
  * Created by ShayaneTan on 3/11/2016.
  */
 
-import android.content.ClipData;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -12,14 +11,11 @@ import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.shayanetan.borrowise2.Models.ItemTransaction;
 import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.Models.User;
 import com.example.shayanetan.borrowise2.R;
@@ -39,13 +35,21 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
     public  static final String TYPE_LEND= "lend";
 
     private String viewTypeFinal;
+    private OnButtonClickListener mOnLongClickListener;
     private OnButtonClickListener mOnClickListener;
 
     public HistoryCursorAdapter(Context context, Cursor cursor) {
         super(context, cursor);
     }
 
+    public void setmOnLongClickListener(OnButtonClickListener m){
+        this.mOnLongClickListener = m;
+    }
+    public void setmOnClickListener(OnButtonClickListener m) { this.mOnClickListener = m; }
 
+    public interface OnButtonClickListener {
+        public void onButtonClick(int id, String type, String classification);
+    }
 
     @Override
     public int getItemViewType(int position) {
@@ -101,10 +105,10 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
                     ((BorrowedItemViewHolder)viewHolder).img_Hitem.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
                 ((BorrowedItemViewHolder)viewHolder).tv_Haccount_item.setText(name);
-                ((BorrowedItemViewHolder)viewHolder).tv_Hduedateitem_val.setText(dueDate);
+//                ((BorrowedItemViewHolder)viewHolder).tv_Hduedateitem_val.setText(dueDate);
                 ((BorrowedItemViewHolder)viewHolder).tv_Hitemname.setText(transactionAttribute1);
                 ((BorrowedItemViewHolder)viewHolder).tv_Hretdateitem_val.setText(returnDate);
-                ((BorrowedItemViewHolder)viewHolder).tv_Hstartdateitem_val.setText(startDate);
+//                ((BorrowedItemViewHolder)viewHolder).tv_Hstartdateitem_val.setText(startDate);
 
                 ((BorrowedItemViewHolder)viewHolder).tv_Hstatusitem_val.setText(statusFinal);
                 ((BorrowedItemViewHolder)viewHolder).rb_Hratingitem.setRating((float) rating);
@@ -113,16 +117,22 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
                 ((BorrowedItemViewHolder)viewHolder).item_container.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        mOnClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.ITEM_TYPE);
+                        mOnLongClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.ITEM_TYPE);
                         return true;
+                    }
+                });
+                ((BorrowedItemViewHolder)viewHolder).item_container.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mOnClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.ITEM_TYPE);
                     }
                 });
                 break;
 
             case TYPE_MONEY:
                 ((BorrowedMoneyViewHolder)viewHolder).tv_Haccount_money.setText(name);
-                ((BorrowedMoneyViewHolder)viewHolder).tv_Hduedatemoney_val.setText(dueDate);
-                ((BorrowedMoneyViewHolder)viewHolder).tv_Hstartdatemoney_val.setText(startDate);
+//                ((BorrowedMoneyViewHolder)viewHolder).tv_Hduedatemoney_val.setText(dueDate);
+//                ((BorrowedMoneyViewHolder)viewHolder).tv_Hstartdatemoney_val.setText(startDate);
                 ((BorrowedMoneyViewHolder)viewHolder).tv_Hretdatemoney_val.setText(returnDate);
                 ((BorrowedMoneyViewHolder)viewHolder).tv_Hstatusmoney_val.setText(statusFinal);
                 ((BorrowedMoneyViewHolder)viewHolder).tv_Hamount.setText(transactionAttribute1);
@@ -131,9 +141,14 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
                 ((BorrowedMoneyViewHolder)viewHolder).money_container.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-
-                        mOnClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE);
+                        mOnLongClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE);
                         return true;
+                    }
+                });
+                ((BorrowedMoneyViewHolder)viewHolder).money_container.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mOnLongClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE);
                     }
                 });
                 break;
@@ -209,13 +224,6 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
         }
     }
 
-    public void setmOnLongClickListener(OnButtonClickListener m){
-        this.mOnClickListener = m;
-    }
-
-    public interface OnButtonClickListener{
-        public void onButtonClick(int id, String type, String classification);
-    }
     public String parseMillisToDate(long millis){
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
         Date resultdate = new Date(millis);

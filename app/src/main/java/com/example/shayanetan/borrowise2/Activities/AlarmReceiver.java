@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.ItemTransaction;
@@ -35,11 +34,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         // TODO: This method is called when the BroadcastReceiver is receiving
 
         Intent intent = new Intent();
-        intent.setClass(context, ViewTransactionActivity.class);
+        intent.setClass(context, ViewTransactionListActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context,MA_PENDING_INTENT, intent, PendingIntent.FLAG_UPDATE_CURRENT);//flag_update_current depends on the extras
 
         Intent secondact_intent= new Intent();
-        secondact_intent.setClass(context,ViewTransactionActivity.class);
+        secondact_intent.setClass(context,ViewTransactionListActivity.class);
         PendingIntent second_pendingIntent = PendingIntent.getActivity(context,SA_PENDING_INTENT, secondact_intent, PendingIntent.FLAG_UPDATE_CURRENT);//flag_update_current depends on the extras
 
         //create a notification

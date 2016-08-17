@@ -12,11 +12,59 @@ import java.util.ArrayList;
 
 /**
  * Created by XGB on 3/11/2016.
+ * Edited by Stephanie Dy on 7/25/2016 Added 2 tables to database
+ * Note that notifications table and functions may be unnecessary
  */
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
     public static final String SCHEMA = "borrowlend";
+    private static final int DATABASE_VERSION = 2;
     private static DatabaseOpenHelper dbInstance;
+
+    /* SQL query for creating database */
+    private static final String DATABASE_CREATE_users = "CREATE TABLE " + User.TABLE_NAME + " ("
+            + User.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + User.COLUMN_NAME + " TEXT, "
+            + User.COLUMN_CONTACT_INFO + " TEXT, "
+            + User.COLUMN_TOTAL_RATE + " REAL); ";
+    private static final String DATABASE_CREATE_transactions = "CREATE TABLE " + Transaction.TABLE_NAME + " ("
+            + Transaction.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + Transaction.COLUMN_CLASSIFICATION + " TEXT, "
+            + Transaction.COLUMN_USER_ID + " INTEGER, "
+            + Transaction.COLUMN_TYPE + " TEXT, "
+            + Transaction.COLUMN_STATUS + " INTEGER, "
+            + Transaction.COLUMN_START_DATE + " INTEGER, "
+            + Transaction.COLUMN_DUE_DATE + " INTEGER, "
+            + Transaction.COLUMN_RETURN_DATE + " INTEGER, "
+            + Transaction.COLUMN_RATE + " REAL); ";
+    private static final String DATABASE_CREATE_item_transaction = "CREATE TABLE " + ItemTransaction.TABLE_NAME + " ("
+            + ItemTransaction.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + ItemTransaction.COLUMN_NAME + " TEXT, "
+            + ItemTransaction.COLUMN_DESCRIPTION + " TEXT, "
+            + ItemTransaction.COLUMN_PHOTOPATH + " TEXT, "
+            + ItemTransaction.COLUMN_TRANSACTION_ID + " INTEGER, "
+            + "FOREIGN KEY("+ItemTransaction.COLUMN_TRANSACTION_ID+") REFERENCES transactions(id)); ";
+    private static final String DATABASE_CREATE_money_transaction = "CREATE TABLE " + MoneyTransaction.TABLE_NAME + " ("
+            + MoneyTransaction.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE + " REAL, "
+            + MoneyTransaction.COLUMN_AMOUNT_DEFICIT + " REAL, "
+            + MoneyTransaction.COLUMN_TRANSACTION_ID + " INTEGER, "
+            + "FOREIGN KEY("+MoneyTransaction.COLUMN_TRANSACTION_ID+") REFERENCES transactions(id)); ";
+    /* SQL strings for new tables to accommodate changes */
+    private static final String DATABASE_CREATE_payment_history = "CREATE TABLE " + PaymentHistory.TABLE_NAME + " ( "
+            + PaymentHistory.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + PaymentHistory.COLUMN_DATE + " INTEGER, "
+            + PaymentHistory.COLUMN_PAYMENT + " REAL, "
+            + PaymentHistory.COLUMN_TRANSACTION_ID + " INTEGER, "
+            + "FOREIGN KEY("+PaymentHistory.COLUMN_TRANSACTION_ID+") REFERENCES transactions(id)); ";
+    private static final String DATABASE_CREATE_notifications = "CREATE TABLE " + Notification.TABLE_NAME + " ( "
+            + Notification.COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + Notification.COLUMN_DUE_DATE + " INTEGER, "
+            + Notification.COLUMN_NOTIF_DAYS + " INTEGER, "
+            + Notification.COLUMN_NOTIF_TIME + " INTEGER, "
+            + Notification.COLUMN_TRANSACTION_ID + " INTEGER, "
+            + "FOREIGN KEY("+Notification.COLUMN_TRANSACTION_ID+") REFERENCES transactions(id)); ";
+    /* added SQL strings end here */
 
     public static synchronized DatabaseOpenHelper getInstance(Context context) {
 
@@ -28,50 +76,27 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public DatabaseOpenHelper(Context context)
     {
         //super(context, name, cursorfactory, version);
-        super(context, SCHEMA, null, 1);
+//        super(context, SCHEMA, null, 1);
+        super(context, SCHEMA, null, DATABASE_VERSION);
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE " + User.TABLE_NAME + " ("
-                + User.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + User.COLUMN_NAME + " TEXT, "
-                + User.COLUMN_CONTACT_INFO + " TEXT, "
-                + User.COLUMN_TOTAL_RATE + " REAL); ";
-        String sql2 = "CREATE TABLE " + Transaction.TABLE_NAME + " ("
-                + Transaction.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + Transaction.COLUMN_CLASSIFICATION + " TEXT, "
-                + Transaction.COLUMN_USER_ID + " INTEGER, "
-                + Transaction.COLUMN_TYPE + " TEXT, "
-                + Transaction.COLUMN_STATUS + " INTEGER, "
-                + Transaction.COLUMN_START_DATE + " INTEGER, "
-                + Transaction.COLUMN_DUE_DATE + " INTEGER, "
-                + Transaction.COLUMN_RETURN_DATE + " INTEGER, "
-                + Transaction.COLUMN_RATE + " REAL); ";
-        String sql3 = "CREATE TABLE " + ItemTransaction.TABLE_NAME + " ("
-                + ItemTransaction.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + ItemTransaction.COLUMN_NAME + " TEXT, "
-                + ItemTransaction.COLUMN_DESCRIPTION + " TEXT, "
-                + ItemTransaction.COLUMN_PHOTOPATH + " TEXT, "
-                + ItemTransaction.COLUMN_TRANSACTION_ID + " INTEGER, "
-                + "FOREIGN KEY("+ItemTransaction.COLUMN_TRANSACTION_ID+") REFERENCES transactions(id)); ";
-        String sql4 = "CREATE TABLE " + MoneyTransaction.TABLE_NAME + " ("
-                + MoneyTransaction.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE + " REAL, "
-                + MoneyTransaction.COLUMN_AMOUNT_DEFICIT + " REAL, "
-                + MoneyTransaction.COLUMN_TRANSACTION_ID + " INTEGER, "
-                + "FOREIGN KEY("+MoneyTransaction.COLUMN_TRANSACTION_ID+") REFERENCES transactions(id)); ";
 
-        db.execSQL(sql);
-        db.execSQL(sql2);
-        db.execSQL(sql3);
-        db.execSQL(sql4);
+        db.execSQL(DATABASE_CREATE_users);
+        db.execSQL(DATABASE_CREATE_transactions);
+        db.execSQL(DATABASE_CREATE_item_transaction);
+        db.execSQL(DATABASE_CREATE_money_transaction);
+        /* add new tables to database */
+        db.execSQL(DATABASE_CREATE_payment_history);
+//        db.execSQL(DATABASE_CREATE_notifications);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //when version number is increased, this is called
+        /* old implementation
         String sql = "DROP TABLE IF EXISTS " + User.TABLE_NAME+"; ";
         String sql2 = "DROP TABLE IF EXISTS " + Transaction.TABLE_NAME+"; ";
         String sql3 = "DROP TABLE IF EXISTS " + ItemTransaction.TABLE_NAME+"; ";
@@ -81,6 +106,12 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         db.execSQL(sql3);
         db.execSQL(sql4);
         onCreate(db);
+        */
+        switch(oldVersion) {
+            case 1: db.execSQL(DATABASE_CREATE_payment_history);
+//                    db.execSQL(DATABASE_CREATE_notifications);
+            case 2: // for version 3 if any added tables needed
+        }
     }
 
     /*
@@ -220,6 +251,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                         c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_DESCRIPTION)),
                         c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_PHOTOPATH)));
                 t.setId(id);
+                t.setClassification(Transaction.ITEM_TYPE);
             }else{
                 Cursor c2 =   db.query(MoneyTransaction.TABLE_NAME,
                         null, // == *
@@ -240,6 +272,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                         c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE)),
                         c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_AMOUNT_DEFICIT)));
                 t.setId(id);
+                t.setClassification(Transaction.MONEY_TYPE);
             }
         }else{
             t = null;
@@ -301,6 +334,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                         + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_USER_ID + "=" + User.TABLE_NAME + "." + User.COLUMN_ID
                         + " WHERE " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_TYPE + "='borrow' AND "
                         + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") "
+                        + " ORDER BY "+Transaction.COLUMN_DUE_DATE
                 , null);
         return cursor.moveToFirst() ? cursor : null;
     }
@@ -324,7 +358,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                     + " INNER JOIN " + User.TABLE_NAME
                     + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_USER_ID + "=" + User.TABLE_NAME + "." + User.COLUMN_ID
                     + " WHERE " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_TYPE + "='borrow' AND "
-                    + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") ";
+                    + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") "
+                    + " ORDER BY "+Transaction.COLUMN_RETURN_DATE + " DESC ";
         }else{
             query = "SELECT " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_ID + " AS _id, " + Transaction.COLUMN_CLASSIFICATION + ", "
                     + Transaction.COLUMN_USER_ID + ", " + Transaction.COLUMN_TYPE + ", "
@@ -339,7 +374,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                     + " INNER JOIN " + User.TABLE_NAME
                     + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_USER_ID + "=" + User.TABLE_NAME + "." + User.COLUMN_ID
                     + " WHERE " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_TYPE + "='borrow' AND "
-                    + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") ";
+                    + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") "
+                    + " ORDER BY "+Transaction.COLUMN_RETURN_DATE + " DESC ";
         }
 
 
@@ -418,6 +454,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                         + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_USER_ID + "=" + User.TABLE_NAME + "." + User.COLUMN_ID
                         + " WHERE " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_TYPE + "='lend' AND "
                         + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") "
+                        + " ORDER BY "+Transaction.COLUMN_DUE_DATE
                 , null);
         return cursor.moveToFirst() ? cursor : null;
     }
@@ -441,7 +478,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                     + " INNER JOIN " + User.TABLE_NAME
                     + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_USER_ID + "=" + User.TABLE_NAME + "." + User.COLUMN_ID
                     + " WHERE " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_TYPE + "='lend' AND "
-                    + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") ";
+                    + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") "
+                    + " ORDER BY " + Transaction.COLUMN_RETURN_DATE + " DESC ";
         }else{
             query = "SELECT " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_ID + " AS _id, " + Transaction.COLUMN_CLASSIFICATION + ", "
                     + Transaction.COLUMN_USER_ID + ", " + Transaction.COLUMN_TYPE + ", "
@@ -456,7 +494,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                     + " INNER JOIN " + User.TABLE_NAME
                     + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_USER_ID + "=" + User.TABLE_NAME + "." + User.COLUMN_ID
                     + " WHERE " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_TYPE + "='lend' AND "
-                    + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") ";
+                    + Transaction.TABLE_NAME + "." + Transaction.COLUMN_STATUS + " IN (" + status + ") "
+                    + " ORDER BY "+Transaction.COLUMN_RETURN_DATE +" DESC ";
         }
 
 
@@ -859,5 +898,84 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         }
 
     }
+    /* insert payment history */
+    public long insertPaymentHistory(PaymentHistory paymentHistory) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(PaymentHistory.COLUMN_DATE, paymentHistory.getDate());
+        cv.put(PaymentHistory.COLUMN_PAYMENT, paymentHistory.getPayment());
+        cv.put(PaymentHistory.COLUMN_TRANSACTION_ID, paymentHistory.getTransaction_id());
+        long id = db.insert(PaymentHistory.TABLE_NAME, null, cv);
+        return id;
+    }
+    /* query payment history of a transaction */
+    public ArrayList<PaymentHistory> queryPaymentHistory(int transactionId) {
+        ArrayList<PaymentHistory> paymentHistory = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String selection = PaymentHistory.COLUMN_TRANSACTION_ID + " = ? ";
+        String[] selectionArgs = new String[] {String.valueOf(transactionId)};
+        Cursor cursor = db.query(PaymentHistory.TABLE_NAME, null, selection, selectionArgs,
+                null, PaymentHistory.COLUMN_DATE, null);
+        if(cursor != null) {
+            cursor.moveToFirst();
+            PaymentHistory paymentRecord;
+            do {
+                paymentRecord = new PaymentHistory();
+                paymentRecord.setId(cursor.getInt(cursor.getColumnIndex(PaymentHistory.COLUMN_ID)));
+                paymentRecord.setDate(cursor.getInt(cursor.getColumnIndex(PaymentHistory.COLUMN_DATE)));
+                paymentRecord.setPayment(cursor.getDouble(cursor.getColumnIndex(PaymentHistory.COLUMN_PAYMENT)));
+                paymentRecord.setTransaction_id(cursor.getInt(cursor.getColumnIndex(PaymentHistory.COLUMN_TRANSACTION_ID)));
+                paymentHistory.add(paymentRecord);
+            } while(cursor.moveToNext());
+        } else {
+            paymentHistory = null;
+        }
+        return paymentHistory;
+    }
+
+    public Cursor querryPaymentHistory(int transactionId) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] selectionArgs = new String[] {String.valueOf(transactionId)};
+        Cursor cursor = db.rawQuery("SELECT * FROM "+PaymentHistory.TABLE_NAME+
+                " WHERE "+PaymentHistory.COLUMN_TRANSACTION_ID+" = ? ", selectionArgs);
+        return cursor.moveToFirst() ? cursor : null;
+    }
+
+//    /* insert notification settings */
+//    public long insertNofications(Notification notification) {
+//        SQLiteDatabase db = getWritableDatabase();
+//        ContentValues cv = new ContentValues();
+//        cv.put(Notification.COLUMN_DUE_DATE, notification.getDueDate());
+//        cv.put(Notification.COLUMN_NOTIF_DAYS, notification.getNotifDays());
+//        cv.put(Notification.COLUMN_NOTIF_TIME, notification.getNotifTime());
+//        cv.put(Notification.COLUMN_TRANSACTION_ID, notification.getTransactionId());
+//        long id = db.insert(Notification.TABLE_NAME, null, cv);
+//        return id;
+//    }
+//    /* get notifications for today */
+//    public ArrayList<Notification> queryNotfication(int transactionId) {
+//        ArrayList<Notification> notifications = new ArrayList<>();
+//        SQLiteDatabase db = getReadableDatabase();
+//        String selection = Notification.COLUMN_TRANSACTION_ID + " = ? ";
+//        String[] selectionArgs = new String[] {String.valueOf(transactionId)};
+//        Cursor cursor = db.query(Notification.TABLE_NAME, null, selection, selectionArgs,
+//                null, Notification.COLUMN_DUE_DATE, null);
+//        if(cursor!=null) {
+//            Notification notification;
+//            do {
+//                notification = new Notification();
+//                notification.setId(cursor.getInt(cursor.getColumnIndex(Notification.COLUMN_ID)));
+//                notification.setDueDate(cursor.getInt(cursor.getColumnIndex(Notification.COLUMN_DUE_DATE)));
+//                notification.setNotifDays(cursor.getInt(cursor.getColumnIndex(Notification.COLUMN_NOTIF_DAYS)));
+//                notification.setNotifDays(cursor.getInt(cursor.getColumnIndex(Notification.COLUMN_NOTIF_TIME)));
+//                notification.setTransactionId(cursor.getInt(cursor.getColumnIndex(Notification.COLUMN_TRANSACTION_ID)));
+//
+//                notifications.add(notification);
+//            } while(cursor.moveToNext());
+//        } else {
+//            notifications = null;
+//        }
+//        return notifications;
+//    }
 }
 

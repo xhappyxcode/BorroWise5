@@ -23,6 +23,7 @@ import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.R;
 /*
  * Edited by Stephanie Dy on 7/20/2016 Removed addContact button
+ *                        on 7/27/2016 removed img_button_switch, onFragmentSwitch()
  */
 
 public class AddMoneyFragment extends AddAbstractFragment {
@@ -41,7 +42,7 @@ public class AddMoneyFragment extends AddAbstractFragment {
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_add_money, container, false);
 
-        img_btn_switch = (FloatingActionButton) layout.findViewById(R.id.btn_MoneyToItem);
+//        img_btn_switch = (FloatingActionButton) layout.findViewById(R.id.btn_MoneyToItem);
         btn_borrowed = (Button) layout.findViewById(R.id.btn_AMBorrow);
         btn_lent = (Button) layout.findViewById(R.id.btn_AMLend);
 //        btn_addContact = (ImageView) layout.findViewById(R.id.btn_addContact);
@@ -84,6 +85,7 @@ public class AddMoneyFragment extends AddAbstractFragment {
                     printAddAcknowledgement(et_AMAmount.getText().toString(), "borrowed");
 
                     clearAllFields();
+
                 }else
                     printRejectDialog();
 
@@ -153,6 +155,7 @@ public class AddMoneyFragment extends AddAbstractFragment {
             alertDialog.show();
 
         }
+        getActivity().finish();
     }
 
     public void clearAllFields(){
@@ -161,19 +164,19 @@ public class AddMoneyFragment extends AddAbstractFragment {
         setDateToCurrent();
     }
 
-    @Override
-    protected void onFragmentSwitch() {
-        img_btn_switch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AddItemFragment fragment = new AddItemFragment();
-                FragmentManager fm = myContext.getSupportFragmentManager();
-                transaction = fm.beginTransaction();
-                transaction.replace(R.id.fragment_container, fragment);
-                transaction.commit();
-            }
-        });
-    }
+//    @Override
+//    protected void onFragmentSwitch() {
+//        img_btn_switch.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AddItemFragment fragment = new AddItemFragment();
+//                FragmentManager fm = myContext.getSupportFragmentManager();
+//                transaction = fm.beginTransaction();
+//                transaction.replace(R.id.fragment_container, fragment);
+//                transaction.commit();
+//            }
+//        });
+//    }
 
     @Override
     public void onAttach(Activity activity) {

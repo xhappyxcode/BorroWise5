@@ -27,7 +27,7 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop" />
     </LinearLayout>
-
+<!-- removed button because it is not noticeable
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_ItemToMoney"
         android:src="@drawable/ic_money"
@@ -38,153 +38,216 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight = "true"/>
-
-    <LinearLayout
-        android:id="@+id/layout_item_name"
-        android:layout_below="@id/card_camera"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="@dimen/navigation_icon_size"
-            android:layout_height="@dimen/navigation_icon_size"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
-            android:tint="@color/text_primaryColor"
-            android:src="@drawable/ic_item"/>
-
-        <EditText
-            android:id="@+id/et_AIItemName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Item name"
-            android:textSize="@dimen/subheading_label"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_user_name"
-        android:layout_below="@id/layout_item_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="@dimen/navigation_icon_size"
-            android:layout_height="@dimen/navigation_icon_size"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
-            android:tint="@color/text_primaryColor"
-            android:src="@drawable/ic_account"/>
-
-        <AutoCompleteTextView
-            android:id="@+id/atv_AIPersonName"
-            android:layout_width="0dp"
-            android:layout_weight="8"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:hint="Person name"
-            android:textSize="@dimen/subheading_label">
-            <requestFocus />
-        </AutoCompleteTextView>
-<!--    Removed button to prevent misunderstandings
-        <ImageView
-            android:id="@+id/btn_addContact"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="@dimen/navigation_icon_size"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center_vertical"
-            android:tint="@color/text_primaryColor"
-            android:src="@drawable/ic_add_plus"/>
 -->
-    </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/item_date_details"
-        android:layout_below="@id/layout_user_name"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:layout_below="@id/card_camera">
 
-        <LinearLayout
-            android:id="@+id/layout_item_startDate"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="@dimen/navigation_icon_size"
-                android:layout_height="@dimen/navigation_icon_size"
-                android:layout_marginRight="15dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar"
-                android:tint="@color/text_primaryColor"/>
+            android:layout_height="wrap_content">
             <LinearLayout
+                android:id="@+id/layout_item_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-                <TextView
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/navigation_icon_size"
+                    android:layout_height="@dimen/navigation_icon_size"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:tint="@color/text_primaryColor"
+                    android:src="@drawable/ic_item"/>
+
+                <EditText
+                    android:id="@+id/et_AIItemName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/subheading_label"
-                    android:text="Start Date"/>
-                <TextView
-                    android:id="@+id/tv_item_startDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/caption_label"
-                    android:text="today"/>
+                    android:hint="Item name"
+                    android:textSize="@dimen/subheading_label"/>
+
             </LinearLayout>
 
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
-            android:background="@color/dividerColor" />
-
-        <LinearLayout
-            android:id="@+id/layout_item_endDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="@dimen/navigation_icon_size"
-                android:layout_height="@dimen/navigation_icon_size"
-                android:layout_marginRight="15dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar"
-                android:tint="@color/text_primaryColor"/>
             <LinearLayout
+                android:id="@+id/layout_user_name"
+                android:layout_below="@id/layout_item_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/navigation_icon_size"
+                    android:layout_height="@dimen/navigation_icon_size"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:tint="@color/text_primaryColor"
+                    android:src="@drawable/ic_account"/>
+
+                <AutoCompleteTextView
+                    android:id="@+id/atv_AIPersonName"
+                    android:layout_width="0dp"
+                    android:layout_weight="8"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/subheading_label"
-                    android:text="End Date"/>
-                <TextView
-                    android:id="@+id/tv_item_endDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/caption_label"
-                    android:text="today"/>
+                    android:layout_alignParentLeft="true"
+                    android:hint="Person name"
+                    android:textSize="@dimen/subheading_label">
+                    <requestFocus />
+                </AutoCompleteTextView>
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/item_date_details"
+                android:layout_below="@id/layout_user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout_item_startDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="@dimen/navigation_icon_size"
+                        android:layout_height="@dimen/navigation_icon_size"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="@color/text_primaryColor"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/subheading_label"
+                            android:text="@string/lbl_start"/>
+                        <TextView
+                            android:id="@+id/tv_item_startDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/caption_label"
+                            android:text="today"/>
+                    </LinearLayout>
 
-    </LinearLayout>
+                </LinearLayout>
 
-    <LinearLayout
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/dividerColor" />
+
+                <LinearLayout
+                    android:id="@+id/layout_item_endDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="@dimen/navigation_icon_size"
+                        android:layout_height="@dimen/navigation_icon_size"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="@color/text_primaryColor"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/subheading_label"
+                            android:text="@string/lbl_due"/>
+                        <TextView
+                            android:id="@+id/tv_item_endDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/caption_label"
+                            android:text="today"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_item_notif_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/item_date_details" >
+
+                <ImageView
+                    android:layout_width="@dimen/navigation_icon_size"
+                    android:layout_height="@dimen/navigation_icon_size"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:tint="@color/text_primaryColor"
+                    android:src="@drawable/ic_notif"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="8"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="Notification Settings"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/subheading_label">
+
+                </TextView>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp">
+                    <LinearLayout
+                        android:id="@+id/layout_item_notif_days_before"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_item_notif_days_before"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" days before due date"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/layout_item_notif_days_before"
+                        android:layout_centerHorizontal="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="at "/>
+                        <TextView
+                            android:id="@+id/tv_item_notif_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12:00 pm" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+  <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

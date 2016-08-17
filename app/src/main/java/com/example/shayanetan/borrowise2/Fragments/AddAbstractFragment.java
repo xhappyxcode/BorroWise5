@@ -37,6 +37,8 @@ import java.util.Date;
 
 /**
  * Created by ShayaneTan on 3/12/2016.
+ * Edited by Stephanie Dy on 7/22/2016 removed btn_addContact
+ *                        on 7/27/2016 removed img_btn_switch, onFragmentSwitch(),
  */
 public abstract class AddAbstractFragment extends Fragment {
 
@@ -44,14 +46,14 @@ public abstract class AddAbstractFragment extends Fragment {
     protected String selected_name;
     protected String selected_contact_number;
     protected ContactsCursorAdapter contactsCursorAdapter;
-    protected ImageView btn_addContact;
+//    protected ImageView btn_addContact;
 
     protected FragmentActivity myContext;
     protected AutoCompleteTextView atv_person_name;
     protected View layout_startDate, layout_endDate;
     protected TextView tv_startDate, tv_endDate;
     protected Button btn_borrowed, btn_lent;
-    protected FloatingActionButton img_btn_switch;
+//    protected FloatingActionButton img_btn_switch;
 
     protected OnFragmentInteractionListener mListener;
 
@@ -61,7 +63,7 @@ public abstract class AddAbstractFragment extends Fragment {
     @Override
     public  abstract View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
-    protected abstract void onFragmentSwitch();
+//    protected abstract void onFragmentSwitch();
     protected abstract void clearAllFields();
     protected abstract void printAddAcknowledgement(String entry_name, String type);
 
@@ -131,7 +133,7 @@ public abstract class AddAbstractFragment extends Fragment {
             }
         });
 
-        onFragmentSwitch();
+//        onFragmentSwitch();
     }
 
     public long parseDateToMillis(String toParse){
