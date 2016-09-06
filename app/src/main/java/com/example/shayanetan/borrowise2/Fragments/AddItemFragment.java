@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Models.ItemTransaction;
 import com.example.shayanetan.borrowise2.Models.Transaction;
@@ -64,6 +66,9 @@ public class AddItemFragment extends AddAbstractFragment {
         layout_startDate = (View) layout.findViewById(R.id.layout_item_startDate);
         layout_endDate = (View) layout.findViewById(R.id.layout_item_endDate);
 
+        tv_notif_time = (TextView) layout.findViewById(R.id.tv_item_notif_time);
+        tv_notif_days_before = (TextView) layout.findViewById(R.id.tv_item_notif_days_before);
+
         tv_endDate = (TextView) layout.findViewById(R.id.tv_item_endDate);
         tv_startDate = (TextView) layout.findViewById(R.id.tv_item_startDate);
 
@@ -95,18 +100,26 @@ public class AddItemFragment extends AddAbstractFragment {
 
                 String item = et_AIItemName.getText().toString();
 
+                long startDate = parseDateToMillis(tv_startDate.getText().toString());
+                long dueDate = parseDateToMillis(tv_endDate.getText().toString());
                 if (mListener != null && !item.isEmpty() && !selected_name.isEmpty()) {
-                    int id = mListener.onAddNewUser(selected_name, selected_contact_number);
+                    if(dueDate >= startDate) {
+                        int id = mListener.onAddNewUser(selected_name, selected_contact_number);
 
-                    ItemTransaction it = new ItemTransaction(Transaction.ITEM_TYPE, id, Transaction.BORROWED_ACTION, 0,
-                            parseDateToMillis(tv_startDate.getText().toString()),
-                            parseDateToMillis(tv_endDate.getText().toString()),
-                            0, 0.0,
-                            item, "", filePath);
-                    mListener.onAddTransactions(it);
+                        ItemTransaction it = new ItemTransaction(Transaction.ITEM_TYPE, id, Transaction.BORROWED_ACTION, 0,
+                                parseDateToMillis(tv_startDate.getText().toString()),
+                                parseDateToMillis(tv_endDate.getText().toString()),
+                                0, 0.0,
+//                            Long.parseLong(tv_notif_time.getText().toString()), //alarmTime
+//                            Integer.parseInt(tv_notif_days_before.getText().toString()), //daysLeft
+                                item, "", filePath);
+                        mListener.onAddTransactions(it);
 
-                    printAddAcknowledgement(et_AIItemName.getText().toString(), "borrowed");
-                    clearAllFields();
+                        printAddAcknowledgement(et_AIItemName.getText().toString(), "borrowed");
+                        clearAllFields();
+                    } else {
+                        Toast.makeText(getActivity().getBaseContext(), "Due date must be after start date!", Toast.LENGTH_LONG).show();
+                    }
                 }else{
                     printRejectDialog();
                 }
@@ -122,18 +135,24 @@ public class AddItemFragment extends AddAbstractFragment {
                 String item = et_AIItemName.getText().toString();
 
                 if (mListener != null && !item.isEmpty() && !selected_name.isEmpty()) {
+                    long startDate = parseDateToMillis(tv_startDate.getText().toString());
+                    long dueDate = parseDateToMillis(tv_endDate.getText().toString());
                     int id = mListener.onAddNewUser(selected_name, selected_contact_number);
+                    if(dueDate >= startDate) {
+                        ItemTransaction it = new ItemTransaction(Transaction.ITEM_TYPE, id, Transaction.LEND_ACTION, 0,
+                                parseDateToMillis(tv_startDate.getText().toString()),
+                                parseDateToMillis(tv_endDate.getText().toString()),
+                                0, 0.0,
+                                item, "", filePath);
 
-                    ItemTransaction it = new ItemTransaction(Transaction.ITEM_TYPE, id, Transaction.LEND_ACTION, 0,
-                            parseDateToMillis(tv_startDate.getText().toString()),
-                            parseDateToMillis(tv_endDate.getText().toString()),
-                            0, 0.0,
-                            item, "", filePath);
 
+                        mListener.onAddTransactions(it);
+                        printAddAcknowledgement(et_AIItemName.getText().toString(), "lent");
+                        clearAllFields();
+                    } else {
+                        Toast.makeText(getActivity().getBaseContext(), "Due date must be after start date!", Toast.LENGTH_LONG).show();
+                    }
 
-                    mListener.onAddTransactions(it);
-                    printAddAcknowledgement(et_AIItemName.getText().toString(), "lent");
-                    clearAllFields();
                 }else{
                     printRejectDialog();
                 }

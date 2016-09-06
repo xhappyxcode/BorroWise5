@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Adapters.HistoryCursorAdapter;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
@@ -71,9 +72,19 @@ public abstract class ViewHistoryAbstractFragment extends Fragment {
 
         tv_startDate.setText(parseMillisToDate(transaction.getStartDate()));
         tv_endDate.setText(parseMillisToDate(transaction.getDueDate()));
+//        String returnDate = parseMillisToDate(transaction.getReturnDate());
+//        Log.v("ViewHistoryAbstFragment", "return date: "+returnDate);
         tv_retDate.setText(parseMillisToDate(transaction.getReturnDate()));
 
-        tv_status.setText(transaction.getStatus());
+        int status = transaction.getStatus();
+        String statusFinal = "N/A";
+        switch (status){
+            case 1: statusFinal = "Returned"; break;
+            case -1: statusFinal = "Lost"; break;
+            case 0: statusFinal = "Ongoing"; break;
+        }
+        Log.v("Status: "+status, "ViewHistoryAbstractFragment");
+        tv_status.setText(statusFinal);
         rb_rating.setRating((float) transaction.getRate());
 
     }

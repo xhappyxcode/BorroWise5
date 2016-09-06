@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.shayanetan.borrowise2.Adapters.HistoryCursorAdapter;
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Adapters.ViewPagerAdapter;
+import com.example.shayanetan.borrowise2.Fragments.DeleteDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.HistoryAbstractFragment;
 import com.example.shayanetan.borrowise2.Fragments.HistoryBorrowedFragment;
 import com.example.shayanetan.borrowise2.Fragments.HistoryLendFragment;
@@ -26,7 +27,8 @@ import com.example.shayanetan.borrowise2.Views.SlidingTabLayout;
  * Edited by Stephanie Dy on 7/20/2016 added onResume to close drawer
  */
 
-public class HistoryActivity extends BaseActivity  implements HistoryAbstractFragment.OnFragmentInteractionListener{
+public class HistoryActivity extends BaseActivity  implements HistoryAbstractFragment.OnFragmentInteractionListener,
+        DeleteDialogFragment.OnFragmentInteractionListener {
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     private SlidingTabLayout slidingTabLayout;
@@ -70,18 +72,17 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
 
     }
 
+    public void onResume() {
+        super.onResume();
+        historyBorrowedFragment.resetData();
+        historyLendFragment.resetData();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_history, menu);
         return true;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        /* close the drawer layout */
-        super.closeDrawer();
     }
 
 
@@ -100,8 +101,9 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
 
     @Override
     public void deleteTransaction(HistoryCursorAdapter adapter, int id, String type, String classification) {
-        dbHelper.deleteTransaction(id, classification);
-        retrieveTransaction(adapter, type);
+        DeleteDialogFragment deleteDialog = new DeleteDialogFragment();
+        deleteDialog.setOnFragmentInteractionListener(this);
+        deleteDialog.show(getFragmentManager(), "");
     }
 
     @Override
@@ -116,7 +118,9 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
                 cursor = dbHelper.querryLendTransactionsJoinUser("1,-1");
                 break;
         }
-        adapter.swapCursor(cursor);
+        if(adapter != null) {
+            adapter.swapCursor(cursor);
+        }
     }
 
     @Override
@@ -136,5 +140,10 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
 
     }
 
-
+    @Override
+    public void deleteDialog(HistoryCursorAdapter historyCursorAdapter, int id, String type, String classification) {
+        dbHelper.deleteTransaction(id, classification);
+        Toast.makeText(getApplicationContext(), "Successfully eleted transaction!", Toast.LENGTH_SHORT).show();
+        retrieveTransaction(historyCursorAdapter, type);
+    }
 }

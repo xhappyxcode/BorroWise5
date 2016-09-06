@@ -89,7 +89,7 @@ public class ViewUserProfileActivity extends BaseActivity implements ViewUserBor
         username = u.getName();
         tv_name.setText(username);
         ratingBar.setRating((float) u.getTotalRate());
-        tv_ratingbar.setText(String.valueOf(u.getTotalRate()));
+        tv_ratingbar.setText(String.format("%.2f", u.getTotalRate()));
 
     }
     @Override

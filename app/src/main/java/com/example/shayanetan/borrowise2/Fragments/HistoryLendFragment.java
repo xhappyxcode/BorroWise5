@@ -94,4 +94,8 @@ public class HistoryLendFragment extends HistoryAbstractFragment {
         return layout;
     }
 
+    public void resetData() {
+        mListener.retrieveTransaction(historyCursorAdapter, HistoryCursorAdapter.TYPE_LEND);
+    }
+
 }

@@ -60,8 +60,6 @@ public class ViewUserActivity extends BaseActivity {
         super.onResume();
         Cursor cursor = dbHelper.queryAllUsersC();
         uca.swapCursor(cursor); //change data source
-        /* close the drawer layout */
-        super.closeDrawer();
     }
 
     @Override

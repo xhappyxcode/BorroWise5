@@ -40,12 +40,13 @@ public abstract class HistoryAbstractFragment extends Fragment {
 
     public void init(){
 
-        historyCursorAdapter = new HistoryCursorAdapter(getActivity().getBaseContext(),null);
+        historyCursorAdapter = new HistoryCursorAdapter(getActivity().getBaseContext(), null);
 
         historyCursorAdapter.setmOnLongClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(int id, String type, String classification) {
-                Toast.makeText(getActivity().getBaseContext(), "KEN LEE: " + id, Toast.LENGTH_LONG);
+                Toast.makeText(getActivity().getBaseContext(), "KEN LEE: " + id, Toast.LENGTH_LONG).show();
+//                Log.v("Delete History", "HistoryAbstractFragment");
                 mListener.deleteTransaction(historyCursorAdapter,id, type, classification);
             }
         });

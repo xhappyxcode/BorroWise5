@@ -22,7 +22,8 @@
     <string name="btn_returned">RETURNED</string>
 
     <!-- added strings -->
-    <string name="lbl_dayleft">days left</string>
+    <string name="lbl_dayleft">day/s left</string>
+    <string name="lbl_overdue">day/s overdue</string>
     <!-- addition only up to this point -->
     <string-array name="array_spinner">
         <item>1</item>
@@ -51,6 +52,10 @@
     <string name="currency">PHP</string>
     <string name="title_activity_view_user_profile">User Profile</string>
 
+    <!-- added activity titles -->
+    <string name="title_activity_view_transaction">View Transaction</string>
+    <string name="title_activity_view_history">View History</string>
+
     <!-- delete transaction dialog text -->
     <string name="delete_dialog">Are you sure you want to delete transaction?</string>
     <string name="dialog_delete">DELETE</string>
@@ -59,6 +64,8 @@
     <string name="add_transaction_dialog">What kind of transaction do you want to add?</string>
     <string name="dialog_item">ITEM</string>
     <string name="dialog_money">MONEY</string>
+
+    <string name="payment_error_dialog">The payment is greater than the balance needed to be paid!</string>
 
     <string name="menu_edit">EDIT</string>
     <string name="menu_delete">DELETE</string>

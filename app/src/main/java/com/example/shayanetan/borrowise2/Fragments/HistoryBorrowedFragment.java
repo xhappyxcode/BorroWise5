@@ -91,5 +91,9 @@ public class HistoryBorrowedFragment extends HistoryAbstractFragment {
         return layout;
     }
 
+    public void resetData() {
+        mListener.retrieveTransaction(historyCursorAdapter, HistoryCursorAdapter.TYPE_BORROWED);
+    }
+
 
 }

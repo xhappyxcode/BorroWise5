@@ -2,6 +2,7 @@ package com.example.shayanetan.borrowise2.Activities;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,8 +16,10 @@ import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.R;
 
-public class ViewHistoryActivity extends AppCompatActivity
-        implements ViewHistoryAbstractFragment.OnFragmentInteractionListener {
+public class ViewHistoryActivity extends BaseActivity
+        implements ViewHistoryAbstractFragment.OnFragmentInteractionListener,
+        ViewHistoryItemFragment.OnFragmentInteractionListener,
+        ViewHistoryMoneyFragment.OnFragmentInteractionListener {
 
     protected DatabaseOpenHelper dbHelper;
     protected int trans_id;
@@ -50,7 +53,7 @@ public class ViewHistoryActivity extends AppCompatActivity
             moneyFragment.setArguments(bundle);
             moneyFragment.setOnFragmentInteractionListener(this);
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_view_transaction_container, moneyFragment)
+                    .replace(R.id.fragment_view_history_container, moneyFragment)
                     .commit();
         }
 
@@ -63,4 +66,8 @@ public class ViewHistoryActivity extends AppCompatActivity
     }
 
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }

@@ -88,6 +88,16 @@ public class ViewTransactionListActivity extends BaseActivity
         });
     }
 
+    public void onResume() {
+        super.onResume();
+        updateLists();
+    }
+
+    private void updateLists() {
+        borrowFragment.resetData();
+        lentFragment.resetData();
+    }
+
     public void showAddDialog() {
         AddTransactionDialogFragment dialog = new AddTransactionDialogFragment();
         dialog.setOnFragmentInteractionListener(this);
@@ -134,7 +144,10 @@ public class ViewTransactionListActivity extends BaseActivity
         else if(viewType.equalsIgnoreCase(ViewBorrowedFragment.VIEW_TYPE)){
             cursor = dbHelper.querryBorrowTransactionsJoinUser("0");
         }
-        adapter.swapCursor(cursor);
+
+        if(adapter != null) {
+            adapter.swapCursor(cursor);
+        }
     }
 
     @Override

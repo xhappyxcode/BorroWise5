@@ -166,7 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/subheading_label"
-                    android:text="End Date"/>
+                    android:text="@string/lbl_due"/>
                 <TextView
                     android:id="@+id/tv_view_money_endDate"
                     android:layout_width="match_parent"
@@ -264,7 +264,8 @@
                     android:layout_alignParentEnd="true"
                     android:background="@color/secondaryColor"
                     android:padding="3dp"
-                    android:src="@drawable/ic_add_plus" />
+                    android:src="@drawable/ic_add_plus"
+                    android:tint="@android:color/white" />
             </RelativeLayout>
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerview_payment_history"

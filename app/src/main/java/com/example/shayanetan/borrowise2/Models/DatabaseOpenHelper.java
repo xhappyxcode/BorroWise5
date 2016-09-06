@@ -36,7 +36,9 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
             + Transaction.COLUMN_START_DATE + " INTEGER, "
             + Transaction.COLUMN_DUE_DATE + " INTEGER, "
             + Transaction.COLUMN_RETURN_DATE + " INTEGER, "
-            + Transaction.COLUMN_RATE + " REAL); ";
+            + Transaction.COLUMN_RATE + " REAL, "
+            + Transaction.COLUMN_ALARM_TIME + " LONG, " //added this
+            + Transaction.COLUMN_DAYS_LEFT + " INTEGER); "; //added this
     private static final String DATABASE_CREATE_item_transaction = "CREATE TABLE " + ItemTransaction.TABLE_NAME + " ("
             + ItemTransaction.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + ItemTransaction.COLUMN_NAME + " TEXT, "
@@ -110,7 +112,13 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         switch(oldVersion) {
             case 1: db.execSQL(DATABASE_CREATE_payment_history);
 //                    db.execSQL(DATABASE_CREATE_notifications);
-            case 2: // for version 3 if any added tables needed
+                break;
+            case 2: String sql = "DROP TABLE IF EXISTS " + Transaction.TABLE_NAME+"; ";
+                db.execSQL(sql);
+                db.execSQL(DATABASE_CREATE_transactions);
+                break;
+            case 3:
+                // for version 3 if any added tables needed
         }
     }
 
@@ -132,6 +140,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(Transaction.COLUMN_CLASSIFICATION, t.getClassification());
         cv.put(Transaction.COLUMN_USER_ID, t.getUserID());
+        cv.put(Transaction.COLUMN_ALARM_TIME, t.getAlarmTime()); //added this
+        cv.put(Transaction.COLUMN_DAYS_LEFT, t.getDaysLeft()); //added this
         cv.put(Transaction.COLUMN_TYPE, t.getType());
         cv.put(Transaction.COLUMN_STATUS, t.getStatus());
         cv.put(Transaction.COLUMN_START_DATE, t.getStartDate());
@@ -247,6 +257,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                         c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
                         c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
                         c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
+                        c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
+                        c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
                         c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_NAME)),
                         c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_DESCRIPTION)),
                         c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_PHOTOPATH)));
@@ -269,6 +281,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                         c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
                         c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
                         c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
+                        c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
+                        c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
                         c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE)),
                         c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_AMOUNT_DEFICIT)));
                 t.setId(id);
@@ -550,16 +564,18 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                             null);
                     c2.moveToFirst();
                     t = new ItemTransaction(c.getString(c.getColumnIndex(Transaction.COLUMN_CLASSIFICATION)),
-                    c.getInt(c.getColumnIndex(Transaction.COLUMN_USER_ID)),
-                    c.getString(c.getColumnIndex(Transaction.COLUMN_TYPE)),
-                    c.getInt(c.getColumnIndex(Transaction.COLUMN_STATUS)),
-                    c.getLong(c.getColumnIndex(Transaction.COLUMN_START_DATE)),
-                    c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
-                    c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
-                    c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
-                    c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_NAME)),
-                    c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_DESCRIPTION)),
-                    c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_PHOTOPATH)));
+                            c.getInt(c.getColumnIndex(Transaction.COLUMN_USER_ID)),
+                            c.getString(c.getColumnIndex(Transaction.COLUMN_TYPE)),
+                            c.getInt(c.getColumnIndex(Transaction.COLUMN_STATUS)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_START_DATE)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
+                            c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
+                            c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
+                            c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_NAME)),
+                            c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_DESCRIPTION)),
+                            c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_PHOTOPATH)));
                 }else{
                     c2 =   db.query(MoneyTransaction.TABLE_NAME,
                             null, // == *
@@ -570,15 +586,17 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                             null);
                     c2.moveToFirst();
                     t = new MoneyTransaction(c.getString(c.getColumnIndex(Transaction.COLUMN_CLASSIFICATION)),
-                    c.getInt(c.getColumnIndex(Transaction.COLUMN_USER_ID)),
-                    c.getString(c.getColumnIndex(Transaction.COLUMN_TYPE)),
-                    c.getInt(c.getColumnIndex(Transaction.COLUMN_STATUS)),
-                    c.getLong(c.getColumnIndex(Transaction.COLUMN_START_DATE)),
-                    c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
-                    c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
-                    c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
-                    c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE)),
-                    c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_AMOUNT_DEFICIT)));
+                            c.getInt(c.getColumnIndex(Transaction.COLUMN_USER_ID)),
+                            c.getString(c.getColumnIndex(Transaction.COLUMN_TYPE)),
+                            c.getInt(c.getColumnIndex(Transaction.COLUMN_STATUS)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_START_DATE)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
+                            c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
+                            c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
+                            c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE)),
+                            c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_AMOUNT_DEFICIT)));
                 }
                 t.setId(c.getInt(c.getColumnIndex(User.COLUMN_ID)));
                 transactions.add(t);
@@ -728,6 +746,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                             c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
                             c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
                             c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
+                            c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
                             c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_NAME)),
                             c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_DESCRIPTION)),
                             c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_PHOTOPATH)));
@@ -748,6 +768,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                             c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
                             c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
                             c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
+                            c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
+                            c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
                             c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE)),
                             c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_AMOUNT_DEFICIT)));
                 }
@@ -792,6 +814,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         cv.put(Transaction.COLUMN_DUE_DATE, updatedTransaction.getDueDate());
         cv.put(Transaction.COLUMN_RETURN_DATE, updatedTransaction.getReturnDate());
         cv.put(Transaction.COLUMN_RATE, updatedTransaction.getRate());
+        cv.put(Transaction.COLUMN_ALARM_TIME, updatedTransaction.getAlarmTime()); //added this
+        cv.put(Transaction.COLUMN_DAYS_LEFT, updatedTransaction.getDaysLeft()); //added this
         Log.v("Update transID: ",""+updatedTransaction.getId());
         int id = db.update(updatedTransaction.TABLE_NAME, cv, " " + updatedTransaction.COLUMN_ID + "= ? ", new String[]{String.valueOf(updatedTransaction.getId())});
         Log.v("RETURNED BY DBUpdate:",""+id);

@@ -53,7 +53,8 @@ public class ViewUserBorrowedFragment extends Fragment {
         //initiate adapter and set recycler view adapter
         recyclerView = (RecyclerView)layout.findViewById(R.id.recyclerview_users_borrowed);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+//        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(historyCursorAdapter);
         mListener.retrieveTransaction(historyCursorAdapter, VIEW_TYPE);
 

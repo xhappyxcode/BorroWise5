@@ -145,7 +145,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/subheading_label"
-                    android:text="End Date"/>
+                    android:text="@string/lbl_due"/>
                 <TextView
                     android:id="@+id/tv_view_item_endDate"
                     android:layout_width="match_parent"

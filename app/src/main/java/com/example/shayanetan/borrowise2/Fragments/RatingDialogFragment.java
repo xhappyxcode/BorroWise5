@@ -36,6 +36,7 @@ public class RatingDialogFragment extends DialogFragment {
     public void setFilterType(String filterType) {
         this.filterType = filterType;
     }
+
     public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener){
         this.mListener = mListener;
     }

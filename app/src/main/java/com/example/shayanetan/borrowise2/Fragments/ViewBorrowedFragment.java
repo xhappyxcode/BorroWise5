@@ -136,6 +136,14 @@ public class ViewBorrowedFragment extends Fragment {
         return layout;
     }
 
+    public void resetData() {
+        mListener.retrieveTransaction(transactionsCursorAdapter, VIEW_TYPE);
+
+//        btn_TBorrowed_all.setBackgroundResource(R.color.accentBlueColor);
+//        btn_TBorrowed_item.setBackgroundResource(R.color.text_primaryColor);
+//        btn_TBorrowed_money.setBackgroundResource(R.color.text_primaryColor);
+    }
+
     public void onAttach() {
         mListener.retrieveTransaction(transactionsCursorAdapter, VIEW_TYPE);
     }
@@ -152,6 +160,7 @@ public class ViewBorrowedFragment extends Fragment {
         public void retrieveTransaction(TransactionsCursorAdapter adapter, String viewType);
         public void retrieveTransaction(TransactionsCursorAdapter adapter, String viewType, String filterType);
     }
+
     public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener){
         this.mListener = mListener;
     }

@@ -92,10 +92,13 @@ public class BaseActivity extends AppCompatActivity implements
                 i.setClass(getBaseContext(),ViewTransactionListActivity.class);
         }
 
+        drawerLayout.closeDrawers();
+
         if(menuItem.getItemId() == R.id.menuitem_transaction)
             setTitle("BorroWise");
         else
             setTitle(menuItem.getTitle());
+
         startActivity(i);
     }
 
@@ -122,10 +125,6 @@ public class BaseActivity extends AppCompatActivity implements
 
     protected boolean useDrawerToggle() {
         return true;
-    }
-
-    protected void closeDrawer() {
-        drawerLayout.closeDrawer(GravityCompat.START);
     }
 
     @Override

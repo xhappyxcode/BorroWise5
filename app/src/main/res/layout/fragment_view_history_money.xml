@@ -37,255 +37,237 @@
             android:textCursorDrawable = "@null"
             android:textColor="@android:color/white"
             android:inputType="numberDecimal"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:text="@string/total_amt"
-                android:padding="5dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:text="@string/currency"
-                android:padding="5dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_Hview_total"
-                android:textColor="@android:color/white"
-                android:text="0.0"
-                android:padding="5dp"/>
-        </LinearLayout>
-
     </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/Hview_money_content_section"
-        android:layout_below="@id/Hview_money"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginTop="5dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="@dimen/navigation_icon_size"
-                android:layout_marginRight="10dp"
-                android:layout_gravity="center_vertical"
-                android:tint="@color/text_primaryColor"
-                android:src="@drawable/ic_account"/>
-            <TextView
-                android:id="@+id/Hview_money_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lent_to"/>
-            <TextView
-                android:id="@+id/tv_Hview_AMPersonName"
-                android:layout_width="0dp"
-                android:layout_weight="8"
-                android:layout_height="wrap_content"
-                android:text="person name"
-                android:layout_alignParentLeft="true"
-                android:textSize="@dimen/subheading_label">
-                <requestFocus />
-            </TextView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_Hview_money_startDate"
-            android:layout_below="@id/layout_Hview_user_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="@dimen/navigation_icon_size"
-                android:layout_height="@dimen/navigation_icon_size"
-                android:layout_marginRight="15dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar"
-                android:tint="@color/text_primaryColor"/>
-            <LinearLayout
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/subheading_label"
-                    android:text="@string/lbl_start"/>
-                <TextView
-                    android:id="@+id/tv_Hview_money_startDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/caption_label"
-                    android:text="today"/>
-            </LinearLayout>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
-            android:background="@color/dividerColor" />
-        <LinearLayout
-            android:id="@+id/layout_Hview_money_endDate"
-            android:layout_below="@id/layout_Hview_money_startDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="@dimen/navigation_icon_size"
-                android:layout_height="@dimen/navigation_icon_size"
-                android:layout_marginRight="15dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar"
-                android:tint="@color/text_primaryColor"/>
-            <LinearLayout
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/subheading_label"
-                    android:text="@string/lbl_due"/>
-                <TextView
-                    android:id="@+id/tv_Hview_money_endDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/caption_label"
-                    android:text="today"/>
-            </LinearLayout>
-
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_margin="10dp"
-            android:background="@color/dividerColor" />
-        <LinearLayout
-            android:id="@+id/layout_Hview_money_retDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="@dimen/navigation_icon_size"
-                android:layout_height="@dimen/navigation_icon_size"
-                android:layout_marginRight="15dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_calendar"
-                android:tint="@color/text_primaryColor"/>
-            <LinearLayout
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/subheading_label"
-                    android:text="@string/lbl_ret"/>
-                <TextView
-                    android:id="@+id/tv_Hview_money_retDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/caption_label"
-                    android:text="today"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/layout_Hview_status"
-            android:orientation="horizontal"
-            android:layout_below="@id/Hview_item_date_details"
-            android:padding="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lbl_status"
-                android:textSize="@dimen/subheading_label"
-                android:paddingRight="10dp"/>
-            <TextView
-                android:id="@+id/tv_Hview_money_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lbl_status"
-                android:textSize="@dimen/subheading_label"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layout_Hview_status"
-            android:orientation="horizontal"
-            android:padding="10dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lbl_rating"
-                android:textSize="@dimen/subheading_label"
-                android:paddingRight="10dp"/>
-            <RatingBar
-                android:id="@+id/rb_Hview_rating_money"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:attr/ratingBarStyleSmall"
-                android:numStars="5"
-                android:isIndicator="true"
-                android:stepSize="0.5"
-                android:rating="5"
-                android:background="#FFFFFF"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_Hpayment_history"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Hview_money_content_section"
-        android:orientation="vertical"
-        android:padding="10dp">
-
+        android:layout_below="@id/Hview_money" >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/payment_history"
+            <LinearLayout
+                android:id="@+id/Hview_money_content_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Payment History: "
-                android:textSize="@dimen/subheading_label" />
+                android:padding="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="@dimen/navigation_icon_size"
+                        android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@color/text_primaryColor"
+                        android:src="@drawable/ic_account"/>
+                    <TextView
+                        android:id="@+id/Hview_money_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lent_to"/>
+                    <TextView
+                        android:id="@+id/tv_Hview_AMPersonName"
+                        android:layout_width="0dp"
+                        android:layout_weight="8"
+                        android:layout_height="wrap_content"
+                        android:text="person name"
+                        android:layout_alignParentLeft="true"
+                        android:textSize="@dimen/subheading_label">
+                        <requestFocus />
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_Hview_money_startDate"
+                    android:layout_below="@id/layout_Hview_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="@dimen/navigation_icon_size"
+                        android:layout_height="@dimen/navigation_icon_size"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="@color/text_primaryColor"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/subheading_label"
+                            android:text="@string/lbl_start"/>
+                        <TextView
+                            android:id="@+id/tv_Hview_money_startDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/caption_label"
+                            android:text="today"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/dividerColor" />
+                <LinearLayout
+                    android:id="@+id/layout_Hview_money_endDate"
+                    android:layout_below="@id/layout_Hview_money_startDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="@dimen/navigation_icon_size"
+                        android:layout_height="@dimen/navigation_icon_size"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="@color/text_primaryColor"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/subheading_label"
+                            android:text="@string/lbl_due"/>
+                        <TextView
+                            android:id="@+id/tv_Hview_money_endDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/caption_label"
+                            android:text="today"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/dividerColor" />
+                <LinearLayout
+                    android:id="@+id/layout_Hview_money_retDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="@dimen/navigation_icon_size"
+                        android:layout_height="@dimen/navigation_icon_size"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="@color/text_primaryColor"/>
+                    <LinearLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/subheading_label"
+                            android:text="@string/lbl_ret"/>
+                        <TextView
+                            android:id="@+id/tv_Hview_money_retDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/caption_label"
+                            android:text="today"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/layout_Hview_status"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/Hview_item_date_details"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_status"
+                        android:textSize="@dimen/subheading_label"
+                        android:paddingRight="10dp"/>
+                    <TextView
+                        android:id="@+id/tv_Hview_money_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_status"
+                        android:textSize="@dimen/subheading_label"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_Hview_status"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_rating"
+                        android:textSize="@dimen/subheading_label"
+                        android:paddingRight="10dp"/>
+                    <RatingBar
+                        android:id="@+id/rb_Hview_rating_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:numStars="5"
+                        android:isIndicator="true"
+                        android:stepSize="0.5"
+                        android:rating="5"
+                        android:background="#FFFFFF"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_Hpayment_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Hview_money_content_section"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/payment_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment History: "
+                        android:textSize="@dimen/subheading_label" />
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview_Hpayment_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
         </RelativeLayout>
+    </ScrollView>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview_Hpayment_history"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp">
 
-        </android.support.v7.widget.RecyclerView>
-    </LinearLayout>
 
 
 </RelativeLayout>

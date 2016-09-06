@@ -132,6 +132,13 @@ public class ViewLentFragment extends Fragment {
         return layout;
     }
 
+    public void resetData() {
+        mListener.retrieveTransaction(transactionsCursorAdapter, VIEW_TYPE);
+//        btn_TLent_all.setBackgroundResource(R.color.accentBlueColor);
+//        btn_TLent_money.setBackgroundResource(R.color.text_primaryColor);
+//        btn_TLent_item.setBackgroundResource(R.color.text_primaryColor);
+    }
+
     public void onAttach() {
         mListener.retrieveTransaction(transactionsCursorAdapter, VIEW_TYPE);
     }

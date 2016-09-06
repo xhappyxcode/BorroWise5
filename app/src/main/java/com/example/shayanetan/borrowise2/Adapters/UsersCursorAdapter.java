@@ -50,7 +50,7 @@ public class UsersCursorAdapter extends CursorRecyclerViewAdapter<UsersCursorAda
         namefortoast = name;
 
         viewHolder.tv_username.setText(name);
-        viewHolder.tv_userrating.setText(""+rating);
+        viewHolder.tv_userrating.setText(String.format("%.2f", rating));
         viewHolder.rb_ratinguser.setRating(rating);
         viewHolder.user_container.setTag(cursor.getInt(cursor.getColumnIndex(User.COLUMN_ID)));
         viewHolder.user_container.setOnClickListener(

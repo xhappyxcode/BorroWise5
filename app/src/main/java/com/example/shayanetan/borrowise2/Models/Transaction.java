@@ -14,7 +14,8 @@ public abstract class Transaction {
     public static final String COLUMN_DUE_DATE = "due_date";
     public static final String COLUMN_RETURN_DATE = "return_date";
     public static final String COLUMN_RATE = "rate";
-
+    public static final String COLUMN_ALARM_TIME = "alarm_time"; /*added this*/
+    public static final String COLUMN_DAYS_LEFT = "days_left"; /*added this*/
 
     public static final String ITEM_TYPE = "Item";
     public static final String MONEY_TYPE = "Money";
@@ -32,8 +33,23 @@ public abstract class Transaction {
     protected long dueDate;
     protected long returnDate;
     protected double rate;
+    private long alarmTime; /*added this*/
+    private int daysLeft; /*added this*/
 
     public Transaction(){};
+    public Transaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate, long alarmTime, int daysLeft) {
+        this.classification = classification;
+        this.userID = userID;
+        this.type = type;
+        this.status = status;
+        this.startDate = startDate;
+        this.dueDate = dueDate;
+        this.returnDate = returnDate;
+        this.rate = rate;
+        this.setAlarmTime(alarmTime);
+        this.setDaysLeft(daysLeft);
+    }
+
     public Transaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate) {
         this.classification = classification;
         this.userID = userID;
@@ -115,5 +131,21 @@ public abstract class Transaction {
 
     public void setRate(double rate) {
         this.rate = rate;
+    }
+
+    public long getAlarmTime() {
+        return alarmTime;
+    }
+
+    public void setAlarmTime(long alarmTime) {
+        this.alarmTime = alarmTime;
+    }
+
+    public int getDaysLeft() {
+        return daysLeft;
+    }
+
+    public void setDaysLeft(int daysLeft) {
+        this.daysLeft = daysLeft;
     }
 }

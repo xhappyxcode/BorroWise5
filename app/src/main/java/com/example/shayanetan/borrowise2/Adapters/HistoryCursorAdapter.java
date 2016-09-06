@@ -148,7 +148,7 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
                 ((BorrowedMoneyViewHolder)viewHolder).money_container.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mOnLongClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE);
+                        mOnClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE);
                     }
                 });
                 break;

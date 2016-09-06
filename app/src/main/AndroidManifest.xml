@@ -34,7 +34,7 @@
             android:name=".Activities.AddTransactionActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_home"
-            android:launchMode="singleInstance"
+            android:noHistory="true"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Activities.HistoryActivity"
@@ -50,7 +50,7 @@
             android:name=".Activities.ViewUserProfileActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_view_user_profile"
-            android:launchMode="singleInstance" />
+            android:noHistory="true" />
 
         <receiver
             android:name=".Activities.AlarmReceiver"
@@ -61,8 +61,14 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activities.ViewTransactionActivity" />
-        <activity android:name=".Activities.ViewHistoryActivity"></activity>
+        <activity android:name=".Activities.ViewTransactionActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/title_activity_view_transaction"
+            android:noHistory="true" />
+        <activity android:name=".Activities.ViewHistoryActivity"
+            android:clearTaskOnLaunch="true"
+            android:label="@string/title_activity_view_history"
+            android:noHistory="true" />
     </application>
 
 </manifest>

@@ -79,6 +79,12 @@ public class ViewTransactionMoneyFragment extends ViewTransactionAbstractFragmen
         return layout;
     }
 
+    public void updateData() {
+        moneyTransaction = (MoneyTransaction) dbHelper.queryTransaction(trans_id);
+        tv_amount.setText(String.valueOf(moneyTransaction.getAmountDeficit()));
+        retreivePayments();
+    }
+
     public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener){
         this.mListener = mListener;
     }

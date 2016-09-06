@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Models.MoneyTransaction;
 import com.example.shayanetan.borrowise2.Models.Transaction;
@@ -48,7 +49,8 @@ public class AddMoneyFragment extends AddAbstractFragment {
 //        btn_addContact = (ImageView) layout.findViewById(R.id.btn_addContact);
         et_AMAmount = (EditText) layout.findViewById(R.id.et_AMAmount);
         atv_person_name = (AutoCompleteTextView) layout.findViewById(R.id.atv_AMPersonName);
-
+        tv_notif_time = (TextView) layout.findViewById(R.id.tv_money_notif_time);
+        tv_notif_days_before = (TextView) layout.findViewById(R.id.tv_money_notif_days_before);
 
         layout_startDate = (View) layout.findViewById(R.id.layout_money_startDate);
         layout_endDate = (View) layout.findViewById(R.id.layout_money_endDate);
@@ -74,18 +76,25 @@ public class AddMoneyFragment extends AddAbstractFragment {
                 String money = et_AMAmount.getText().toString();
 
                 if(!money.isEmpty() && !selected_name.isEmpty()){
-                    int id = mListener.onAddNewUser(selected_name, selected_contact_number);
+                    long startDate = parseDateToMillis(tv_startDate.getText().toString());
+                    long dueDate = parseDateToMillis(tv_endDate.getText().toString());
+                    if(dueDate >= startDate) {
+                        int id = mListener.onAddNewUser(selected_name, selected_contact_number);
+                        double amount =  Double.parseDouble(money);
+                        MoneyTransaction m = new MoneyTransaction(Transaction.MONEY_TYPE, id, Transaction.BORROWED_ACTION, 0,
+                                parseDateToMillis(tv_startDate.getText().toString()),
+                                parseDateToMillis(tv_endDate.getText().toString()),
+                                0,0.0,
+//                            Long.parseLong(tv_notif_time.getText().toString()), //alarmTime
+//                            Integer.parseInt(tv_notif_days_before.getText().toString()), //daysLeft
+                                amount, amount);
+                        mListener.onAddTransactions(m);
+                        printAddAcknowledgement(et_AMAmount.getText().toString(), "borrowed");
 
-                    double amount =  Double.parseDouble(money);
-                    MoneyTransaction m = new MoneyTransaction(Transaction.MONEY_TYPE, id, Transaction.BORROWED_ACTION, 0,
-                            parseDateToMillis(tv_startDate.getText().toString()),
-                            parseDateToMillis(tv_endDate.getText().toString()),
-                            0,0.0,amount, amount);
-                    mListener.onAddTransactions(m);
-                    printAddAcknowledgement(et_AMAmount.getText().toString(), "borrowed");
-
-                    clearAllFields();
-
+                        clearAllFields();
+                    } else {
+                        Toast.makeText(getActivity().getBaseContext(), "Due date must be after start date!", Toast.LENGTH_LONG).show();
+                    }
                 }else
                     printRejectDialog();
 
@@ -99,18 +108,25 @@ public class AddMoneyFragment extends AddAbstractFragment {
                 String money = et_AMAmount.getText().toString();
 
                 if(!money.isEmpty() && !selected_name.isEmpty()){
-                    int id = mListener.onAddNewUser(selected_name, selected_contact_number);
+                    long startDate = parseDateToMillis(tv_startDate.getText().toString());
+                    long dueDate = parseDateToMillis(tv_endDate.getText().toString());
+                    if(dueDate >= startDate) {
+                        int id = mListener.onAddNewUser(selected_name, selected_contact_number);
 
-                    double amount =  Double.parseDouble(money);
-                    MoneyTransaction m = new MoneyTransaction(Transaction.MONEY_TYPE, id, Transaction.LEND_ACTION, 0,
-                            parseDateToMillis(tv_startDate.getText().toString()),
-                            parseDateToMillis(tv_endDate.getText().toString()),
-                            0,0.0, amount,amount);
+                        double amount =  Double.parseDouble(money);
+                        MoneyTransaction m = new MoneyTransaction(Transaction.MONEY_TYPE, id, Transaction.LEND_ACTION, 0,
+                                parseDateToMillis(tv_startDate.getText().toString()),
+                                parseDateToMillis(tv_endDate.getText().toString()),
+                                0,0.0, amount,amount);
 
-                    mListener.onAddTransactions(m);
-                    printAddAcknowledgement(et_AMAmount.getText().toString(), "lent");
+                        mListener.onAddTransactions(m);
+                        printAddAcknowledgement(et_AMAmount.getText().toString(), "lent");
 
-                    clearAllFields();
+                        clearAllFields();
+                    } else {
+                        Toast.makeText(getActivity().getBaseContext(), "Due date must be after start date!", Toast.LENGTH_LONG).show();
+                    }
+
                 }else{
                     printRejectDialog();
                 }

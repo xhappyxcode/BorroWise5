@@ -28,7 +28,7 @@ public class PaymentCursorAdapter extends CursorRecyclerViewAdapter<PaymentCurso
     @Override
     public void onBindViewHolder(final PaymentViewHolder viewHolder, Cursor cursor) {
         Double amount = cursor.getDouble(cursor.getColumnIndex(PaymentHistory.COLUMN_PAYMENT));
-        int date = cursor.getInt(cursor.getColumnIndex(PaymentHistory.COLUMN_DATE));
+        long date = cursor.getLong(cursor.getColumnIndex(PaymentHistory.COLUMN_DATE));
 
         viewHolder.tv_amount.setText(String.valueOf(amount));
         viewHolder.tv_date.setText(parseMillisToDate(date));

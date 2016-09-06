@@ -75,13 +75,6 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
         return true;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        /* close the drawer layout */
-        super.closeDrawer();
-    }
-
 //    @Override
 //    public boolean onOptionsItemSelected(MenuItem item) {
 //
@@ -109,6 +102,8 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
     public void onAddTransactions(Transaction t) {
        long itemId =  dbHelper.insertTransaction(t);
         Log.v("NEW TRANS ID!!!!!! ", "" + itemId);
+        Log.v("START DATE: ", ""+t.getStartDate());
+        Log.v("DUE DATE: ", ""+t.getDueDate());
      //   Toast.makeText(getBaseContext(), "NEW TRANS ID!!!!!! " +itemId, Toast.LENGTH_LONG).show();
         setItemAlarm((int) itemId, t.getDueDate(), t.getClassification(), t.getType());
     }

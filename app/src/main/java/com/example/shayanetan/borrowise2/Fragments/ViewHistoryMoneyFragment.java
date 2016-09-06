@@ -11,11 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.shayanetan.borrowise2.Adapters.PaymentCursorAdapter;
 import com.example.shayanetan.borrowise2.Models.MoneyTransaction;
 import com.example.shayanetan.borrowise2.R;
+
+import org.w3c.dom.Text;
 
 public class ViewHistoryMoneyFragment extends ViewHistoryAbstractFragment {
 
@@ -45,18 +48,19 @@ public class ViewHistoryMoneyFragment extends ViewHistoryAbstractFragment {
         tv_person_name = (TextView) layout.findViewById(R.id.tv_Hview_AMPersonName);
         tv_startDate = (TextView) layout.findViewById(R.id.tv_Hview_money_startDate);
         tv_endDate = (TextView) layout.findViewById(R.id.tv_Hview_money_endDate);
+        tv_retDate = (TextView) layout.findViewById(R.id.tv_Hview_money_retDate);
+        tv_status = (TextView) layout.findViewById(R.id.tv_Hview_money_status);
         tv_type = (TextView) layout.findViewById(R.id.Hview_money_type);
+        rb_rating = (RatingBar) layout.findViewById(R.id.rb_Hview_rating_money);
 
         tv_amount = (TextView) layout.findViewById(R.id.tv_Hview_AMAmount);
-        tv_total = (TextView) layout.findViewById(R.id.tv_Hview_total);
         paymentCursorAdapter = new PaymentCursorAdapter(getActivity().getBaseContext(), null);
         recyclerView = (RecyclerView) layout.findViewById(R.id.recyclerview_Hpayment_history);
 
         init();
 
         moneyTransaction = (MoneyTransaction) dbHelper.queryTransaction(trans_id);
-        tv_amount.setText(String.valueOf(moneyTransaction.getAmountDeficit()));
-        tv_total.setText(String.valueOf(moneyTransaction.getTotalAmountDue()));
+        tv_amount.setText(String.valueOf(moneyTransaction.getTotalAmountDue()));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);

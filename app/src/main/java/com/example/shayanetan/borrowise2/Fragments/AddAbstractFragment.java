@@ -51,7 +51,7 @@ public abstract class AddAbstractFragment extends Fragment {
     protected FragmentActivity myContext;
     protected AutoCompleteTextView atv_person_name;
     protected View layout_startDate, layout_endDate;
-    protected TextView tv_startDate, tv_endDate;
+    protected TextView tv_startDate, tv_endDate, tv_notif_time, tv_notif_days_before;
     protected Button btn_borrowed, btn_lent;
 //    protected FloatingActionButton img_btn_switch;
 
@@ -165,6 +165,7 @@ public abstract class AddAbstractFragment extends Fragment {
                 });
         alertDialog.show();
     }
+
     public void setDateToCurrent(){
         CustomDate d = new CustomDate();
         String currentDate = (d.getMonth()+1)+ "/" + d.getDay()+ "/ "+ d.getYear();

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Fragments.AmountDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.DeleteDialogFragment;
+import com.example.shayanetan.borrowise2.Fragments.PaymentErrorDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.RatingDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewLentFragment;
@@ -33,7 +34,7 @@ import com.example.shayanetan.borrowise2.R;
  */
 
 public class ViewTransactionActivity extends BaseActivity
-        implements DeleteDialogFragment.OnFragmentInteractionListener,
+        implements
         AmountDialogFragment.OnFragmentInteractionListener,
         RatingDialogFragment.OnFragmentInteractionListener,
         ViewTransactionAbstractFragment.OnFragmentInteractionListener {
@@ -44,6 +45,8 @@ public class ViewTransactionActivity extends BaseActivity
 
     protected Transaction transaction;
     private int TempID, currType, currBtn;
+    private ViewTransactionItemFragment itemFragment;
+    private ViewTransactionMoneyFragment moneyFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,36 +81,24 @@ public class ViewTransactionActivity extends BaseActivity
 
         if(transaction.getClassification().contentEquals(Transaction.ITEM_TYPE)) {
 //            ItemTransaction itemTransaction = (ItemTransaction) dbHelper.queryTransaction(trans_id);
-            ViewTransactionItemFragment itemFragment = new ViewTransactionItemFragment();
+            itemFragment = new ViewTransactionItemFragment();
             itemFragment.setArguments(bundle);
             itemFragment.setOnFragmentInteractionListener(this);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_view_transaction_container, itemFragment)
                     .commit();
         } else {
-            ViewTransactionMoneyFragment moneyFragment = new ViewTransactionMoneyFragment();
+            moneyFragment = new ViewTransactionMoneyFragment();
             moneyFragment.setArguments(bundle);
             moneyFragment.setOnFragmentInteractionListener(this);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_view_transaction_container, moneyFragment)
                     .commit();
         }
-
-    }
-
-
-    @Override
-    public void deleteDialog() {
-        // delete transaction
-        Toast toast = new Toast(getBaseContext());
-        toast.setText("Transaction successfully deleted");
-        toast.setDuration(Toast.LENGTH_SHORT);
-        finish();
     }
 
     @Override
     public void updateAmount(TransactionsCursorAdapter adapter, String viewType, String filterType, double partialAmt) {
-
 
         MoneyTransaction m = (MoneyTransaction) dbHelper.queryTransaction(trans_id);
         double computedAmount = m.getAmountDeficit() - partialAmt;
@@ -118,53 +109,50 @@ public class ViewTransactionActivity extends BaseActivity
         //  Toast.makeText(this, "Deficit " + m.getAmountDeficit(), Toast.LENGTH_LONG).show();
 
         if(m.getAmountDeficit() < 0){
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getBaseContext());
-            alertDialogBuilder.setTitle("PAYMENT ERROR");
-            alertDialogBuilder.setMessage("The payment is greater than the balance needed to be paid!")
-                    .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dismissDialog(which);
-                        }
-                    });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-        } else if(m.getAmountDeficit() == 0) {
-            RatingDialogFragment df = new RatingDialogFragment();
-            df.setOnFragmentInteractionListener(this);
-            df.setTransactionsCursorAdapter(adapter);
-            df.setViewType(viewType);
-            df.setFilterType(filterType);
-            df.show(getFragmentManager(), "");
+            PaymentErrorDialogFragment errorDialog = new PaymentErrorDialogFragment();
+            errorDialog.setTransactionsCursorAdapter(adapter);
+            errorDialog.setViewType(viewType);
+            errorDialog.setFilterType(filterType);
+            errorDialog.show(getFragmentManager(), "");
+        } else  {
+            addPaymentHistory(m, partialAmt);
+            if(m.getAmountDeficit() == 0) {
+                RatingDialogFragment df = new RatingDialogFragment();
+                df.setOnFragmentInteractionListener(this);
+                df.setTransactionsCursorAdapter(adapter);
+                df.setViewType(viewType);
+                df.setFilterType(filterType);
+                df.show(getFragmentManager(), "");
 
-            MoneyTransaction m2 = (MoneyTransaction) dbHelper.queryTransaction(trans_id);
-            m2.setAmountDeficit(m.getAmountDeficit() - partialAmt);
-            m2.setReturnDate(System.currentTimeMillis());
-            m2.setStatus(1);
-            Log.v("BEFORE TEMPID: ", ""+trans_id);
-            trans_id = dbHelper.updateTransaction(m2);
-            Log.v("AFTER TEMPID: ",""+trans_id);
-            finish();
-        } else {
-            trans_id = dbHelper.updateTransaction(m);
-            PaymentHistory payment = new PaymentHistory();
-            payment.setTransaction_id(trans_id);
-            payment.setDate(System.currentTimeMillis());
-            payment.setPayment(partialAmt);
-            long temp = dbHelper.insertPaymentHistory(payment);
+                MoneyTransaction m2 = (MoneyTransaction) dbHelper.queryTransaction(trans_id);
+                m2.setAmountDeficit(m.getAmountDeficit() - partialAmt);
+                m2.setReturnDate(System.currentTimeMillis());
+                m2.setStatus(1);
+                Log.v("BEFORE TEMPID: ", "" + trans_id);
+                trans_id = dbHelper.updateTransaction(m2);
+                Log.v("AFTER TEMPID: ", "" + trans_id);
+            }
         }
 
 //        if(filterType.equalsIgnoreCase("All"))
 //            retrieveTransaction(adapter, viewType);
 //        else
 //            retrieveTransaction(adapter, viewType, filterType);
-        Toast toast = new Toast(getBaseContext());
-        toast.setText("Successfully added payment");
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.show();
+
     }
 
+    public long addPaymentHistory(MoneyTransaction m, double partialAmt) {
+        trans_id = dbHelper.updateTransaction(m);
+        PaymentHistory payment = new PaymentHistory();
+        payment.setTransaction_id(trans_id);
+        payment.setDate(System.currentTimeMillis());
+        payment.setPayment(partialAmt);
+        long temp = dbHelper.insertPaymentHistory(payment);
+        Toast.makeText(getApplicationContext(),"Successfully added payment",Toast.LENGTH_SHORT).show();
 
+        moneyFragment.updateData();
+        return temp;
+    }
 
     @Override
     public void updateRating(TransactionsCursorAdapter adapter, String viewType, String filterType, double rating) {
@@ -233,6 +221,7 @@ public class ViewTransactionActivity extends BaseActivity
             AmountDialogFragment df = new AmountDialogFragment();
             df.setOnFragmentInteractionListener(this);
             df.show(getFragmentManager(), "");
+
         } else {
             RatingDialogFragment df = new RatingDialogFragment();
             df.setOnFragmentInteractionListener(this);
