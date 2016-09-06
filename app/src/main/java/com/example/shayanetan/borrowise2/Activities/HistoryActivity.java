@@ -103,6 +103,10 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
     public void deleteTransaction(HistoryCursorAdapter adapter, int id, String type, String classification) {
         DeleteDialogFragment deleteDialog = new DeleteDialogFragment();
         deleteDialog.setOnFragmentInteractionListener(this);
+        deleteDialog.setHistoryCursorAdapter(adapter);
+        deleteDialog.setId(id);
+        deleteDialog.setType(type);
+        deleteDialog.setClassification(classification);
         deleteDialog.show(getFragmentManager(), "");
     }
 
@@ -143,7 +147,7 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
     @Override
     public void deleteDialog(HistoryCursorAdapter historyCursorAdapter, int id, String type, String classification) {
         dbHelper.deleteTransaction(id, classification);
-        Toast.makeText(getApplicationContext(), "Successfully eleted transaction!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Successfully deleted transaction!", Toast.LENGTH_SHORT).show();
         retrieveTransaction(historyCursorAdapter, type);
     }
 }

@@ -23,6 +23,7 @@ public class DeleteDialogFragment extends DialogFragment {
     View v;
 
     private OnFragmentInteractionListener mListener;
+    private int id;
     private String type;
     private String classification;
     private HistoryCursorAdapter historyCursorAdapter;
@@ -33,6 +34,10 @@ public class DeleteDialogFragment extends DialogFragment {
 
     public void setClassification(String classification) {
         this.classification = classification;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setHistoryCursorAdapter(HistoryCursorAdapter historyCursorAdapter) {
@@ -58,13 +63,13 @@ public class DeleteDialogFragment extends DialogFragment {
                 .setTitle("Delete Transaction")
                 .setView(v)
                 .setPositiveButton(R.string.dialog_delete, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int which) {
                         // TODO: delete transaction, pass the transaction id here
                         mListener.deleteDialog(historyCursorAdapter, id, type, classification);
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+                    public void onClick(DialogInterface dialog, int which) {
                         // User cancelled the the deletion of transaction
                         dismiss();
                     }
