@@ -27,22 +27,11 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop" />
     </LinearLayout>
-<!-- removed button because it is not noticeable
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btn_ItemToMoney"
-        android:src="@drawable/ic_money"
-        app:fabSize="normal"
-        app:backgroundTint="@color/secondaryColor"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight = "true"/>
--->
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/layout_add_item_button"
         android:layout_below="@id/card_camera">
 
         <RelativeLayout
@@ -185,13 +174,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:padding="10dp"
                 android:layout_below="@id/item_date_details" >
 
                 <ImageView
                     android:layout_width="@dimen/navigation_icon_size"
                     android:layout_height="@dimen/navigation_icon_size"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
                     android:tint="@color/text_primaryColor"
                     android:src="@drawable/ic_notif"/>
 
@@ -244,10 +233,10 @@
             </LinearLayout>
 
         </RelativeLayout>
-
     </ScrollView>
 
-  <LinearLayout
+    <LinearLayout
+        android:id="@id/layout_add_item_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
