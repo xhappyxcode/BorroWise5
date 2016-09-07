@@ -8,6 +8,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -101,8 +104,9 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
                 if(imgFile.exists()){
                   //  ItemTransaction.bmpOptions.inSampleSize = 8;
                     Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                    myBitmap = getRoundedShape(myBitmap);
                     ((BorrowedItemViewHolder)viewHolder).img_Hitem.setImageBitmap(myBitmap);
-                    ((BorrowedItemViewHolder)viewHolder).img_Hitem.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((BorrowedItemViewHolder)viewHolder).img_Hitem.setScaleType(ImageView.ScaleType.CENTER);
                 }
                 ((BorrowedItemViewHolder)viewHolder).tv_Haccount_item.setText(name);
 //                ((BorrowedItemViewHolder)viewHolder).tv_Hduedateitem_val.setText(dueDate);
@@ -228,6 +232,31 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
         Date resultdate = new Date(millis);
         return sdf.format(resultdate);
+    }
+
+
+    public Bitmap getRoundedShape(Bitmap scaleBitmapImage) {
+
+        int targetWidth = 160;
+        int targetHeight = 160;
+        Bitmap targetBitmap = Bitmap.createBitmap(targetWidth,
+                targetHeight,Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(targetBitmap);
+        Path path = new Path();
+        path.addCircle(((float) targetWidth - 1) / 2,
+                ((float) targetHeight - 1) / 2,
+                (Math.min(((float) targetWidth),
+                        ((float) targetHeight)) / 2),
+                Path.Direction.CCW);
+
+        canvas.clipPath(path);
+        Bitmap sourceBitmap = scaleBitmapImage;
+        canvas.drawBitmap(sourceBitmap,
+                new Rect(0, 0, sourceBitmap.getWidth(),
+                        sourceBitmap.getHeight()),
+                new Rect(0, 0, targetWidth,
+                        targetHeight), null);
+        return targetBitmap;
     }
 }
 

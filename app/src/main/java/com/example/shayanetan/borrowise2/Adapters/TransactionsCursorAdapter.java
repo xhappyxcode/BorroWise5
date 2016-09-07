@@ -4,23 +4,22 @@ package com.example.shayanetan.borrowise2.Adapters;
  * Created by ShayaneTan on 3/11/2016.
  */
 
-import android.app.DialogFragment;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Path;
+import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.shayanetan.borrowise2.Fragments.RatingDialogFragment;
-import com.example.shayanetan.borrowise2.Models.ItemTransaction;
 import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.Models.User;
 import com.example.shayanetan.borrowise2.R;
@@ -84,8 +83,9 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
                 if(imgFile.exists()){
                    // ItemTransaction.bmpOptions.inSampleSize = 8;
                     Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                    myBitmap = getRoundedShape(myBitmap);
                     ((BorrowedItemViewHolder)viewHolder).img_item.setImageBitmap(myBitmap);
-                    ((BorrowedItemViewHolder)viewHolder).img_item.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    ((BorrowedItemViewHolder)viewHolder).img_item.setScaleType(ImageView.ScaleType.CENTER);
 
                 }
                 ((BorrowedItemViewHolder)viewHolder).tv_account_item.setText(name);
@@ -229,8 +229,7 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
 
             img_item = (ImageView) itemView.findViewById(R.id.img_item);
             img_item.setMaxWidth(img_item.getHeight());
-//            btn_lost = (Button) itemView.findViewById(R.id.btn_lost);
-//            btn_returned = (Button) itemView.findViewById(R.id.btn_returned);
+
             item_container = itemView.findViewById(R.id.item_container);
         }
 
@@ -243,7 +242,6 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
         // TODO
 
         TextView tv_account_money, tv_amount, tv_duedate_val, tv_daysleft_val, tv_daysleft;
-//        Button btn_partial, btn_full;
         View money_container;
 
         public BorrowedMoneyViewHolder(View itemView) {
@@ -253,8 +251,7 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
             tv_duedate_val = (TextView) itemView.findViewById(R.id.tv_duedatemoney_val);
             tv_daysleft_val = (TextView) itemView.findViewById(R.id.tv_daysleftmoney_val);
             tv_daysleft = (TextView) itemView.findViewById(R.id.tv_daysleftmoney_label);
-//            btn_partial = (Button) itemView.findViewById(R.id.btn_partial);
-//            btn_full = (Button) itemView.findViewById(R.id.btn_full);
+
             money_container = itemView.findViewById(R.id.money_container);
         }
     }
@@ -300,6 +297,28 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
         return daysBetween;
     }
 
+    public Bitmap getRoundedShape(Bitmap scaleBitmapImage) {
 
+        int targetWidth = 160;
+        int targetHeight = 160;
+        Bitmap targetBitmap = Bitmap.createBitmap(targetWidth,
+                targetHeight,Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(targetBitmap);
+        Path path = new Path();
+        path.addCircle(((float) targetWidth - 1) / 2,
+                ((float) targetHeight - 1) / 2,
+                (Math.min(((float) targetWidth),
+                        ((float) targetHeight)) / 2),
+                Path.Direction.CCW);
+
+        canvas.clipPath(path);
+        Bitmap sourceBitmap = scaleBitmapImage;
+        canvas.drawBitmap(sourceBitmap,
+                new Rect(0, 0, sourceBitmap.getWidth(),
+                        sourceBitmap.getHeight()),
+                new Rect(0, 0, targetWidth,
+                        targetHeight), null);
+        return targetBitmap;
+    }
 }
 

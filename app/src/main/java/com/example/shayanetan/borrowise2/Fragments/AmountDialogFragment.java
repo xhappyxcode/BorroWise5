@@ -72,6 +72,5 @@ public class AmountDialogFragment extends DialogFragment {
     public void showDialog()
     {
         this.show(getFragmentManager(), "");
-
     }
 }

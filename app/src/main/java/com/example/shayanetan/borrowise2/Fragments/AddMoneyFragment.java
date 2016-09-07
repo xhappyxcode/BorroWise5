@@ -2,12 +2,9 @@ package com.example.shayanetan.borrowise2.Fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -145,33 +141,31 @@ public class AddMoneyFragment extends AddAbstractFragment {
             TextView tv_confirmation = (TextView) view.findViewById(R.id.tv_confirmation);
             tv_confirmation.setText("PHP " + entry_name + " has been successfully " + type + " to " + selected_name + "!");
 
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-            alertDialog.setView(view);
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                    .setView(view)
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                            getActivity().finish();
                         }
                     });
-            alertDialog.show();
+            Dialog dialog = builder.create();
+            dialog.show();
         }else {
             LayoutInflater factory = LayoutInflater.from(getActivity());
             final View view = factory.inflate(R.layout.add_transaction_confirmation, null);
             TextView tv_confirmation = (TextView) view.findViewById(R.id.tv_confirmation);
             tv_confirmation.setText("PHP " + entry_name + " has been successfully " + type + " from " + selected_name + "!");
 
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-            alertDialog.setView(view);
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                    .setView(view)
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+                            getActivity().finish();
                         }
                     });
-            alertDialog.show();
-
+            Dialog dialog = builder.create();
+            dialog.show();
         }
-        getActivity().finish();
     }
 
     public void clearAllFields(){

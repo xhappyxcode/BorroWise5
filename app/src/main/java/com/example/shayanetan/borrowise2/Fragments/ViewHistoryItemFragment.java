@@ -1,12 +1,10 @@
 package com.example.shayanetan.borrowise2.Fragments;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +61,7 @@ public class ViewHistoryItemFragment extends ViewHistoryAbstractFragment {
             // ItemTransaction.bmpOptions.inSampleSize = 8;
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             img_camera.setImageBitmap(myBitmap);
-            img_camera.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            img_camera.setScaleType(ImageView.ScaleType.FIT_XY);
         }
 
         return layout;

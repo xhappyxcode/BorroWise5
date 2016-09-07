@@ -2,6 +2,7 @@ package com.example.shayanetan.borrowise2.Fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,12 +10,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,9 +31,11 @@ import java.io.ByteArrayOutputStream;
  * Edited by Stephanie Dy on 7/20/2016 removed button addContact
  *                        on 7/27/2016 removed img_btn_switch, onFragmentSwitch()
  */
+
 public class AddItemFragment extends AddAbstractFragment {
 
-    private FragmentTransaction transaction;
+    private final int REQUEST_IMAGE_CAPTURE = 1;
+
     private EditText et_AIItemName;
     private ImageView img_camera;
     private View card_camera;
@@ -75,24 +73,15 @@ public class AddItemFragment extends AddAbstractFragment {
         btn_borrowed = (Button) layout.findViewById(R.id.btn_AIBorrow);
         btn_lent = (Button) layout.findViewById(R.id.btn_AILend);
 
-        init(); // method found in abstact class
+        init(); // method found in abstract class
 
         card_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, 0);
             }
         });
-//      removed add contact button to prevent misunderstandings
-//        btn_addContact.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_INSERT,
-//                        ContactsContract.Contacts.CONTENT_URI);
-//                startActivity(intent);
-//            }
-//        });
 
         btn_borrowed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,9 +151,56 @@ public class AddItemFragment extends AddAbstractFragment {
         return layout;
     }
 
+    public void printAddAcknowledgement(String entry_name, String type){
+        if(type.equalsIgnoreCase("lent")) {
+
+            LayoutInflater factory = LayoutInflater.from(getActivity());
+            final View view = factory.inflate(R.layout.add_transaction_confirmation, null);
+            TextView tv_confirmation = (TextView) view.findViewById(R.id.tv_confirmation);
+            tv_confirmation.setText(entry_name + " has been successfully " + type + " to " + selected_name + " !");
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                    .setView(view)
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            getActivity().finish();
+                        }
+                    });
+            Dialog dialog = builder.create();
+            dialog.show();
+
+        }else {
+
+            LayoutInflater factory = LayoutInflater.from(getActivity());
+            final View view = factory.inflate(R.layout.add_transaction_confirmation, null);
+            TextView tv_confirmation = (TextView) view.findViewById(R.id.tv_confirmation);
+            tv_confirmation.setText(entry_name + " has been successfully " + type + " from " + selected_name + " !");
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+                    .setView(view)
+                    .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            getActivity().finish();
+                        }
+                    });
+            Dialog dialog = builder.create();
+            dialog.show();
+
+        }
+    }
+
+    public void clearAllFields(){
+        et_AIItemName.setText("");
+        atv_person_name.setText("");
+        img_camera.setImageResource(R.drawable.ic_camera_small);
+        img_camera.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        setDateToCurrent();
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
-        super.onActivityResult(requestCode, resultCode, data);
+//        super.onActivityResult(requestCode, resultCode, data);
 
         //Bitmap bp = (Bitmap) data.getExtras().get("data");
         //iv.setImageBitmap(bp);
@@ -183,57 +219,11 @@ public class AddItemFragment extends AddAbstractFragment {
             filePath = getRealPathFromURI(tempUri);
 
             img_camera.setImageBitmap(photo);
-          //  img_camera.set;
+            //  img_camera.set;
             img_camera.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
-            System.out.println("CAMERA SAVED FILEPATH: " + getRealPathFromURI(tempUri));
+//            System.out.println("CAMERA SAVED FILEPATH: " + getRealPathFromURI(tempUri));
         }
-    }
-
-    public void printAddAcknowledgement(String entry_name, String type){
-        if(type.equalsIgnoreCase("lent")) {
-
-            LayoutInflater factory = LayoutInflater.from(getActivity());
-            final View view = factory.inflate(R.layout.add_transaction_confirmation, null);
-            TextView tv_confirmation = (TextView) view.findViewById(R.id.tv_confirmation);
-            tv_confirmation.setText(entry_name + " has been successfully " + type + " to " + selected_name + " !");
-
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-            alertDialog.setView(view);
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
-        }else {
-
-            LayoutInflater factory = LayoutInflater.from(getActivity());
-            final View view = factory.inflate(R.layout.add_transaction_confirmation, null);
-            TextView tv_confirmation = (TextView) view.findViewById(R.id.tv_confirmation);
-            tv_confirmation.setText(entry_name + " has been successfully " + type + " from " + selected_name + " !");
-
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-            alertDialog.setView(view);
-            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-            alertDialog.show();
-
-        }
-        getActivity().finish();
-    }
-
-    public void clearAllFields(){
-        et_AIItemName.setText("");
-        atv_person_name.setText("");
-        img_camera.setImageResource(R.drawable.ic_camera_small);
-        img_camera.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        setDateToCurrent();
     }
 
     public Uri getImageUri(Context inContext, Bitmap inImage) {

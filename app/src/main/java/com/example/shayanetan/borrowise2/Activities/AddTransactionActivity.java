@@ -12,8 +12,8 @@ import android.view.Menu;
 import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
-import com.example.shayanetan.borrowise2.Fragments.AddItemFragment;
 import com.example.shayanetan.borrowise2.Fragments.AddAbstractFragment;
+import com.example.shayanetan.borrowise2.Fragments.AddItemFragment;
 import com.example.shayanetan.borrowise2.Fragments.AddMoneyFragment;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.ItemTransaction;
@@ -249,7 +249,6 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, smsAlarm.getTimeInMillis(), pendingIntent);
 
         }
-
 
     }
 }

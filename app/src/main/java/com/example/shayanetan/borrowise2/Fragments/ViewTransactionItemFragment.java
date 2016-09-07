@@ -1,34 +1,19 @@
 package com.example.shayanetan.borrowise2.Fragments;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.ClipData;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Models.ItemTransaction;
-import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.R;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 public class ViewTransactionItemFragment extends ViewTransactionAbstractFragment {
@@ -74,7 +59,7 @@ public class ViewTransactionItemFragment extends ViewTransactionAbstractFragment
             // ItemTransaction.bmpOptions.inSampleSize = 8;
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             img_camera.setImageBitmap(myBitmap);
-            img_camera.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            img_camera.setScaleType(ImageView.ScaleType.FIT_XY);
         }
 
         btn_lost.setOnClickListener(new View.OnClickListener() {

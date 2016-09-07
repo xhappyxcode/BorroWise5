@@ -34,7 +34,6 @@
             android:name=".Activities.AddTransactionActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_home"
-            android:noHistory="true"
             android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Activities.HistoryActivity"

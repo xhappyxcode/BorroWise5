@@ -140,8 +140,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(Transaction.COLUMN_CLASSIFICATION, t.getClassification());
         cv.put(Transaction.COLUMN_USER_ID, t.getUserID());
-        cv.put(Transaction.COLUMN_ALARM_TIME, t.getAlarmTime()); //added this
-        cv.put(Transaction.COLUMN_DAYS_LEFT, t.getDaysLeft()); //added this
+//        cv.put(Transaction.COLUMN_ALARM_TIME, t.getAlarmTime()); //added this
+//        cv.put(Transaction.COLUMN_DAYS_LEFT, t.getDaysLeft()); //added this
         cv.put(Transaction.COLUMN_TYPE, t.getType());
         cv.put(Transaction.COLUMN_STATUS, t.getStatus());
         cv.put(Transaction.COLUMN_START_DATE, t.getStartDate());
@@ -257,8 +257,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                         c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
                         c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
                         c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
-                        c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
-                        c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
+//                        c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
+//                        c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
                         c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_NAME)),
                         c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_DESCRIPTION)),
                         c2.getString(c2.getColumnIndex(ItemTransaction.COLUMN_PHOTOPATH)));
@@ -281,8 +281,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
                         c.getLong(c.getColumnIndex(Transaction.COLUMN_DUE_DATE)),
                         c.getLong(c.getColumnIndex(Transaction.COLUMN_RETURN_DATE)),
                         c.getDouble(c.getColumnIndex(Transaction.COLUMN_RATE)),
-                        c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
-                        c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
+//                        c.getLong(c.getColumnIndex(Transaction.COLUMN_ALARM_TIME)), //added this
+//                        c.getInt(c.getColumnIndex(Transaction.COLUMN_DAYS_LEFT)), //added this
                         c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE)),
                         c2.getDouble(c2.getColumnIndex(MoneyTransaction.COLUMN_AMOUNT_DEFICIT)));
                 t.setId(id);
@@ -814,8 +814,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
         cv.put(Transaction.COLUMN_DUE_DATE, updatedTransaction.getDueDate());
         cv.put(Transaction.COLUMN_RETURN_DATE, updatedTransaction.getReturnDate());
         cv.put(Transaction.COLUMN_RATE, updatedTransaction.getRate());
-        cv.put(Transaction.COLUMN_ALARM_TIME, updatedTransaction.getAlarmTime()); //added this
-        cv.put(Transaction.COLUMN_DAYS_LEFT, updatedTransaction.getDaysLeft()); //added this
+//        cv.put(Transaction.COLUMN_ALARM_TIME, updatedTransaction.getAlarmTime()); //added this
+//        cv.put(Transaction.COLUMN_DAYS_LEFT, updatedTransaction.getDaysLeft()); //added this
         Log.v("Update transID: ",""+updatedTransaction.getId());
         int id = db.update(updatedTransaction.TABLE_NAME, cv, " " + updatedTransaction.COLUMN_ID + "= ? ", new String[]{String.valueOf(updatedTransaction.getId())});
         Log.v("RETURNED BY DBUpdate:",""+id);

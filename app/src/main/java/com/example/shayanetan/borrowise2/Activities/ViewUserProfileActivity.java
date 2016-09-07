@@ -1,9 +1,8 @@
 package com.example.shayanetan.borrowise2.Activities;
 
 import android.database.Cursor;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -11,10 +10,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.example.shayanetan.borrowise2.Adapters.HistoryCursorAdapter;
-import com.example.shayanetan.borrowise2.Adapters.UsersCursorAdapter;
 import com.example.shayanetan.borrowise2.Adapters.ViewPagerAdapter;
-import com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment;
-import com.example.shayanetan.borrowise2.Fragments.ViewLentFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewUserBorrowedFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewUserLentFragment;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
@@ -22,9 +18,9 @@ import com.example.shayanetan.borrowise2.Models.User;
 import com.example.shayanetan.borrowise2.R;
 import com.example.shayanetan.borrowise2.Views.SlidingTabLayout;
 
-import org.w3c.dom.Text;
-
-public class ViewUserProfileActivity extends BaseActivity implements ViewUserBorrowedFragment.OnFragmentInteractionListener, ViewUserLentFragment.OnFragmentInteractionListener{
+public class ViewUserProfileActivity extends BaseActivity
+        implements ViewUserBorrowedFragment.OnFragmentInteractionListener,
+        ViewUserLentFragment.OnFragmentInteractionListener{
 
     private ImageView imageView;
     private TextView tv_name, tv_ratingbar;
@@ -79,9 +75,6 @@ public class ViewUserProfileActivity extends BaseActivity implements ViewUserBor
         slidingTab.setDistributeEvenly(true);
         slidingTab.setViewPager(viewPager);
 
-
-
-
     }
 
     public void setProfileDetails(){
@@ -116,8 +109,7 @@ public class ViewUserProfileActivity extends BaseActivity implements ViewUserBor
 
     @Override
     public void deleteTransaction(HistoryCursorAdapter adapter, int id, String type, String classification) {
-//        dbHelper.deleteTransaction(id, classification);
-//        retrieveTransaction(adapter, type);
+
     }
 
     @Override
