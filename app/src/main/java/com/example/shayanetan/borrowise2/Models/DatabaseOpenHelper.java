@@ -1001,5 +1001,18 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 //        }
 //        return notifications;
 //    }
+
+    public Cursor queryByKeyword(String search) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] selectionArgs = new String[] {search, search};
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ User.TABLE_NAME + ", " +
+                ItemTransaction.TABLE_NAME + ", " + Transaction.TABLE_NAME + ", " +
+                MoneyTransaction.TABLE_NAME + " WHERE "+ User.COLUMN_NAME +" LIKE ? OR " +
+                ItemTransaction.COLUMN_NAME + " LIKE ? AND " +
+                Transaction.COLUMN_USER_ID + " = " + User.COLUMN_ID + " AND " +
+                Transaction.COLUMN_ID + " = " + ItemTransaction.COLUMN_ID + " AND " +
+                Transaction.COLUMN_ID + " = " + MoneyTransaction.COLUMN_ID, selectionArgs);
+        return cursor.moveToFirst() ? cursor : null;
+    }
 }
 

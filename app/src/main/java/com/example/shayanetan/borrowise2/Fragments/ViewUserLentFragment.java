@@ -67,11 +67,11 @@ public class ViewUserLentFragment extends Fragment {
         mListener = null;
     }
 
-
     public interface OnFragmentInteractionListener{
         public void deleteTransaction(HistoryCursorAdapter adapter,int id, String type, String classification);
         public void retrieveTransaction(HistoryCursorAdapter adapter, String viewType);
     }
+
     public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener){
         this.mListener = mListener;
     }

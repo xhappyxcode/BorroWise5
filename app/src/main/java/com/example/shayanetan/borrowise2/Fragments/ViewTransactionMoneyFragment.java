@@ -1,34 +1,19 @@
 package com.example.shayanetan.borrowise2.Fragments;
 
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.shayanetan.borrowise2.Adapters.CursorRecyclerViewAdapter;
 import com.example.shayanetan.borrowise2.Adapters.PaymentCursorAdapter;
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
-import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.MoneyTransaction;
-import com.example.shayanetan.borrowise2.Models.PaymentHistory;
-import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.R;
-
-import org.w3c.dom.Text;
 
 public class ViewTransactionMoneyFragment extends ViewTransactionAbstractFragment {
 
@@ -61,8 +46,8 @@ public class ViewTransactionMoneyFragment extends ViewTransactionAbstractFragmen
         init();
 
         moneyTransaction = (MoneyTransaction) dbHelper.queryTransaction(trans_id);
-        tv_amount.setText(String.valueOf(moneyTransaction.getAmountDeficit()));
-        tv_total.setText(String.valueOf(moneyTransaction.getTotalAmountDue()));
+        tv_amount.setText(String.format("%.2f", moneyTransaction.getAmountDeficit()));
+        tv_total.setText(String.format("%.2f", moneyTransaction.getTotalAmountDue()));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);

@@ -33,7 +33,6 @@ public class ViewUserBorrowedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         historyCursorAdapter = new HistoryCursorAdapter(getActivity().getBaseContext(),null);
-
         historyCursorAdapter.setmOnClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(int id, String type, String classification) {
@@ -63,7 +62,6 @@ public class ViewUserBorrowedFragment extends Fragment {
         return layout;
     }
 
-
     @Override
     public void onDetach() {
         super.onDetach();
@@ -71,6 +69,7 @@ public class ViewUserBorrowedFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener{
+        public void deleteTransaction(HistoryCursorAdapter adapter,int id, String type, String classification);
         public void retrieveTransaction(HistoryCursorAdapter adapter, String viewType);
     }
 

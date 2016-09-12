@@ -181,7 +181,7 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
         // TODO
 
 
-        TextView tv_Haccount_item, tv_Hitemname, tv_Hstartdateitem_val, tv_Hduedateitem_val, tv_Hretdateitem_val, tv_Hstatusitem_val;
+        TextView tv_Haccount_item, tv_Hitemname, tv_Hretdateitem_val, tv_Hstatusitem_val;
         ImageView img_Hitem;
 
         View item_container;

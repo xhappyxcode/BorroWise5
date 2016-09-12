@@ -3,7 +3,6 @@ package com.example.shayanetan.borrowise2.Adapters;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +29,7 @@ public class PaymentCursorAdapter extends CursorRecyclerViewAdapter<PaymentCurso
         Double amount = cursor.getDouble(cursor.getColumnIndex(PaymentHistory.COLUMN_PAYMENT));
         long date = cursor.getLong(cursor.getColumnIndex(PaymentHistory.COLUMN_DATE));
 
-        viewHolder.tv_amount.setText(String.valueOf(amount));
+        viewHolder.tv_amount.setText(String.format("%.2f", amount));
         viewHolder.tv_date.setText(parseMillisToDate(date));
         viewHolder.payment_container.setTag(cursor.getInt(cursor.getColumnIndex(PaymentHistory.COLUMN_ID)));
 

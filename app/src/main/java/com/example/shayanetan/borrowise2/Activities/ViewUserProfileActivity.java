@@ -30,8 +30,8 @@ public class ViewUserProfileActivity extends BaseActivity
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
 
-    private static String TITLE_TAB1 = "BORROWED FROM YOU";
-    private static String TITLE_TAB2 = "LENT TO YOU";
+    private static String TITLE_TAB1 = "BORROWED";
+    private static String TITLE_TAB2 = "LENT";
 
     private ViewUserBorrowedFragment borrowFragment;
     private ViewUserLentFragment lentFragment;
@@ -53,7 +53,6 @@ public class ViewUserProfileActivity extends BaseActivity
 
         setProfileDetails();
 
-
         // transactionsCursorAdapter = new TransactionsCursorAdapter(getBaseContext(),null);
         viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
 
@@ -61,11 +60,12 @@ public class ViewUserProfileActivity extends BaseActivity
 
         borrowFragment = new ViewUserBorrowedFragment();
         borrowFragment.setOnFragmentInteractionListener(this);
+
         lentFragment = new ViewUserLentFragment();
         lentFragment.setOnFragmentInteractionListener(this);
 
-        viewPagerAdapter.addFragment(borrowFragment, TITLE_TAB1);
-        viewPagerAdapter.addFragment(lentFragment, TITLE_TAB2);
+        viewPagerAdapter.addFragment(lentFragment, TITLE_TAB1);
+        viewPagerAdapter.addFragment(borrowFragment, TITLE_TAB2);
 
         // viewPagerAdapter.addFragment(new TransactionLentFragment(), TITLE_TAB2);
         viewPager.setAdapter(viewPagerAdapter);
@@ -123,4 +123,6 @@ public class ViewUserProfileActivity extends BaseActivity
         }
         adapter.swapCursor(cursor);
     }
+
+
 }

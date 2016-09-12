@@ -60,14 +60,17 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".Activities.ViewTransactionActivity"
+        <activity
+            android:name=".Activities.ViewTransactionActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_view_transaction"
             android:noHistory="true" />
-        <activity android:name=".Activities.ViewHistoryActivity"
+        <activity
+            android:name=".Activities.ViewHistoryActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_view_history"
             android:noHistory="true" />
+        <activity android:name=".Activities.SearchActivity"></activity>
     </application>
 
 </manifest>

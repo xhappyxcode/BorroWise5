@@ -298,7 +298,7 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
     }
 
     public Bitmap getRoundedShape(Bitmap scaleBitmapImage) {
-
+        /* makes the picture round */
         int targetWidth = 160;
         int targetHeight = 160;
         Bitmap targetBitmap = Bitmap.createBitmap(targetWidth,
