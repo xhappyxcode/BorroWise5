@@ -49,6 +49,7 @@
     <string name="title_activity_transaction">Transactions</string>
     <string name="title_activity_history">History</string>
     <string name="title_activity_people">People</string>
+    <string name="title_activity_search">Search</string>
     <string name="currency">PHP</string>
     <string name="title_activity_view_user_profile">User Profile</string>
 

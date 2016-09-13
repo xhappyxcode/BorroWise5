@@ -1001,17 +1001,44 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 //        }
 //        return notifications;
 //    }
-
+// the query is only for borrowed
     public Cursor queryByKeyword(String search) {
         SQLiteDatabase db = getReadableDatabase();
+        search = "%" + search + "%";
         String[] selectionArgs = new String[] {search, search};
-        Cursor cursor = db.rawQuery("SELECT * FROM "+ User.TABLE_NAME + ", " +
-                ItemTransaction.TABLE_NAME + ", " + Transaction.TABLE_NAME + ", " +
-                MoneyTransaction.TABLE_NAME + " WHERE "+ User.COLUMN_NAME +" LIKE ? OR " +
-                ItemTransaction.COLUMN_NAME + " LIKE ? AND " +
-                Transaction.COLUMN_USER_ID + " = " + User.COLUMN_ID + " AND " +
-                Transaction.COLUMN_ID + " = " + ItemTransaction.COLUMN_ID + " AND " +
-                Transaction.COLUMN_ID + " = " + MoneyTransaction.COLUMN_ID, selectionArgs);
+        Cursor cursor = db.rawQuery("SELECT " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_ID + " AS _id, " + Transaction.COLUMN_CLASSIFICATION + ", "
+                        + Transaction.COLUMN_USER_ID + ", " + Transaction.COLUMN_TYPE + ", "
+                        + Transaction.COLUMN_STATUS + ", " + Transaction.COLUMN_START_DATE + ", "
+                        + Transaction.COLUMN_DUE_DATE + ", " + Transaction.COLUMN_RETURN_DATE + ", " + Transaction.COLUMN_RATE + ", "
+                        + ItemTransaction.TABLE_NAME + "." + ItemTransaction.COLUMN_NAME + " AS Attribute1, " + ItemTransaction.TABLE_NAME + "." + ItemTransaction.COLUMN_DESCRIPTION + " AS Attribute2, "
+                        + ItemTransaction.TABLE_NAME + "." + ItemTransaction.COLUMN_PHOTOPATH + " AS Attribute3, "
+                        + User.TABLE_NAME + "." + User.COLUMN_NAME + " AS name, "
+                        + User.COLUMN_TOTAL_RATE
+                        + " FROM " + Transaction.TABLE_NAME
+                        + " INNER JOIN " + ItemTransaction.TABLE_NAME
+                        + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_ID + "=" + ItemTransaction.TABLE_NAME + "." + ItemTransaction.COLUMN_TRANSACTION_ID
+                        + " INNER JOIN " + User.TABLE_NAME
+                        + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_USER_ID + "=" + User.TABLE_NAME + "." + User.COLUMN_ID
+                        + " WHERE " /* + Transaction.TABLE_NAME + "." + Transaction.COLUMN_TYPE + "='borrow' AND " */
+                        + User.TABLE_NAME + "." + User.COLUMN_NAME + " LIKE '" + search + "'"
+                        + " OR " + ItemTransaction.TABLE_NAME + "." + ItemTransaction.COLUMN_NAME + " LIKE '" + search + "'"
+                        + " UNION "
+                        + "SELECT " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_ID + " AS _id, " + Transaction.COLUMN_CLASSIFICATION + ", "
+                        + Transaction.COLUMN_USER_ID + ", " + Transaction.COLUMN_TYPE + ", "
+                        + Transaction.COLUMN_STATUS + ", " + Transaction.COLUMN_START_DATE + ", "
+                        + Transaction.COLUMN_DUE_DATE + ", " + Transaction.COLUMN_RETURN_DATE + ", " + Transaction.COLUMN_RATE + ", "
+                        + MoneyTransaction.TABLE_NAME + "." + MoneyTransaction.COLUMN_TOTAL_AMOUNT_DUE + " AS Attribute1, " + MoneyTransaction.TABLE_NAME + "." + MoneyTransaction.COLUMN_AMOUNT_DEFICIT + " AS Attribute2, "
+                        + "Null AS Attribute3, "
+                        + User.TABLE_NAME + "." + User.COLUMN_NAME + " AS name, "
+                        + User.COLUMN_TOTAL_RATE
+                        + " FROM " + Transaction.TABLE_NAME
+                        + " INNER JOIN " + MoneyTransaction.TABLE_NAME
+                        + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_ID + "=" + MoneyTransaction.TABLE_NAME + "." + MoneyTransaction.COLUMN_TRANSACTION_ID
+                        + " INNER JOIN " + User.TABLE_NAME
+                        + " ON " + Transaction.TABLE_NAME + "." + Transaction.COLUMN_USER_ID + "=" + User.TABLE_NAME + "." + User.COLUMN_ID
+                        + " WHERE " /* + Transaction.TABLE_NAME + "." + Transaction.COLUMN_TYPE + "='borrow' AND " */
+                        + User.TABLE_NAME + "." + User.COLUMN_NAME + " LIKE '" + search + "'"
+                , null);
         return cursor.moveToFirst() ? cursor : null;
     }
 }

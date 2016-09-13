@@ -93,7 +93,6 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
             viewTypeFinal = TYPE_LEND;
         String transactionAttribute1 = cursor.getString(cursor.getColumnIndex("Attribute1"));
         String transactionAttribute3 = cursor.getString(cursor.getColumnIndex("Attribute3"));
-        File imgFile = new  File(transactionAttribute3);
 
         /* attributes if transaction is ongoing */
         String dueDate = parseMillisToDate(cursor.getLong(cursor.getColumnIndex(Transaction.COLUMN_DUE_DATE)));
@@ -120,6 +119,7 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
 
         switch(viewHolder.getItemViewType()) {
             case TYPE_ITEM_TRANSACTION:
+                File imgFile = new  File(transactionAttribute3);
                 if(imgFile.exists()){
                     Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                     myBitmap = getRoundedShape(myBitmap);
@@ -171,8 +171,9 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
                 }
                 break;
             case TYPE_ITEM_HISTORY:
-                if(imgFile.exists()){
-                    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                File imgFile1 = new  File(transactionAttribute3);
+                if(imgFile1.exists()){
+                    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                     myBitmap = getRoundedShape(myBitmap);
                     ((ItemHistoryViewHolder)viewHolder).img_Hitem.setImageBitmap(myBitmap);
                     ((ItemHistoryViewHolder)viewHolder).img_Hitem.setScaleType(ImageView.ScaleType.CENTER);
