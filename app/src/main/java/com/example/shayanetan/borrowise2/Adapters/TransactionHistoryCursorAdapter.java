@@ -56,6 +56,18 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
         OnHistoryLongClickListener = onHistoryLongClickListener;
     }
 
+    public OnButtonClickListener getOnTransactionClickListener() {
+        return OnTransactionClickListener;
+    }
+
+    public OnButtonClickListener getOnHistoryClickListener() {
+        return OnHistoryClickListener;
+    }
+
+    public OnButtonClickListener getOnHistoryLongClickListener() {
+        return OnHistoryLongClickListener;
+    }
+
     public interface OnButtonClickListener {
         public void onButtonClick(int id, String type, String classification);
     }
@@ -130,7 +142,7 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
                 ((ItemTransactionViewHolder)viewHolder).tv_account_item.setText(name);
                 ((ItemTransactionViewHolder)viewHolder).tv_duedate_val.setText(dueDate);
                 ((ItemTransactionViewHolder)viewHolder).tv_itemname.setText(transactionAttribute1);
-                ((ItemTransactionViewHolder)viewHolder).item_container.setTag(R.id.key_entry_id, id);
+                ((ItemTransactionViewHolder)viewHolder).item_container.setTag(cursor.getInt(cursor.getColumnIndex(Transaction.COLUMN_ID)));
                 ((ItemTransactionViewHolder)viewHolder).item_container.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -154,6 +166,7 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
                 ((MoneyTransactionViewHolder)viewHolder).tv_account_money.setText(name);
                 ((MoneyTransactionViewHolder)viewHolder).tv_duedate_val.setText(dueDate);
                 ((MoneyTransactionViewHolder)viewHolder).tv_amount.setText(transactionAttribute2);
+                ((MoneyTransactionViewHolder)viewHolder).money_container.setTag(cursor.getInt(cursor.getColumnIndex(Transaction.COLUMN_ID)));
                 ((MoneyTransactionViewHolder)viewHolder).money_container.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

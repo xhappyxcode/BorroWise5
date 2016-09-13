@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -46,6 +45,7 @@ public class DeleteDialogFragment extends DialogFragment {
 
     public interface OnFragmentInteractionListener {
         public void deleteDialog(HistoryCursorAdapter historyCursorAdapter, int id, String type, String classification);
+//        public void deleteDialog(int id, String type, String classification);
     }
 
     public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener) {
@@ -65,7 +65,11 @@ public class DeleteDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.dialog_delete, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // TODO: delete transaction, pass the transaction id here
-                        mListener.deleteDialog(historyCursorAdapter, id, type, classification);
+//                        if(historyCursorAdapter != null) {
+                            mListener.deleteDialog(historyCursorAdapter, id, type, classification);
+//                        } else {
+//                            mListener.deleteDialog(id, type, classification);
+//                        }
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {

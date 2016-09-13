@@ -3,21 +3,15 @@ package com.example.shayanetan.borrowise2.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Activities.ViewHistoryActivity;
-import com.example.shayanetan.borrowise2.Activities.ViewTransactionActivity;
 import com.example.shayanetan.borrowise2.Adapters.HistoryCursorAdapter;
 import com.example.shayanetan.borrowise2.Models.Transaction;
-import com.example.shayanetan.borrowise2.R;
 
 /**
  * Created by ShayaneTan on 3/16/2016.
@@ -45,7 +39,7 @@ public abstract class HistoryAbstractFragment extends Fragment {
         historyCursorAdapter.setmOnLongClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
             @Override
             public void onButtonClick(int id, String type, String classification) {
-                mListener.deleteTransaction(historyCursorAdapter,id, type, classification);
+                mListener.deleteTransaction(historyCursorAdapter, id, type, classification);
             }
         });
 
