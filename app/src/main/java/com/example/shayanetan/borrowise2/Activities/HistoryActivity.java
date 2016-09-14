@@ -1,24 +1,17 @@
 package com.example.shayanetan.borrowise2.Activities;
 
 import android.database.Cursor;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Adapters.HistoryCursorAdapter;
-import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Adapters.ViewPagerAdapter;
 import com.example.shayanetan.borrowise2.Fragments.DeleteDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.HistoryAbstractFragment;
 import com.example.shayanetan.borrowise2.Fragments.HistoryBorrowedFragment;
 import com.example.shayanetan.borrowise2.Fragments.HistoryLendFragment;
-import com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment;
-import com.example.shayanetan.borrowise2.Fragments.ViewLentFragment;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.R;
 import com.example.shayanetan.borrowise2.Views.SlidingTabLayout;
@@ -48,6 +41,7 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        setTitle(R.string.title_activity_history);
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
 

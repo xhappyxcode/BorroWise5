@@ -47,6 +47,8 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_transaction);
+        setTitle(R.string.title_activity_add_transaction);
+
         Intent intent = getIntent();
         int transactionType = intent.getIntExtra(Transaction.COLUMN_TYPE, TransactionsCursorAdapter.TYPE_ITEM);
 

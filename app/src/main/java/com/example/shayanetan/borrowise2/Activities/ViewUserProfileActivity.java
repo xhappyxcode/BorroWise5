@@ -43,7 +43,7 @@ public class ViewUserProfileActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_user_profile);
-
+        setTitle(R.string.title_activity_view_user_profile);
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
         imageView = (ImageView) findViewById(R.id.img_userprofile);

@@ -2,14 +2,13 @@ package com.example.shayanetan.borrowise2.Activities;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Adapters.ViewPagerAdapter;
@@ -18,10 +17,8 @@ import com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewLentFragment;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.Transaction;
-import com.example.shayanetan.borrowise2.Views.SlidingTabLayout;
 import com.example.shayanetan.borrowise2.R;
-
-import java.util.StringTokenizer;
+import com.example.shayanetan.borrowise2.Views.SlidingTabLayout;
 /*
  * Edited by Stephanie Dy on 2/27/2016 added btn_addTransaction and onClickListener
  *                                           implemented AddTransactionDialogFragment
@@ -51,6 +48,7 @@ public class ViewTransactionListActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transaction_list);
+        setTitle(R.string.title_activity_view_transaction);
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
         //transactionsCursorAdapter = new TransactionsCursorAdapter(getBaseContext(),null);

@@ -1,17 +1,12 @@
 package com.example.shayanetan.borrowise2.Activities;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.shayanetan.borrowise2.Adapters.HistoryCursorAdapter;
-import com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewHistoryAbstractFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewHistoryItemFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewHistoryMoneyFragment;
-import com.example.shayanetan.borrowise2.Fragments.ViewLentFragment;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.R;
@@ -30,6 +25,7 @@ public class ViewHistoryActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_history);
+        setTitle(R.string.title_activity_view_history);
 
         Intent intent = getIntent();
         trans_id = intent.getIntExtra(Transaction.COLUMN_ID, 0);

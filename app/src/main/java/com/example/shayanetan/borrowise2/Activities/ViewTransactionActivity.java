@@ -1,24 +1,15 @@
 package com.example.shayanetan.borrowise2.Activities;
 
-import android.app.AlertDialog;
-import android.content.ClipData;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Fragments.AmountDialogFragment;
-import com.example.shayanetan.borrowise2.Fragments.DeleteDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.PaymentErrorDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.RatingDialogFragment;
-import com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment;
-import com.example.shayanetan.borrowise2.Fragments.ViewLentFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewTransactionAbstractFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewTransactionItemFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewTransactionMoneyFragment;
@@ -52,6 +43,8 @@ public class ViewTransactionActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transaction);
+        setTitle(R.string.title_activity_view_transaction);
+
         Intent intent = getIntent();
         trans_id = intent.getIntExtra(Transaction.COLUMN_ID, 0);
 

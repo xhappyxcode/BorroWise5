@@ -97,12 +97,16 @@ public class BaseActivity extends AppCompatActivity implements
 
         drawerLayout.closeDrawers();
 
-        if(menuItem.getItemId() == R.id.menuitem_transaction)
-            setTitle("BorroWise");
-        else
-            setTitle(menuItem.getTitle());
+//        if(menuItem.getItemId() == R.id.menuitem_transaction)
+//            setTitle("BorroWise");
+//        else
+//            setTitle(menuItem.getTitle());
 
         startActivity(i);
+    }
+
+    protected void setTitle(String title) {
+        setTitle(title);
     }
 
     protected boolean useToolbar() {

@@ -27,6 +27,7 @@ public class ViewUserActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_user);
+        setTitle(R.string.title_activity_view_user);
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
         uca = new UsersCursorAdapter(getBaseContext(),null);
