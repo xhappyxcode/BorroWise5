@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context="com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment">
+    tools:context="Fragments.ViewBorrowedFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

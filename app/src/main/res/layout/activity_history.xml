@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.shayanetan.borrowise2.Activities.HistoryActivity">
+    tools:context="Activities.HistoryActivity">
 
-    <com.example.shayanetan.borrowise2.Views.SlidingTabLayout
+    <Views.SlidingTabLayout
         android:id="@+id/Hsliding_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
