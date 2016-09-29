@@ -50,11 +50,11 @@
                     android:textSize="@dimen/subheading_label"/>
 
                 <TextView
-                    android:id="@+id/tv_NOTIF_alarm"
+                    android:id="@+id/tv_btn_notif_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="10:00 pm"
+                    android:text="12:00 PM"
                     android:layout_alignParentEnd="true"
                     android:textSize="@dimen/caption_label"/>
 
@@ -97,7 +97,7 @@
                     android:textSize="@dimen/subheading_label"/>
 
                 <Spinner
-                    android:id="@+id/spnr_NOTIF_days"
+                    android:id="@+id/spnr_notif_days"
                     android:layout_alignRight="@id/tv_NOTIF_dayTitle"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center_vertical"
@@ -120,7 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="#dc5351"
+                android:background="@color/paleRedColor"
                 android:text="CANCEL"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/subheading_label"
@@ -130,7 +130,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="#23a357"
+                android:background="@color/paleGreenColor"
                 android:text="SAVE"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/subheading_label"
