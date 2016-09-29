@@ -7,6 +7,8 @@
     <color name = "accentLightBlueColor">#3f51b5</color>
     <color name = "accentRedColor">#ff5252</color>
     <color name = "accentGreenColor">#20cf11</color>
+    <color name = "paleRedColor">#dc5351</color>
+    <color name = "paleGreenColor">#23a357</color>
 
     <color name = "text_primaryColor">#37474f</color>
     <color name = "text_secondaryColor">#455a64</color>
