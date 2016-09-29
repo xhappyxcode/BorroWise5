@@ -33,11 +33,11 @@ public abstract class Transaction {
     protected long dueDate;
     protected long returnDate;
     protected double rate;
-    private long alarmTime; /*added this*/
+    private String alarmTime; /*added this*/
     private int daysLeft; /*added this*/
 
     public Transaction(){};
-    public Transaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate, long alarmTime, int daysLeft) {
+    public Transaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate, String alarmTime, int daysLeft) {
         this.classification = classification;
         this.userID = userID;
         this.type = type;
@@ -133,11 +133,11 @@ public abstract class Transaction {
         this.rate = rate;
     }
 
-    public long getAlarmTime() {
+    public String getAlarmTime() {
         return alarmTime;
     }
 
-    public void setAlarmTime(long alarmTime) {
+    public void setAlarmTime(String alarmTime) {
         this.alarmTime = alarmTime;
     }
 

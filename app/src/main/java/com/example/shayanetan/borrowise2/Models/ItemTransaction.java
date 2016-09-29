@@ -19,22 +19,13 @@ public class ItemTransaction extends Transaction {
     private String description;
     private String photoPath;
 
-    public ItemTransaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate,
-                           String name, String description, String photoPath) {
-        super(classification, userID, type, status, startDate, dueDate, returnDate, rate);
-        this.name = name;
-        this.description = description;
-        this.photoPath = photoPath;
-    }
-
-    public ItemTransaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate, long alarmTime, int daysLeft,
+    public ItemTransaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate, String alarmTime, int daysLeft,
                            String name, String description, String photoPath) {
         super(classification, userID, type, status, startDate, dueDate, returnDate, rate, alarmTime, daysLeft);
         this.name = name;
         this.description = description;
         this.photoPath = photoPath;
     }
-
 
     public String getName() {
         return name;

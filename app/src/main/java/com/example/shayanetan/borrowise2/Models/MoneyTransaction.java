@@ -14,14 +14,7 @@ public class MoneyTransaction extends Transaction{
 
 
     public MoneyTransaction(){ super();}
-    public MoneyTransaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate,
-                            double totalAmountDue, double amountDeficit) {
-        super(classification, userID, type, status, startDate, dueDate, returnDate, rate);
-        this.totalAmountDue = totalAmountDue;
-        this.amountDeficit = amountDeficit;
-    }
-
-    public MoneyTransaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate, long alarmTime, int daysLeft,
+    public MoneyTransaction(String classification, int userID, String type, int status, long startDate, long dueDate, long returnDate, double rate, String alarmTime, int daysLeft,
                             double totalAmountDue, double amountDeficit) {
         super(classification, userID, type, status, startDate, dueDate, returnDate, rate, alarmTime, daysLeft);
         this.totalAmountDue = totalAmountDue;
