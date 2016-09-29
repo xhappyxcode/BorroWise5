@@ -86,9 +86,9 @@ public class DeleteDialogFragment extends DialogFragment {
                 Button deleteButton = ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_POSITIVE);
                 Button cancelButton = ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_NEGATIVE);
 
-                deleteButton.setBackgroundColor(Color.GREEN);
+                deleteButton.setBackgroundColor(getResources().getColor(R.color.paleGreenColor));
                 deleteButton.setTextColor(Color.WHITE);
-                cancelButton.setBackgroundColor(Color.RED);
+                cancelButton.setBackgroundColor(getResources().getColor(R.color.paleRedColor));
                 cancelButton.setTextColor(Color.WHITE);
             }
         });

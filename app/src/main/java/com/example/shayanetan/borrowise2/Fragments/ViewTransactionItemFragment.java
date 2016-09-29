@@ -48,6 +48,8 @@ public class ViewTransactionItemFragment extends ViewTransactionAbstractFragment
         btn_lost = (Button) layout.findViewById(R.id.btn_lost);
         btn_returned = (Button) layout.findViewById(R.id.btn_returned);
 
+        tv_notif_days = (TextView) layout.findViewById(R.id.tv_notif_days_before);
+        tv_notif_time = (TextView) layout.findViewById(R.id.tv_notif_time);
 
         init(); // method found in abstact class
 

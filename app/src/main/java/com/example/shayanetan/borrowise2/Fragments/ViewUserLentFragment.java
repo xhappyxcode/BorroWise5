@@ -68,7 +68,7 @@ public class ViewUserLentFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener{
-        public void deleteTransaction(HistoryCursorAdapter adapter,int id, String type, String classification);
+        public void deleteTransaction(HistoryCursorAdapter adapter, int id, String type, String classification);
         public void retrieveTransaction(HistoryCursorAdapter adapter, String viewType);
     }
 

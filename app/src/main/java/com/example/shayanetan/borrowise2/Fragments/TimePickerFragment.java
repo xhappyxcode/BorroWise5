@@ -26,14 +26,24 @@ import java.util.Date;
  */
 public class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
 
-    private TextView tv_alarm;
+    //private TextView tv_alarm;
 
     public TimePickerFragment(){}
 
+    private String resultTime;
+    private OnFragmentInteractionListener mListener;
 
 
-    public void setTv_alarm(TextView tv_alarm) {
+    /*public void setTv_alarm(TextView tv_alarm) {
         this.tv_alarm = tv_alarm;
+    }*/
+
+    public interface OnFragmentInteractionListener{
+        public void getTime(String time);
+    }
+
+    public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener){
+        this.mListener = mListener;
     }
 
     @Override
@@ -64,8 +74,24 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
             else
                 result = hourString+":"+minute;
 
-            tv_alarm.setText(result);
+        //tv_alarm.setText(result);
+        //if(mListener != null)
+        mListener.getTime(result);
+        //else
+            //Log.v("mListener", "null");
+        resultTime = result;
 
     }
 
+    public OnFragmentInteractionListener getmListener(){
+        return mListener;
+    }
+
+    public String getResultTime(){
+        return resultTime;
+    }
+
+    public void showDialog(){
+        this.show(getFragmentManager(), "TimePicker");
+    }
 }

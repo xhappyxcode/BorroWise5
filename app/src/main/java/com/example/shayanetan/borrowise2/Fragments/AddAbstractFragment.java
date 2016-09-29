@@ -50,7 +50,7 @@ public abstract class AddAbstractFragment extends Fragment {
 
     protected FragmentActivity myContext;
     protected AutoCompleteTextView atv_person_name;
-    protected View layout_startDate, layout_endDate;
+    protected View layout_startDate, layout_endDate, layout_notif_settings;
     protected TextView tv_startDate, tv_endDate, tv_notif_time, tv_notif_days_before;
     protected Button btn_borrowed, btn_lent;
 //    protected FloatingActionButton img_btn_switch;
@@ -71,6 +71,7 @@ public abstract class AddAbstractFragment extends Fragment {
         //TODO: Update argument type and name
         public int onAddNewUser(String name, String contact_info);
         public void onAddTransactions(Transaction t);
+        public void onSettingsDialog();
     }
 
     public void setOnFragmentInteractionListener(OnFragmentInteractionListener mListener){this.mListener = mListener; }
@@ -133,7 +134,19 @@ public abstract class AddAbstractFragment extends Fragment {
             }
         });
 
+        layout_notif_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mListener.onSettingsDialog();
+            }
+        });
+
 //        onFragmentSwitch();
+    }
+
+    public void setNotificationValue(String time, int days){
+        tv_notif_time.setText(time);
+        tv_notif_days_before.setText(String.valueOf(days));
     }
 
     public long parseDateToMillis(String toParse){

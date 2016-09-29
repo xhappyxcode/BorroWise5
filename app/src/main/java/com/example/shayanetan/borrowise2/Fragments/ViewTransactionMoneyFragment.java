@@ -40,6 +40,9 @@ public class ViewTransactionMoneyFragment extends ViewTransactionAbstractFragmen
         btn_add_payment = (ImageView) layout.findViewById(R.id.btn_add_payment_history);
         tv_total = (TextView) layout.findViewById(R.id.tv_view_total);
 
+        tv_notif_days = (TextView) layout.findViewById(R.id.tv_mnotif_days_before);
+        tv_notif_time = (TextView) layout.findViewById(R.id.tv_mnotif_time);
+
         paymentCursorAdapter = new PaymentCursorAdapter(getActivity().getBaseContext(), null);
         recyclerView = (RecyclerView) layout.findViewById(R.id.recyclerview_payment_history);
 

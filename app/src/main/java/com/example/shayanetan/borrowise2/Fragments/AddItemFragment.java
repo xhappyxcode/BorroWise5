@@ -63,6 +63,7 @@ public class AddItemFragment extends AddAbstractFragment {
 
         layout_startDate = (View) layout.findViewById(R.id.layout_item_startDate);
         layout_endDate = (View) layout.findViewById(R.id.layout_item_endDate);
+        layout_notif_settings = (View) layout.findViewById(R.id.layout_item_notif_settings);
 
         tv_notif_time = (TextView) layout.findViewById(R.id.tv_item_notif_time);
         tv_notif_days_before = (TextView) layout.findViewById(R.id.tv_item_notif_days_before);
@@ -80,6 +81,7 @@ public class AddItemFragment extends AddAbstractFragment {
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, 0);
+                myContext.overridePendingTransition(0, 0);
             }
         });
 
@@ -99,8 +101,8 @@ public class AddItemFragment extends AddAbstractFragment {
                                 parseDateToMillis(tv_startDate.getText().toString()),
                                 parseDateToMillis(tv_endDate.getText().toString()),
                                 0, 0.0,
-//                            Long.parseLong(tv_notif_time.getText().toString()), //alarmTime
-//                            Integer.parseInt(tv_notif_days_before.getText().toString()), //daysLeft
+                                tv_notif_time.getText().toString(), //alarmTime
+                                Integer.parseInt(tv_notif_days_before.getText().toString()), //daysLeft
                                 item, "", filePath);
                         mListener.onAddTransactions(it);
 
@@ -132,6 +134,8 @@ public class AddItemFragment extends AddAbstractFragment {
                                 parseDateToMillis(tv_startDate.getText().toString()),
                                 parseDateToMillis(tv_endDate.getText().toString()),
                                 0, 0.0,
+                                tv_notif_time.getText().toString(), //alarmTime
+                                Integer.parseInt(tv_notif_days_before.getText().toString()), //daysLeft
                                 item, "", filePath);
 
 

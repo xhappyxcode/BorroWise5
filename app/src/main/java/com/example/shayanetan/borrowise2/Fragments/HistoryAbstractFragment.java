@@ -62,7 +62,7 @@ public abstract class HistoryAbstractFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void deleteTransaction(HistoryCursorAdapter adapter,int id, String type, String classification);
+        public void deleteTransaction(HistoryCursorAdapter adapter, int id, String type, String classification);
         public void retrieveTransaction(HistoryCursorAdapter adapter, String type);
         public void retrieveTransaction(HistoryCursorAdapter adapter, String type, String filter);
     }

@@ -50,6 +50,7 @@ public class AddMoneyFragment extends AddAbstractFragment {
 
         layout_startDate = (View) layout.findViewById(R.id.layout_money_startDate);
         layout_endDate = (View) layout.findViewById(R.id.layout_money_endDate);
+        layout_notif_settings = (View) layout.findViewById(R.id.layout_money_notif_settings);
 
         tv_endDate = (TextView) layout.findViewById(R.id.tv_money_endDate);
         tv_startDate = (TextView) layout.findViewById(R.id.tv_money_startDate);
@@ -81,8 +82,8 @@ public class AddMoneyFragment extends AddAbstractFragment {
                                 parseDateToMillis(tv_startDate.getText().toString()),
                                 parseDateToMillis(tv_endDate.getText().toString()),
                                 0,0.0,
-//                            Long.parseLong(tv_notif_time.getText().toString()), //alarmTime
-//                            Integer.parseInt(tv_notif_days_before.getText().toString()), //daysLeft
+                                tv_notif_time.getText().toString(), //alarmTime
+                                Integer.parseInt(tv_notif_days_before.getText().toString()), //daysLeft
                                 amount, amount);
                         mListener.onAddTransactions(m);
                         printAddAcknowledgement(et_AMAmount.getText().toString(), "borrowed");
@@ -113,7 +114,10 @@ public class AddMoneyFragment extends AddAbstractFragment {
                         MoneyTransaction m = new MoneyTransaction(Transaction.MONEY_TYPE, id, Transaction.LEND_ACTION, 0,
                                 parseDateToMillis(tv_startDate.getText().toString()),
                                 parseDateToMillis(tv_endDate.getText().toString()),
-                                0,0.0, amount,amount);
+                                0,0.0,
+                                tv_notif_time.getText().toString(), //alarmTime
+                                Integer.parseInt(tv_notif_days_before.getText().toString()), //daysLeft
+                                amount,amount);
 
                         mListener.onAddTransactions(m);
                         printAddAcknowledgement(et_AMAmount.getText().toString(), "lent");
