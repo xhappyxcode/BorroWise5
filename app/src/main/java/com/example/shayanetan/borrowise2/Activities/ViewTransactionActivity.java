@@ -1,15 +1,27 @@
 package com.example.shayanetan.borrowise2.Activities;
 
+import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Fragments.AmountDialogFragment;
+import com.example.shayanetan.borrowise2.Fragments.DeleteDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.PaymentErrorDialogFragment;
 import com.example.shayanetan.borrowise2.Fragments.RatingDialogFragment;
+import com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment;
+import com.example.shayanetan.borrowise2.Fragments.ViewLentFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewTransactionAbstractFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewTransactionItemFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewTransactionMoneyFragment;
@@ -43,7 +55,8 @@ public class ViewTransactionActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transaction);
-        setTitle(R.string.title_activity_view_transaction);
+        setTitle(R.string.app_name);
+
 
         Intent intent = getIntent();
         trans_id = intent.getIntExtra(Transaction.COLUMN_ID, 0);
@@ -87,6 +100,30 @@ public class ViewTransactionActivity extends BaseActivity
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_view_transaction_container, moneyFragment)
                     .commit();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_view_transaction, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.menu_edit:
+                Toast.makeText(ViewTransactionActivity.this, "Edit is selected", Toast.LENGTH_SHORT);
+                //  TODO: edit transaction
+                return true;
+            case R.id.menu_delete:
+                Toast.makeText(ViewTransactionActivity.this, "Delete is selected", Toast.LENGTH_SHORT);
+                DeleteDialogFragment dialogFragment = new DeleteDialogFragment();
+                dialogFragment.showDialog();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 

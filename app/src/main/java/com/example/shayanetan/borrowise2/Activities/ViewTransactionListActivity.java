@@ -1,14 +1,19 @@
 package com.example.shayanetan.borrowise2.Activities;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Adapters.ViewPagerAdapter;
@@ -17,8 +22,9 @@ import com.example.shayanetan.borrowise2.Fragments.ViewBorrowedFragment;
 import com.example.shayanetan.borrowise2.Fragments.ViewLentFragment;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.Transaction;
-import com.example.shayanetan.borrowise2.R;
 import com.example.shayanetan.borrowise2.Views.SlidingTabLayout;
+import com.example.shayanetan.borrowise2.R;
+
 /*
  * Edited by Stephanie Dy on 2/27/2016 added btn_addTransaction and onClickListener
  *                                           implemented AddTransactionDialogFragment
@@ -26,7 +32,7 @@ import com.example.shayanetan.borrowise2.Views.SlidingTabLayout;
 public class ViewTransactionListActivity extends BaseActivity
         implements ViewBorrowedFragment.OnFragmentInteractionListener,
         ViewLentFragment.OnFragmentInteractionListener,
-        AddTransactionDialogFragment.OnFragmentInteractionListener {
+        AddTransactionDialogFragment.OnFragmentInteractionListener{
 
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
@@ -39,8 +45,9 @@ public class ViewTransactionListActivity extends BaseActivity
     private ViewLentFragment lentFragment;
     private DatabaseOpenHelper dbHelper;
 
-    private FloatingActionButton btn_addTransaction;
-
+    private FloatingActionButton btn_addTransaction, btn_addItem, btn_addMoney;
+    private boolean isAddBtnOpen;
+    private Animation btnOpen, btnClose, rotateForward, rotateBackward;
 
     // private TransactionsCursorAdapter transactionsCursorAdapter;
 
@@ -48,7 +55,10 @@ public class ViewTransactionListActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transaction_list);
-        setTitle(R.string.title_activity_view_transaction);
+        setTitle(R.string.title_activity_transaction);
+
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
         //transactionsCursorAdapter = new TransactionsCursorAdapter(getBaseContext(),null);
@@ -79,13 +89,73 @@ public class ViewTransactionListActivity extends BaseActivity
         btn_addTransaction = (FloatingActionButton) findViewById(R.id.fab_add_transaction);
         btn_addTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
+            public void onClick(View view) {
+                animate();
+            }
+        });
+        /*btn_addTransaction.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 showAddDialog();
 
             }
-        });
+        });*/
+
+        btn_addItem = (FloatingActionButton) findViewById(R.id.fab_add_item);
+        btn_addMoney = (FloatingActionButton) findViewById(R.id.fab_add_money);
+
+        btnOpen = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.open_floating_action_button);
+        btnClose = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.close_floating_action_button);
+
+        rotateForward = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_forward);
+        rotateBackward = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_backward);
     }
 
+    public void setListView(boolean enable){
+        PackageManager pm = getPackageManager();
+        int enableFlag;
+        if(enable == false){
+            Log.i("setListView : enable", String.valueOf(enable));
+            enableFlag = PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+        } else{
+            Log.i("setListView : enable", String.valueOf(enable));
+            enableFlag = PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
+        }
+        pm.setComponentEnabledSetting(new ComponentName(this, this.getClass()),
+                enableFlag, PackageManager.DONT_KILL_APP);
+    }
+
+    public void animate(){
+        if(isAddBtnOpen){ //if the add button is showing the item/money
+            setListView(false); //make the list view screen not clickable
+            btn_addTransaction.startAnimation(rotateBackward); //rotate back to +
+            btn_addItem.startAnimation(btnClose); //close item option
+            btn_addMoney.startAnimation(btnClose); //close money option
+            btn_addItem.setClickable(false);
+            btn_addMoney.setClickable(false);
+            isAddBtnOpen = false;
+        } else{ //if the add button is not showing the item/money, show the options
+            setListView(true);
+            btn_addTransaction.startAnimation(rotateForward); //rotate to x
+            btn_addItem.startAnimation(btnOpen); //open item option
+            btn_addMoney.startAnimation(btnOpen); //open money option
+            btn_addItem.setClickable(true);
+            btn_addMoney.setClickable(true);
+            isAddBtnOpen = true;
+            btn_addItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    addTransaction(TransactionsCursorAdapter.TYPE_ITEM);
+                }
+            });
+            btn_addMoney.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    addTransaction(TransactionsCursorAdapter.TYPE_MONEY);
+                }
+            });
+        }
+    }
     public void onResume() {
         super.onResume();
         updateLists();
@@ -129,6 +199,8 @@ public class ViewTransactionListActivity extends BaseActivity
         Intent intent = new Intent(getBaseContext(), AddTransactionActivity.class);
         intent.putExtra(Transaction.COLUMN_TYPE, transactionType);
         startActivity(intent);
+
+        overridePendingTransition(0, 0);
     }
 
     @Override

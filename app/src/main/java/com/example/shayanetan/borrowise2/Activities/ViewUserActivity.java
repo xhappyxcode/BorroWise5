@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -38,6 +39,7 @@ public class ViewUserActivity extends BaseActivity {
                 userProf.setClass(getBaseContext(), ViewUserProfileActivity.class);
                 userProf.putExtra(User.COLUMN_ID, id);
                 startActivity(userProf);
+                overridePendingTransition(0, 0);
             }
         });
 
@@ -49,8 +51,8 @@ public class ViewUserActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_view_transaction, menu);
-        return true;
+        //getMenuInflater().inflate(R.menu.menu_view_transaction, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

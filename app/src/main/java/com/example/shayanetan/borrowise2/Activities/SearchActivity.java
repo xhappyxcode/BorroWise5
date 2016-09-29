@@ -55,6 +55,8 @@ public class SearchActivity extends BaseActivity implements DeleteDialogFragment
                 intent.putExtra(Transaction.COLUMN_ID, id);
 
                 startActivity(intent);
+
+                overridePendingTransition(0, 0);
             }
         });
 
@@ -66,6 +68,8 @@ public class SearchActivity extends BaseActivity implements DeleteDialogFragment
                 intent.setClass(getBaseContext(), ViewTransactionActivity.class);
                 intent.putExtra(Transaction.COLUMN_ID, id);
                 startActivity(intent);
+
+                overridePendingTransition(0, 0);
             }
         });
 

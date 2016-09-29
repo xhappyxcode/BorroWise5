@@ -88,7 +88,7 @@ public class SettingsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 TimePickerFragment timePickerFragment = new TimePickerFragment();
-                timePickerFragment.setTv_alarm(tv_NOTIF_alarm);
+                //timePickerFragment.setTv_alarm(tv_NOTIF_alarm);
                 timePickerFragment.show(getSupportFragmentManager(), "BorrowTimePicker");
             }
         });
@@ -98,7 +98,7 @@ public class SettingsActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 TimePickerFragment timePickerFragment = new TimePickerFragment();
-                timePickerFragment.setTv_alarm(tv_SMS_alarm);
+                //timePickerFragment.setTv_alarm(tv_SMS_alarm);
                 timePickerFragment.show(getSupportFragmentManager(), "LendTimePicker");
             }
         });

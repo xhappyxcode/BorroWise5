@@ -15,6 +15,8 @@ import com.example.shayanetan.borrowise2.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise2.Fragments.AddAbstractFragment;
 import com.example.shayanetan.borrowise2.Fragments.AddItemFragment;
 import com.example.shayanetan.borrowise2.Fragments.AddMoneyFragment;
+import com.example.shayanetan.borrowise2.Fragments.SettingsDialogFragment;
+import com.example.shayanetan.borrowise2.Fragments.TimePickerFragment;
 import com.example.shayanetan.borrowise2.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise2.Models.ItemTransaction;
 import com.example.shayanetan.borrowise2.Models.MoneyTransaction;
@@ -22,6 +24,7 @@ import com.example.shayanetan.borrowise2.Models.Transaction;
 import com.example.shayanetan.borrowise2.Models.User;
 import com.example.shayanetan.borrowise2.R;
 
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,7 +37,8 @@ import java.util.Date;
  *                                     receives the transactionType from dialog and chooses the fragment to add to activity
  */
 
-public class AddTransactionActivity extends BaseActivity implements AddAbstractFragment.OnFragmentInteractionListener {
+public class AddTransactionActivity extends BaseActivity implements AddAbstractFragment.OnFragmentInteractionListener,
+        SettingsDialogFragment.OnFragmentInteractionListener, TimePickerFragment.OnFragmentInteractionListener{
 
     private DatabaseOpenHelper dbHelper;
 
@@ -42,6 +46,11 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
     final static String SP_KEY_BORROW_DAYS = "BORROWDAYS";
     final static String SP_KEY_LEND_TIME = "LENDTIME";
     final static String SP_KEY_LEND_DAYS = "LENDDAYS";
+
+    private AddItemFragment itemFragment;
+    private AddMoneyFragment moneyFragment;
+
+    static SettingsDialogFragment settingsDialogFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,14 +63,17 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
 
+        itemFragment = null;
+        moneyFragment = null;
+
         if(transactionType==TransactionsCursorAdapter.TYPE_ITEM) {
-            AddItemFragment itemFragment = new AddItemFragment();
+            itemFragment = new AddItemFragment();
             itemFragment.setOnFragmentInteractionListener(this);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, itemFragment)
                     .commit();
         } else {
-            AddMoneyFragment moneyFragment = new AddMoneyFragment();
+            moneyFragment = new AddMoneyFragment();
             moneyFragment.setOnFragmentInteractionListener(this);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, moneyFragment)
@@ -89,6 +101,7 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
 //        return super.onOptionsItemSelected(item);
 //    }
 
+
     @Override
     public int onAddNewUser(String name, String contact_info) {
         int id = dbHelper.checkUserIfExists(name, contact_info);
@@ -108,6 +121,13 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
         Log.v("DUE DATE: ", ""+t.getDueDate());
      //   Toast.makeText(getBaseContext(), "NEW TRANS ID!!!!!! " +itemId, Toast.LENGTH_LONG).show();
         setItemAlarm((int) itemId, t.getDueDate(), t.getClassification(), t.getType());
+    }
+
+    @Override
+    public void onSettingsDialog() {
+        settingsDialogFragment = new SettingsDialogFragment();
+        settingsDialogFragment.setOnFragmentInteractionListener(this);
+        settingsDialogFragment.show(getFragmentManager(), "Settings");
     }
 
     public void setItemAlarm(int item_id, long end, String classification, String type){
@@ -252,5 +272,32 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
 
         }
 
+    }
+
+    @Override
+    public void updateNotification(String alarmTime, int daysLeft) {
+        if(itemFragment != null) {
+            itemFragment.setNotificationValue(alarmTime, daysLeft);
+        }else if(moneyFragment != null){
+            moneyFragment.setNotificationValue(alarmTime, daysLeft);
+        } else{
+            Log.v("item and moneyFragment", "NULL");
+        }
+        Log.v("alarmTime", alarmTime);
+        Log.v("daysLeft", String.valueOf(daysLeft));
+    }
+
+    @Override
+    public void onTimeDialog() {
+        TimePickerFragment timePickerFragment = new TimePickerFragment();
+        timePickerFragment.setOnFragmentInteractionListener(this);
+        if(timePickerFragment.getmListener() == null)
+            Log.v("getmListener", "is null");
+        timePickerFragment.show(getSupportFragmentManager(), "TimePicker");
+    }
+
+    @Override
+    public void getTime(String time) {
+        settingsDialogFragment.setResultTime(time);
     }
 }

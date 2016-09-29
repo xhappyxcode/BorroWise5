@@ -103,6 +103,8 @@ public class BaseActivity extends AppCompatActivity implements
 //            setTitle(menuItem.getTitle());
 
         startActivity(i);
+
+        overridePendingTransition(0, 0);
     }
 
     protected boolean useToolbar() {
@@ -123,6 +125,14 @@ public class BaseActivity extends AppCompatActivity implements
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha));
         }
+
+    }
+
+    public void setAppbar(int layoutAppbarID){
+
+    }
+
+    public void getAppbar(){
 
     }
 
