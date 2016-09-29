@@ -1,14 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Activities.ViewTransactionListActivity">
+    tools:context=".Activities.ViewTransactionActivity">
+
     <item android:id="@+id/menu_edit"
         android:icon="@drawable/ic_edit"
         android:title="@string/menu_edit"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always"
+        android:orderInCategory="1"/>
+
     <item android:id="@+id/menu_delete"
         android:icon="@drawable/ic_delete"
         android:title="@string/menu_delete"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always"
+        android:orderInCategory="2"/>
 </menu>
 
