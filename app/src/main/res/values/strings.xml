@@ -26,6 +26,7 @@
     <string name="lbl_overdue">day/s overdue</string>
     <!-- addition only up to this point -->
     <string-array name="array_spinner">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.shayanetan.borrowise2.Activities.SearchActivity">
+    tools:context="com.example.shayanetan.borrowise3.Activities.SearchActivity">
 
     <RelativeLayout
         android:id="@+id/layout_search"
@@ -15,9 +15,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_search"
-            android:padding="3dp"
-            android:tint="@android:color/white"
-            android:background="@color/secondaryColor"
             android:layout_alignParentEnd="true"/>
         <EditText
             android:id="@+id/et_search"

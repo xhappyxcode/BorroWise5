@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.shayanetan.borrowise2">
+    package="com.example.shayanetan.borrowise3">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,10 +12,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.BaseActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.BaseActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".Activities.ViewTransactionListActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.ViewTransactionListActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/app_name"
             android:launchMode="singleInstance">
@@ -26,51 +26,52 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.ViewUserActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.ViewUserActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_view_user"
             android:launchMode="singleInstance" />
         <activity
-            android:name=".Activities.AddTransactionActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.AddTransactionActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_home"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".Activities.HistoryActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.HistoryActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_history"
             android:launchMode="singleInstance" />
         <activity
-            android:name=".Activities.SettingsActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.SettingsActivity"
             android:clearTaskOnLaunch="true"
             android:label="Settings"
             android:launchMode="singleInstance" />
         <activity
-            android:name=".Activities.ViewUserProfileActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.ViewUserProfileActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_view_user_profile"
             android:noHistory="true" />
 
         <receiver
-            android:name=".Activities.AlarmReceiver"
+            android:name="com.example.shayanetan.borrowise3.Activities.AlarmReceiver"
             android:enabled="true"
             android:exported="true" />
         <receiver
-            android:name=".Activities.SMSReceiver"
+            android:name="com.example.shayanetan.borrowise3.Activities.SMSReceiver"
             android:enabled="true"
             android:exported="true" />
 
         <activity
-            android:name=".Activities.ViewTransactionActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.ViewTransactionActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_view_transaction"
             android:noHistory="true" />
         <activity
-            android:name=".Activities.ViewHistoryActivity"
+            android:name="com.example.shayanetan.borrowise3.Activities.ViewHistoryActivity"
             android:clearTaskOnLaunch="true"
             android:label="@string/title_activity_view_history"
             android:noHistory="true" />
-        <activity android:name=".Activities.SearchActivity"></activity>
+        <activity android:name="com.example.shayanetan.borrowise3.Activities.SearchActivity"></activity>
+
     </application>
 
 </manifest>
