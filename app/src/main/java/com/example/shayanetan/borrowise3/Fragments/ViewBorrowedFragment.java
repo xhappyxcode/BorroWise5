@@ -92,6 +92,9 @@ public class ViewBorrowedFragment extends Fragment {
         btn_TBorrowed_item = (Button) layout.findViewById(R.id.btn_TBorrowed_item);
         btn_TBorrowed_money = (Button) layout.findViewById(R.id.btn_TBorrowed_money);
 
+        //this is just to show the user that all is selected as default
+        btn_TBorrowed_all.setBackgroundResource(R.color.accentBlueColor);
+
         btn_TBorrowed_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
