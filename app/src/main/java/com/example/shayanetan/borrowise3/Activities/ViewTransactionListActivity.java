@@ -1,5 +1,6 @@
 package com.example.shayanetan.borrowise3.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.design.widget.FloatingActionButton;
@@ -35,6 +36,8 @@ public class ViewTransactionListActivity extends BaseActivity
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
     private SlidingTabLayout slidingTabLayout;
+
+    private View dimBackground;
 
     private static String TITLE_TAB1 = "BORROWED FROM";
     private static String TITLE_TAB2 = "LENT TO";
@@ -107,36 +110,35 @@ public class ViewTransactionListActivity extends BaseActivity
 
         rotateForward = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_forward);
         rotateBackward = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_backward);
+
+        dimBackground = (View) findViewById(R.id.background_dimmer);
     }
-/*
-    public void setListView(boolean enable){
-        PackageManager pm = getPackageManager();
-        int enableFlag;
-        if(enable == false){
-            Log.i("setListView : enable", String.valueOf(enable));
-            enableFlag = PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
-        } else{
-            Log.i("setListView : enable", String.valueOf(enable));
-            enableFlag = PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
-        }
-        pm.setComponentEnabledSetting(new ComponentName(this, this.getClass()),
-                enableFlag, PackageManager.DONT_KILL_APP);
-    }*/
 
     public void animate(){
-        if(isAddBtnOpen){ //if the add button is showing the item/money
-            //setListView(false); //make the list view screen not clickable
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        if(isAddBtnOpen){ //(x) if the add button is showing the item/money
+            //this part is when the user clicks on the list view
+            dimBackground.setVisibility(View.GONE);
+            dimBackground.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    closeFAB();
+                    isAddBtnOpen = false;
+                    dimBackground.setVisibility(View.GONE);
+                }
+            });
+            //this part is when the user clicks on the x button
             closeFAB();
             isAddBtnOpen = false;
-        } else{ //if the add button is not showing the item/money, show the options
-            //setListView(true);
+        } else{ //(+) if the add button is not showing the item/money, show the options
+            dimBackground.setVisibility(View.VISIBLE); //dim background
             openFAB();
             isAddBtnOpen = true;
             btn_addItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     closeFAB();
+                    dimBackground.setVisibility(View.GONE);
+                    isAddBtnOpen = false;
                     addTransaction(TransactionsCursorAdapter.TYPE_ITEM);
                 }
             });
@@ -144,6 +146,8 @@ public class ViewTransactionListActivity extends BaseActivity
                 @Override
                 public void onClick(View view) {
                     closeFAB();
+                    dimBackground.setVisibility(View.GONE);
+                    isAddBtnOpen = false;
                     addTransaction(TransactionsCursorAdapter.TYPE_MONEY);
                 }
             });
