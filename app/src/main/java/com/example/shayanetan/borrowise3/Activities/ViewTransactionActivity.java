@@ -100,6 +100,14 @@ public class ViewTransactionActivity extends BaseActivity
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        Log.i("ViewTransactionActivity", "onPrepareOptionsMenu");
+        menu.clear();
+        getMenuInflater().inflate(R.menu.menu_view_transaction, menu);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.i("ViewTransactionActivity", "onCreateOptionsMenu");
         MenuInflater menuInflater = getMenuInflater();
