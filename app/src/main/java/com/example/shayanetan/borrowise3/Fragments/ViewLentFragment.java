@@ -89,6 +89,9 @@ public class ViewLentFragment extends Fragment {
         btn_TLent_item = (Button) layout.findViewById(R.id.btn_TLent_item);
         btn_TLent_money = (Button) layout.findViewById(R.id.btn_TLent_money);
 
+        //this is just to show the user that all is selected as default
+        btn_TLent_all.setBackgroundResource(R.color.accentBlueColor);
+
         btn_TLent_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
