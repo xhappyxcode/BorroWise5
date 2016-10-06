@@ -65,11 +65,8 @@ public class DeleteDialogFragment extends DialogFragment {
                 .setPositiveButton(R.string.dialog_delete, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // TODO: delete transaction, pass the transaction id here
-//                        if(historyCursorAdapter != null) {
-                            mListener.deleteDialog(historyCursorAdapter, id, type, classification);
-//                        } else {
-//                            mListener.deleteDialog(id, type, classification);
-//                        }
+                        mListener.deleteDialog(historyCursorAdapter, id, type, classification);
+
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, new DialogInterface.OnClickListener() {

@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:layout_below="@id/tv_view_lbl_currency"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:hint="0.00"
             android:textColorHint="@android:color/white"
             android:textSize="45sp"
@@ -86,24 +86,30 @@
                 <ImageView
                     android:layout_width="@dimen/navigation_icon_size"
                     android:layout_height="@dimen/navigation_icon_size"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="15dp"
                     android:layout_gravity="center_vertical"
                     android:tint="@color/text_primaryColor"
                     android:src="@drawable/ic_account"/>
-                <TextView
-                    android:id="@+id/view_money_type"
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/lent_to"/>
-                <TextView
-                    android:id="@+id/tv_view_AMPersonName"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter person name"
-                    android:layout_alignParentLeft="true"
-                    android:textSize="@dimen/subheading_label">
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/view_money_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/subheading_label"
+                        android:text="@string/lent_to"/>
+                    <TextView
+                        android:id="@+id/tv_view_AMPersonName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter person name"
+                        android:textSize="@dimen/caption_label"/>
                     <requestFocus />
-                </TextView>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -188,6 +194,7 @@
                 <ImageView
                     android:layout_width="@dimen/navigation_icon_size"
                     android:layout_height="@dimen/navigation_icon_size"
+                    android:layout_marginRight="15dp"
                     android:layout_gravity="center_vertical"
                     android:tint="@color/text_primaryColor"
                     android:src="@drawable/ic_notif"/>
@@ -195,7 +202,6 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="8"
-                    android:layout_marginLeft="10dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:text="Notification Settings"

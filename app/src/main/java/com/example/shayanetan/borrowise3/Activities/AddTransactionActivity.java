@@ -36,8 +36,10 @@ import java.util.Date;
  *                                     receives the transactionType from dialog and chooses the fragment to add to activity
  */
 
-public class AddTransactionActivity extends BaseActivity implements AddAbstractFragment.OnFragmentInteractionListener,
-        SettingsDialogFragment.OnFragmentInteractionListener, TimePickerFragment.OnFragmentInteractionListener{
+public class AddTransactionActivity extends BaseActivity implements
+        AddAbstractFragment.OnFragmentInteractionListener,
+        SettingsDialogFragment.OnFragmentInteractionListener,
+        TimePickerFragment.OnFragmentInteractionListener{
 
     private DatabaseOpenHelper dbHelper;
 
@@ -87,18 +89,6 @@ public class AddTransactionActivity extends BaseActivity implements AddAbstractF
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        int id = item.getItemId();
-//
-////        if (id == R.id.action_settings) {
-////            return true;
-////        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
 
     @Override

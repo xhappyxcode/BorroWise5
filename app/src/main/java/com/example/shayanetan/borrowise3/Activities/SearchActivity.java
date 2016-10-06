@@ -17,7 +17,8 @@ import com.example.shayanetan.borrowise3.Models.DatabaseOpenHelper;
 import com.example.shayanetan.borrowise3.Models.Transaction;
 import com.example.shayanetan.borrowise3.R;
 
-public class SearchActivity extends BaseActivity implements DeleteDialogFragment.OnFragmentInteractionListener {
+public class SearchActivity extends BaseActivity
+        implements DeleteDialogFragment.OnFragmentInteractionListener {
 
     DatabaseOpenHelper dbHelper;
     EditText et_search;

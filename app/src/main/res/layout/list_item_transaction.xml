@@ -75,7 +75,7 @@
                         android:id="@+id/tv_duedateitem_val"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/list_username"
+                        android:textSize="@dimen/list_label"
                         android:text="@string/lbl_duedate"
                         android:textColor="@color/accentLightBlueColor"
                         android:gravity="right"

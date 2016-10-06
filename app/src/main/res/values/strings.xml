@@ -72,8 +72,8 @@
     <string name="menu_edit">EDIT</string>
     <string name="menu_delete">DELETE</string>
 
-    <string name="lent_to">LENT TO: </string>
-    <string name="borrowed_from">BORROWED FROM: </string>
+    <string name="lent_to">Lent To: </string>
+    <string name="borrowed_from">Borrowed From: </string>
     <string name="total_amt">Original: </string>
 
     <!-- TODO: Remove or change this placeholder text -->

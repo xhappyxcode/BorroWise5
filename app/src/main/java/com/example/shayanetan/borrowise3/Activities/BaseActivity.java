@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,17 +36,18 @@ public class BaseActivity extends AppCompatActivity implements
     private ListView listView;
     private int selectedNavItemId;
 
+
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
 
         drawerLayout = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_base, null);
-      //  drawerLayout.setScrimColor(ContextCompat.getColor(getApplicationContext(), android.R.color.transparent));
         activityContainer = (FrameLayout) drawerLayout.findViewById(R.id.activity_content);
         getLayoutInflater().inflate(layoutResID, activityContainer, true);
         super.setContentView(drawerLayout);
 
-        //toolbar = (Toolbar) findViewById(R.id.appbar);
-        setAppbar(R.id.appbar);
+        toolbar = (Toolbar) findViewById(R.id.appbar);
+        setSupportActionBar(toolbar);
+
         navigationView = (NavigationView) findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -56,15 +58,6 @@ public class BaseActivity extends AppCompatActivity implements
         });
         navigationView.setCheckedItem(CURRENT_ID);
 
-
-//        if (useToolbar()) {
-//            setSupportActionBar(toolbar);
-//            toolbar.setVisibility(View.VISIBLE);
-//        }
-//          else {
-//            toolbar.setVisibility(View.GONE);
-//        }
-
         setUpNavView();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
@@ -74,9 +67,6 @@ public class BaseActivity extends AppCompatActivity implements
         Intent i = new Intent();
         CURRENT_ID = menuItem.getItemId();
         switch(menuItem.getItemId()) {
-//            case R.id.menuitem_home:
-//                i.setClass(getBaseContext(),AddTransactionActivity.class);
-//                break;
             case R.id.menuitem_transaction:
                 i.setClass(getBaseContext(),ViewTransactionListActivity.class);
                 break;
@@ -89,23 +79,12 @@ public class BaseActivity extends AppCompatActivity implements
             case R.id.menuitem_search:
                 i.setClass(getBaseContext(), SearchActivity.class);
                 break;
-            /* removed global notification settings and applied individual transaction settings */
-//            case R.id.menuitem_settings:
-//                i.setClass(getBaseContext(),SettingsActivity.class);
-//                break;
             default:
                 i.setClass(getBaseContext(),ViewTransactionListActivity.class);
         }
 
         drawerLayout.closeDrawers();
-
-//        if(menuItem.getItemId() == R.id.menuitem_transaction)
-//            setTitle("BorroWise");
-//        else
-//            setTitle(menuItem.getTitle());
-
         startActivity(i);
-
         overridePendingTransition(0, 0);
     }
 
@@ -130,16 +109,6 @@ public class BaseActivity extends AppCompatActivity implements
 
     }
 
-    public void setAppbar(int layoutAppbarID){
-        toolbar = (Toolbar) findViewById(layoutAppbarID);
-        setSupportActionBar(toolbar);
-        //toolbar.setVisibility(View.VISIBLE);
-    }
-
-    public void getAppbar(){
-
-    }
-
     protected boolean useDrawerToggle() {
         return true;
     }
@@ -150,11 +119,6 @@ public class BaseActivity extends AppCompatActivity implements
         selectedNavItemId = menuItem.getItemId();
 
         return onOptionsItemSelected(menuItem);
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu (Menu menu) {
-        return false;
     }
 
 }

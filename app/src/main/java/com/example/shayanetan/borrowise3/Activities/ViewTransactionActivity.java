@@ -1,15 +1,17 @@
 package com.example.shayanetan.borrowise3.Activities;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.shayanetan.borrowise3.Adapters.HistoryCursorAdapter;
 import com.example.shayanetan.borrowise3.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise3.Fragments.AmountDialogFragment;
 import com.example.shayanetan.borrowise3.Fragments.DeleteDialogFragment;
@@ -25,15 +27,13 @@ import com.example.shayanetan.borrowise3.Models.PaymentHistory;
 import com.example.shayanetan.borrowise3.Models.Transaction;
 import com.example.shayanetan.borrowise3.R;
 
-/*
- *
- */
-
-public class ViewTransactionActivity extends BaseActivity
-        implements
+public class ViewTransactionActivity extends AppCompatActivity implements
         AmountDialogFragment.OnFragmentInteractionListener,
         RatingDialogFragment.OnFragmentInteractionListener,
-        ViewTransactionAbstractFragment.OnFragmentInteractionListener {
+        ViewTransactionAbstractFragment.OnFragmentInteractionListener,
+        DeleteDialogFragment.OnFragmentInteractionListener{
+
+    private Toolbar toolbar;
 
     ImageView btn_edit, btn_delete;
     protected DatabaseOpenHelper dbHelper;
@@ -48,11 +48,14 @@ public class ViewTransactionActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transaction);
-        setTitle(R.string.app_name);
 
-        invalidateOptionsMenu();
-        //onCreateOptionsMenu();
-        setAppbar(R.menu.menu_view_transaction);
+        toolbar = (Toolbar) findViewById(R.id.appbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        setTitle(R.string.app_name);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Intent intent = getIntent();
         trans_id = intent.getIntExtra(Transaction.COLUMN_ID, 0);
@@ -100,32 +103,25 @@ public class ViewTransactionActivity extends BaseActivity
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        Log.i("ViewTransactionActivity", "onPrepareOptionsMenu");
-        menu.clear();
-        getMenuInflater().inflate(R.menu.menu_view_transaction, menu);
-        return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.i("ViewTransactionActivity", "onCreateOptionsMenu");
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_view_transaction, menu);
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_view_transaction, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
-//            case R.id.menu_edit:
-//                Toast.makeText(ViewTransactionActivity.this, "Edit is selected", Toast.LENGTH_SHORT).show();
-//                //  TODO: edit transaction
-//                return true;
+            case android.R.id.home:
+                this.finish();
+                return true;
             case R.id.menu_delete:
-                Toast.makeText(ViewTransactionActivity.this, "Delete is selected", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(ViewTransactionActivity.this, "Delete is selected", Toast.LENGTH_SHORT).show();
+                Log.d("DELEtE TRANSACITON", "Deleting transaction....");
                 DeleteDialogFragment dialogFragment = new DeleteDialogFragment();
-                dialogFragment.showDialog();
+                dialogFragment.setOnFragmentInteractionListener(this);
+                dialogFragment.show(getFragmentManager(), "");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -169,10 +165,6 @@ public class ViewTransactionActivity extends BaseActivity
             }
         }
 
-//        if(filterType.equalsIgnoreCase("All"))
-//            retrieveTransaction(adapter, viewType);
-//        else
-//            retrieveTransaction(adapter, viewType, filterType);
 
     }
 
@@ -266,4 +258,9 @@ public class ViewTransactionActivity extends BaseActivity
 
     }
 
+    @Override
+    public void deleteDialog(HistoryCursorAdapter historyCursorAdapter, int id, String type, String classification) {
+        dbHelper.deleteTransaction(transaction.getId(),transaction.getClassification());
+        finish();
+    }
 }
