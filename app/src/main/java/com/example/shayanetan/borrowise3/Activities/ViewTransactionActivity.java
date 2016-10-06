@@ -2,7 +2,6 @@ package com.example.shayanetan.borrowise3.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -48,7 +47,7 @@ public class ViewTransactionActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transaction);
-        setTitle(R.string.app_name);
+        setTitle(R.string.title_activity_view_transaction);
 
         invalidateOptionsMenu();
         //onCreateOptionsMenu();
