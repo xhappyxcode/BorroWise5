@@ -25,7 +25,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/card_view_camera">
+        android:layout_below="@id/card_view_camera"
+        android:layout_above="@+id/layout_button">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -172,7 +173,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_below="@id/view_item_date_details" >
+                android:layout_below="@id/view_item_date_details"
+                >
 
                 <ImageView
                     android:layout_width="@dimen/navigation_icon_size"
@@ -239,7 +241,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/layout_button">
         <Button
             android:id="@+id/btn_lost"
             android:layout_width="0dp"

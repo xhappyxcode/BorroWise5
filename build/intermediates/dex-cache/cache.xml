@@ -2,112 +2,94 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_4553a20427adc9daeb4b99584ba59fd3d3eff3f2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_716fc8e3a1a284b5ec7363675e91e5c07feb53ac\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_6729dc119ab3edebaf682949ccff69590db5bcb9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_9bd088b314e727885a2705b528a5283db2eee78e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_fb4c5956c541f4915e5fe08e399f1bfdecccba1f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_7849443637276172ad9cdbffaaec6ca390953992\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_11f1050b8c7f1618c1291fddccf20f1427e2186c\classes.dex" />
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.4.0_c3ab272b7d270d9e9c08b8afec8011bb93c03ea2.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="f94838dc5d6853647c84df3a8f915f1030655bf9">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d8768d486a8278ca962b9f566107f29e820cfb58\classes.dex" />
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.4.0_f05ac4f0c7ff3981cacb3f58249743518b6a988d.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_10866fa2ef77516ea555aa8b511fe0e534f87f84\classes.dex" />
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.4.0_319ccc95ebf839e32c5baec1b8cd6d33d7c53aaa.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.viewpagerindicator-library-2.4.1_32cae624779fc884589fce2a9496f34aa11cd9cc\classes.dex" />
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.4.0_f47e24407f2a2b46edc213f7440b78f2f480d81c.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_33270eb6ff965c36821c01db5ef026dbbbf98c5b\classes.dex" />
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.4.0_c13e7d9d49e5e9257ac7687ed1c8d9b372765aaf.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="4414519aef9f614398ffa23dc0a90d67073b47b5">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_8638e4531acb6efd2e2fdefa5d61a92ec9c4f148\classes.dex" />
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.4.0_9e48a90eb92c8e680790910e5707b2ac9fbdaf16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_b3e090ad963dabc7da02450d0f388ea52705496e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_4f0961afc1f0eab3b4c2e9c6506143c7e521626f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\com.viewpagerindicator-library-2.4.1_88540adb697fc3d30962f5f856097bde6274c831.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Reanna Chelsey Lim\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\Reanna Chelsey Lim\Desktop\Final Borrowise\BorroWise5\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_1b4d52d3e9c10b9dc015bba158055ddf15eb1362.jar" />
     </item>
 
 </items>
