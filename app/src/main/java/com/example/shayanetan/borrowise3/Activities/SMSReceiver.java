@@ -30,7 +30,6 @@ public class SMSReceiver extends BroadcastReceiver {
         String message = intent.getExtras().getString(MESSAGE);
         int item_id = intent.getExtras().getInt(Transaction.COLUMN_ID);
 
-        Log.v("CHECK SMS", "PHONE NUMBER: "+ phoneNumber + " MESSAGE: "+message);
 
         PendingIntent sentPI = PendingIntent.getBroadcast(context,item_id,new Intent(SENT),PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent deliveredPI = PendingIntent.getBroadcast(context, item_id, new Intent(DELIVERED), PendingIntent.FLAG_UPDATE_CURRENT);
