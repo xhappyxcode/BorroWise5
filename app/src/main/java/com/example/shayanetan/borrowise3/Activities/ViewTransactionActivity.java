@@ -70,7 +70,7 @@ public class ViewTransactionActivity extends AppCompatActivity implements
             toolbar_icon.setImageResource(R.drawable.ic_item);
         }
         else {
-            toolbar_title.setText("PHP"+intent.getStringExtra(Transaction.ITEM_NAME));
+            toolbar_title.setText("PHP "+intent.getStringExtra(Transaction.ITEM_NAME));
             toolbar_icon.setImageResource(R.drawable.ic_money);
         }
 
