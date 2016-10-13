@@ -9,7 +9,116 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b729b55-8daa-4349-b45a-b80662612dce" name="Default" comment="" />
+    <list default="true" id="0b729b55-8daa-4349-b45a-b80662612dce" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/shayanetan/borrowise3/ApplicationTest.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/example/shayanetan/borroWise/ApplicationTest.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/AddTransactionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/AddTransactionActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/AlarmReceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/AlarmReceiver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/BaseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/BaseActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/HistoryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/HistoryActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/SMSReceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/SMSReceiver.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/SearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/SearchActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/SettingsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/SettingsActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewHistoryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/ViewHistoryActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewTransactionActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/ViewTransactionActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewTransactionListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/ViewTransactionListActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewUserActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/ViewUserActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewUserProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Activities/ViewUserProfileActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/ContactsCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/ContactsCursorAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/CursorRecyclerViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/CursorRecyclerViewAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/DrawerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/DrawerAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/HistoryCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/HistoryCursorAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/PaymentCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/PaymentCursorAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/TransactionHistoryCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/TransactionHistoryCursorAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/TransactionsCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/TransactionsCursorAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/UsersCursorAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/UsersCursorAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/ViewPagerAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Adapters/ViewPagerAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddAbstractFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/AddAbstractFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddItemFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/AddItemFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddMoneyFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/AddMoneyFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddTransactionDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/AddTransactionDialogFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AmountDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/AmountDialogFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/DatePickerFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/DatePickerFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/DeleteDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/DeleteDialogFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/HistoryAbstractFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/HistoryAbstractFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/HistoryBorrowedFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/HistoryBorrowedFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/HistoryLendFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/HistoryLendFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/PaymentErrorDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/PaymentErrorDialogFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/RatingDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/RatingDialogFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/SettingsDialogFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/SettingsDialogFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/TimePickerFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/TimePickerFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewBorrowedFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewBorrowedFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewHistoryAbstractFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewHistoryAbstractFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewHistoryItemFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewHistoryItemFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewHistoryMoneyFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewHistoryMoneyFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewLentFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewLentFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewTransactionAbstractFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewTransactionAbstractFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewTransactionItemFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewTransactionItemFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewTransactionMoneyFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewTransactionMoneyFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewUserBorrowedFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewUserBorrowedFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewUserLentFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/ViewUserLentFragment.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/CustomDate.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Models/CustomDate.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/DatabaseOpenHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Models/DatabaseOpenHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/ItemTransaction.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Models/ItemTransaction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/MoneyTransaction.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Models/MoneyTransaction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/Notification.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Models/Notification.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/PaymentHistory.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Models/PaymentHistory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/Transaction.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Models/Transaction.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/User.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Models/User.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Views/DrawerItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Views/DrawerItem.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Views/SlidingTabLayout.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Views/SlidingTabLayout.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Views/SlidingTabStrip.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Views/SlidingTabStrip.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/Thumbs.db" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/Thumbs.db" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/Thumbs.db" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/Thumbs.db" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_borrowise.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_borrowise.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/Thumbs.db" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_borrowise.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_borrowise.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/Thumbs.db" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_borrowise.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_borrowise.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/Thumbs.db" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/Thumbs.db" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_borrowise.png" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_borrowise.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_transaction_list.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_transaction_list.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_user.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_user.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_user_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_view_user_profile.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_money.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_money.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_history_borrowed.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_history_borrowed.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_history_lend.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_history_lend.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_users_borrowed.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_users_borrowed.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_users_lent.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_users_lent.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_borrowed.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_borrowed.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_lent.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_lent.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_history.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_history.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_item_transaction.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_item_transaction.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_money_history.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_money_history.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/list_money_transaction.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_money_transaction.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/notification_settings_dialog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/notification_settings_dialog.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_add_transaction.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_add_transaction.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_drawer.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_drawer.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_history.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_history.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_rating.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_rating.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/menu_view_user_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_view_user_profile.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
+    </list>
     <ignored path="BorroWise5.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -43,12 +152,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AddTransactionActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/AddTransactionActivity.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
+            <state relative-caret-position="273">
+              <caret line="69" column="44" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
+              <folding>
+                <element signature="e#3010#3051#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AlarmReceiver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/AlarmReceiver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SlidingTabLayout.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Views/SlidingTabLayout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ViewTransactionActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewTransactionActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,6 +209,10 @@
         <option value="resourceFile" />
       </list>
     </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="C:\Users\sharkscion\Dropbox\DLSU CCS 8th term\MOBAPDE\BorroWise App Release Items\keystore.jks" />
+    <option name="KEY_ALIAS" value="Borrowise" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -1406,7 +1558,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="C:\Users\sharkscion\Documents\GitHub\BorroWise5" value="4427113387400" />
+        <entry key="C:\Users\sharkscion\Documents\GitHub\BorroWise5" value="4427813574590" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1672,57 +1824,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewTransactionMoneyFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_history.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_view_transaction_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_view_user_profile.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_home.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/HistoryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/HistoryBorrowedFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/HistoryLendFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item_transaction.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item_history.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_base.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_history_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_money.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_amount_dialog.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/button_green.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_history.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_transaction.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_add_transaction.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_money.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddAbstractFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddItemFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_transaction.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/AddTransactionActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_transaction_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewUserProfileActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/Transaction.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewBorrowedFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewLentFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/HistoryAbstractFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/TransactionHistoryCursorAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_money_transaction.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_user.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item_transaction.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_money_history.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_user_profile.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_borrowed.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_user.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_input.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_history_money.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/HistoryCursorAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewUserBorrowedFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewUserLentFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewHistoryMoneyFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/notification_settings_dialog.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/DeleteDialogFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewHistoryActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewTransactionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/list_money_transaction.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/TransactionHistoryCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/SearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/AddTransactionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddItemFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borroWise/Fragments/AddMoneyFragment.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/ContactsCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/AddTransactionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/BaseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/HistoryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/SearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/SettingsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewHistoryActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewTransactionListActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewUserActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewUserProfileActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/DrawerAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/HistoryCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/PaymentCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/TransactionHistoryCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/TransactionsCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/UsersCursorAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AddAbstractFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AddItemFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AddMoneyFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AddTransactionDialogFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AmountDialogFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/DeleteDialogFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/HistoryBorrowedFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/HistoryLendFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/PaymentErrorDialogFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/RatingDialogFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/SettingsDialogFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewBorrowedFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewHistoryAbstractFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewHistoryItemFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewHistoryMoneyFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewLentFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewTransactionAbstractFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewTransactionItemFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewTransactionMoneyFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewUserBorrowedFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewUserLentFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/AlarmReceiver.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Views/SlidingTabLayout.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewTransactionActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -1760,7 +1912,9 @@
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scratches">
+        <subPane />
+      </pane>
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1768,19 +1922,9 @@
               <option name="myItemId" value="BorroWise5" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="BorroWise5" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidBuildScriptsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1791,10 +1935,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1810,10 +1950,28 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="borrowise3" />
+              <option name="myItemId" value="BorroWise5" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="borrowise" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1829,7 +1987,73 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="borrowise3" />
+              <option name="myItemId" value="borrowise" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BorroWise5" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="borrowise" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Fragments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BorroWise5" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="borrowise" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Adapters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BorroWise5" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="borrowise" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1846,11 +2070,17 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1863,6 +2093,10 @@
     <property name="show.do.not.copy.http.proxy.settings.to.gradle" value="true" />
     <property name="device.picker.selection" value="410071cef2faa209" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/DLSU CCS 8th term/MOBAPDE/BorroWise App Release Items" />
+    <property name="ExportApk.ApkPath" value="C:\Users\sharkscion\Dropbox\DLSU CCS 8th term\MOBAPDE\BorroWise App Release Items" />
+    <property name="ExportApk.Flavors" value="" />
+    <property name="ExportApk.BuildType" value="release" />
   </component>
   <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -2181,7 +2415,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2199,13 +2433,14 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2322239" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16868381" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31228667" sideWeight="0.68986386" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.015358361" sideWeight="0.68986386" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5648464" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3139932" sideWeight="0.31013617" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28517398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32935154" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2215,7 +2450,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2268,510 +2502,486 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_money.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="6" column="81" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="81" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_item.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddMoneyFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2362">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddAbstractFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="196" column="26" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/AddItemFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_transaction.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/AddTransactionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="65" column="43" selection-start-line="65" selection-start-column="43" selection-end-line="65" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewTransactionListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_users_borrowed.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/HistoryBorrowedFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-167">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        <state relative-caret-position="357">
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/AddTransactionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <element signature="e#2259#3164#0" expanded="false" />
-            <element signature="e#3163#3164#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2509#2548#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewUserProfileActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="126" column="13" selection-start-line="126" selection-start-column="13" selection-end-line="126" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/TransactionsCursorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Models/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/HistoryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="94" column="21" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewBorrowedFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="69" column="65" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewLentFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="79" column="11" selection-start-line="79" selection-start-column="11" selection-end-line="79" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="40" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_payment_history.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_payment.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view_lent.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_item.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/blank_dialog.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_transaction.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_transaction_list.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_history.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_drawer.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_money_transaction.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_money_history.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="132" column="58" selection-start-line="132" selection-start-column="58" selection-end-line="132" selection-end-column="58" />
+        <state relative-caret-position="192">
+          <caret line="46" column="43" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
           <folding>
-            <element signature="e#933#950#0" expanded="true" />
-            <element signature="e#989#1006#0" expanded="true" />
-            <element signature="e#2289#2307#0" expanded="true" />
-            <element signature="e#2422#2453#0" expanded="true" />
-            <element signature="e#2783#2812#0" expanded="true" />
-            <element signature="e#3253#3276#0" expanded="true" />
-            <element signature="e#3327#3350#0" expanded="true" />
-            <element signature="e#3475#3495#0" expanded="true" />
-            <element signature="e#3971#3990#0" expanded="true" />
-            <element signature="e#4382#4405#0" expanded="true" />
-            <element signature="e#4456#4479#0" expanded="true" />
-            <element signature="e#4604#4624#0" expanded="true" />
-            <element signature="e#5029#5048#0" expanded="true" />
-            <element signature="e#5511#5534#0" expanded="true" />
-            <element signature="e#5585#5608#0" expanded="true" />
-            <element signature="e#5733#5753#0" expanded="true" />
-            <element signature="e#6163#6182#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1845#2092#0" expanded="true" />
+            <element signature="e#2091#2092#0" expanded="true" />
+            <element signature="e#3543#3563#0" expanded="true" />
+            <element signature="e#3585#3606#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_user.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/HistoryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1645#1681#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#1223#1253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/SMSReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewHistoryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1650">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewTransactionListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="e#2287#2327#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewUserActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_user_profile.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view_borrowed.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="44" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_user.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/TransactionHistoryCursorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="280" column="9" selection-start-line="280" selection-start-column="9" selection-end-line="280" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/HistoryAbstractFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
           <folding>
-            <element signature="e#1575#2294#0" expanded="true" />
-            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#960#990#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_input.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewUserProfileActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        <state relative-caret-position="323">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view_transaction_money.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/ContactsCursorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Adapters/HistoryCursorAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="140" column="22" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="22" />
+        <state relative-caret-position="-182">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
           <folding>
-            <element signature="e#5346#5889#0" expanded="true" />
-            <element signature="e#5888#5889#0" expanded="true" />
-            <element signature="e#5979#6468#0" expanded="true" />
-            <element signature="e#6467#6468#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewUserBorrowedFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/CursorRecyclerViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        <state relative-caret-position="17">
+          <caret line="38" column="45" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewUserLentFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/DrawerAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_history.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
+        <state relative-caret-position="34">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_view_history_money.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/HistoryCursorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewHistoryAbstractFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/notification_settings_dialog.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="135" column="58" selection-start-line="135" selection-start-column="58" selection-end-line="135" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/DeleteDialogFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
+        <state relative-caret-position="260">
+          <caret line="120" column="76" selection-start-line="120" selection-start-column="76" selection-end-line="120" selection-end-column="76" />
           <folding>
-            <element signature="e#2852#3388#0" expanded="true" />
-            <element signature="e#3387#3388#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Fragments/ViewHistoryMoneyFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/PaymentCursorAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/TransactionHistoryCursorAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/TransactionsCursorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewTransactionActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise3/Activities/ViewHistoryActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/UsersCursorAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Adapters/ViewPagerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AddAbstractFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AddItemFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AddMoneyFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="43" column="53" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AddTransactionDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#1172#1203#0" expanded="true" />
+            <element signature="e#1313#1334#0" expanded="true" />
+            <element signature="e#1701#1721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/AmountDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/DatePickerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/DeleteDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1881#1903#0" expanded="true" />
+            <element signature="e#2016#2038#0" expanded="true" />
+            <element signature="e#2412#2434#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/HistoryAbstractFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/HistoryBorrowedFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/HistoryLendFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/PaymentErrorDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/RatingDialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/SettingsDialogFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/TimePickerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewBorrowedFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewHistoryAbstractFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#2150#2172#0" expanded="true" />
+            <element signature="e#2220#2236#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewHistoryItemFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewHistoryMoneyFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewLentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewTransactionAbstractFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-881">
+          <caret line="59" column="23" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2244#2266#0" expanded="true" />
+            <element signature="e#2314#2330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewTransactionMoneyFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewUserBorrowedFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="51" column="40" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewUserLentFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Models/CustomDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Fragments/ViewTransactionItemFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/AlarmReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Views/SlidingTabLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="69" column="44" selection-start-line="69" selection-start-column="44" selection-end-line="69" selection-end-column="44" />
+          <folding>
+            <element signature="e#3010#3051#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/shayanetan/borrowise/Activities/ViewTransactionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="100" column="13" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

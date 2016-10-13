@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.shayanetan.borrowise3.Fragments.HistoryLendFragment">
+    tools:context="com.example.shayanetan.borrowise.Fragments.HistoryLendFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

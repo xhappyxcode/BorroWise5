@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.example.shayanetan.borrowise3.Fragments.AddItemFragment">
+    tools:context="com.example.shayanetan.borrowise.Fragments.AddItemFragment">
 
     <LinearLayout
         android:layout_below="@id/appbar"

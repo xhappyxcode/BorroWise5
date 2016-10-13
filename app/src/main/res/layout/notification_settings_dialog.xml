@@ -56,7 +56,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="12:00 PM"
                     android:layout_alignParentEnd="true"
-                    android:textSize="@dimen/caption_label"/>
+                    android:textSize="@dimen/subheading_label"/>
 
             </RelativeLayout>
 
@@ -101,7 +101,7 @@
                     android:layout_alignRight="@id/tv_NOTIF_dayTitle"
                     android:layout_alignParentRight="true"
                     android:layout_gravity="center_vertical"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/subheading_label"/>
 
