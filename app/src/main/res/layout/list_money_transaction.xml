@@ -4,40 +4,37 @@
     style="@style/list_transaction"
     android:id="@+id/money_container">
 
-    <RelativeLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="5dp"
             android:orientation="horizontal">
+            <!-- for the image view below, if there is an actual image,
+             remove the padding -->
             <ImageView
-                android:layout_margin="3dp"
+                android:id="@+id/img_item"
                 android:layout_width="@dimen/img_size"
                 android:layout_height="@dimen/img_size"
                 android:background="@drawable/img"
-                android:padding="20dp"
+                android:tint="@color/text_secondaryColor"
+                android:padding="2dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_money"
                 android:scaleType="fitCenter"/>
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_gravity="center_vertical"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tv_account_money"
-                    android:layout_width="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:singleLine="true"
-                    android:ellipsize="end"
-                    android:text="Shayane Tan"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/list_username"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,7 +43,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_margin="5dp"
+                        android:layout_marginRight="5dp"
                         android:text="@string/currency"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/card_currency_textsize"/>
@@ -56,63 +53,82 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/card_amount_textsize"
                         android:text="1000.00"
-                        android:singleLine="true"
                         android:layout_gravity="center_vertical"
                         android:textStyle="bold"/>
                 </LinearLayout>
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="right"
-                android:layout_margin="5dp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="top">
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/card_icon_size"
+                        android:layout_height="@dimen/card_icon_size"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@color/text_primaryColor"
+                        android:layout_marginRight="@dimen/right_space"
+                        android:src="@drawable/ic_account"/>
+
                     <TextView
-                        android:id="@+id/tv_duedatemoney_label"
+                        android:id="@+id/tv_account_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="@dimen/list_label"
+                        android:text="Shayane Tan"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="@dimen/card_icon_size"
+                        android:layout_height="@dimen/card_icon_size"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@color/text_primaryColor"
+                        android:layout_marginRight="@dimen/right_space"
+                        android:src="@drawable/ic_calendar" />
+                    <TextView
+                        android:id="@+id/tv_duedatemoney_val"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/list_label"
-                        android:layout_marginRight="5dp"
-                        android:text="@string/lbl_duedate" />
-                    <TextView
-                        android:id="@+id/tv_duedatemoney_val"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/list_username"
                         android:text="@string/lbl_duedate"
-                        android:textColor="@color/accentLightBlueColor"
-                        android:gravity="right"
-                        android:layout_toRightOf="@id/tv_duedateitem_label"
-                        android:layout_below="@id/tv_itemname"/>
+                        android:textColor="@color/text_primaryColor"/>
+
                 </LinearLayout>
+
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="fill_parent"
-                    android:orientation="horizontal"
-                    android:gravity="bottom">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/img_money_day"
+                        android:layout_width="@dimen/card_icon_size"
+                        android:layout_height="@dimen/card_icon_size"
+                        android:layout_gravity="center_vertical"
+                        android:tint="@color/text_primaryColor"
+                        android:layout_marginRight="@dimen/right_space"
+                        android:src="@drawable/ic_day" />
+
                     <TextView
                         android:id="@+id/tv_daysleftmoney_val"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/list_label"
-                        android:layout_margin="5dp"
-                        android:text="@string/lbl_dayleft" />
-                    <TextView
-                        android:id="@+id/tv_daysleftmoney_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:textSize="@dimen/list_label"
-                        android:text="@string/lbl_dayleft" />
+                        android:text="@string/lbl_dayleft"
+                        android:textColor="@color/text_primaryColor"/>
+
                 </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
+
+
 
 </android.support.v7.widget.CardView>

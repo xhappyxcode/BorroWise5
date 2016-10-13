@@ -12,33 +12,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_716fc8e3a1a284b5ec7363675e91e5c07feb53ac\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_6729dc119ab3edebaf682949ccff69590db5bcb9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_9bd088b314e727885a2705b528a5283db2eee78e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
         jumboMode="true"
         optimize="true"
@@ -70,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="f94838dc5d6853647c84df3a8f915f1030655bf9">
+        sha1="3e4133d612f871496d5ff7317cd3f1ff039584c6">
         <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d8768d486a8278ca962b9f566107f29e820cfb58\classes.dex" />
     </item>
     <item
@@ -81,15 +54,6 @@
         revision="23.0.1"
         sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
         <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_10866fa2ef77516ea555aa8b511fe0e534f87f84\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.1"
-        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
-        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.viewpagerindicator-library-2.4.1_32cae624779fc884589fce2a9496f34aa11cd9cc\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -106,8 +70,44 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="4414519aef9f614398ffa23dc0a90d67073b47b5">
+        sha1="54536233a5b8a73b0acfab794e222d72ab928baf">
         <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_8638e4531acb6efd2e2fdefa5d61a92ec9c4f148\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-23.4.0_716fc8e3a1a284b5ec7363675e91e5c07feb53ac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\sharkscion\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_6729dc119ab3edebaf682949ccff69590db5bcb9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_9bd088b314e727885a2705b528a5283db2eee78e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\exploded-aar\com.viewpagerindicator\library\2.4.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="88e8e18d365173ad04a543d76c157e0b644f0b3f">
+        <dex dex="C:\Users\sharkscion\Documents\GitHub\BorroWise5\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.viewpagerindicator-library-2.4.1_32cae624779fc884589fce2a9496f34aa11cd9cc\classes.dex" />
     </item>
 
 </items>

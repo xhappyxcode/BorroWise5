@@ -23,7 +23,7 @@ import java.util.Date;
 public abstract class ViewTransactionAbstractFragment extends Fragment {
 
     protected FragmentActivity myContext;
-    protected TextView tv_startDate, tv_endDate, tv_person_name, tv_type, tv_notif_days, tv_notif_time;
+    protected TextView tv_startDate, tv_endDate, tv_person_name, tv_type, tv_notif_settings;
     protected Transaction transaction;
     protected int trans_id;
     protected DatabaseOpenHelper dbHelper;
@@ -69,8 +69,18 @@ public abstract class ViewTransactionAbstractFragment extends Fragment {
         tv_startDate.setText(parseMillisToDate(transaction.getStartDate()));
         tv_endDate.setText(parseMillisToDate(transaction.getDueDate()));
         /* set notification settings here */
-        tv_notif_days.setText(String.valueOf(transaction.getDaysLeft()));
-        tv_notif_time.setText(transaction.getAlarmTime());
+
+
+        String message = "";
+        int daysLeft =  transaction.getDaysLeft();
+        if(daysLeft > 1)
+            message = daysLeft + " days ";
+        else
+            message = daysLeft + " day ";
+
+        message += "before due date at "+ transaction.getAlarmTime();
+        tv_notif_settings.setText(message);
+
     }
 
     public long parseDateToMillis(String toParse){

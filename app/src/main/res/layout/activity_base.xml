@@ -16,10 +16,21 @@
             android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/primaryColor"
             android:theme="@style/CustomAppBarTheme"
-            android:popupTheme="@style/CustomAppBarTheme"
-            />
+            android:popupTheme="@style/CustomAppBarTheme">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toolbar Title"
+                android:textSize="@dimen/title_label"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title" />
+
+        </android.support.v7.widget.Toolbar>
         <!--<include android:id="@+id/appbar"-->
             <!--layout="@layout/appbar"/>-->
 

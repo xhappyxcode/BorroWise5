@@ -59,7 +59,7 @@ public class AddTransactionDialogFragment extends DialogFragment {
                 Button btn_item = (Button) ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_NEGATIVE);
                 Button btn_money = (Button) ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_POSITIVE);
 
-                btn_money.setBackgroundColor(getResources().getColor(R.color.paleGreenColor));
+                btn_money.setBackgroundColor(getResources().getColor(R.color.accentGreenColor));
                 btn_money.setTextColor(Color.WHITE);
                 btn_item.setBackgroundColor(getResources().getColor(R.color.accentLightBlueColor));
                 btn_item.setTextColor(Color.WHITE);

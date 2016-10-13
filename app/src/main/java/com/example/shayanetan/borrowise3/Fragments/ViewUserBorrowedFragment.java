@@ -35,14 +35,14 @@ public class ViewUserBorrowedFragment extends Fragment {
         historyCursorAdapter = new HistoryCursorAdapter(getActivity().getBaseContext(),null);
         historyCursorAdapter.setmOnClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
             @Override
-            public void onButtonClick(int id, String type, String classification) {
+            public void onButtonClick(int id, String type, String classification, String item_name) {
 
             }
         });
 
         historyCursorAdapter.setmOnLongClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
             @Override
-            public void onButtonClick(int id, String type, String classification) {
+            public void onButtonClick(int id, String type, String classification, String item_name) {
 
             }
         });

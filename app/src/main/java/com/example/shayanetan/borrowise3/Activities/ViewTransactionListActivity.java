@@ -3,6 +3,7 @@ package com.example.shayanetan.borrowise3.Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -39,8 +40,8 @@ public class ViewTransactionListActivity extends BaseActivity
 
     private View dimBackground;
 
-    private static String TITLE_TAB1 = "BORROWED FROM";
-    private static String TITLE_TAB2 = "LENT TO";
+    private static String TITLE_TAB1 = "Borrowed From";
+    private static String TITLE_TAB2 = "Lent To";
 
     private ViewBorrowedFragment borrowFragment;
     private ViewLentFragment lentFragment;
@@ -50,22 +51,14 @@ public class ViewTransactionListActivity extends BaseActivity
     private boolean isAddBtnOpen;
     private Animation btnOpen, btnClose, rotateForward, rotateBackward;
 
-    // private TransactionsCursorAdapter transactionsCursorAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transaction_list);
-        setTitle(R.string.title_activity_transaction);
-
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        setToolbar_title(R.string.title_activity_view_transaction);
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
-        //transactionsCursorAdapter = new TransactionsCursorAdapter(getBaseContext(),null);
-
         viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
-
         viewPager = (ViewPager)findViewById(R.id.view_pager);
 
         borrowFragment = new ViewBorrowedFragment();
@@ -86,6 +79,7 @@ public class ViewTransactionListActivity extends BaseActivity
         // True if Tabs are same Width
         slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(viewPager);
+        slidingTabLayout.setBgRes(Color.WHITE);
 
         btn_addTransaction = (FloatingActionButton) findViewById(R.id.fab_add_transaction);
         btn_addTransaction.setOnClickListener(new View.OnClickListener() {

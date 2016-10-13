@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shayanetan.borrowise3.Adapters.HistoryCursorAdapter;
@@ -34,8 +35,9 @@ public class ViewTransactionActivity extends AppCompatActivity implements
         DeleteDialogFragment.OnFragmentInteractionListener{
 
     private Toolbar toolbar;
+    private TextView toolbar_title;
+    private ImageView toolbar_icon;
 
-    ImageView btn_edit, btn_delete;
     protected DatabaseOpenHelper dbHelper;
     protected int trans_id;
 
@@ -48,44 +50,43 @@ public class ViewTransactionActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_transaction);
-        setTitle(R.string.title_activity_view_transaction);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //setTitle(R.string.title_activity_view_transaction);
 
         toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(toolbar);
+        setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        toolbar_title = (TextView) findViewById(R.id.toolbar_title);
+        toolbar_icon = (ImageView) findViewById(R.id.img_toolbar_icon);
 
         Intent intent = getIntent();
         trans_id = intent.getIntExtra(Transaction.COLUMN_ID, 0);
 
+        if(intent.getIntExtra(Transaction.TRANSACTION_ITEM_TYPE, 0) == TransactionsCursorAdapter.TYPE_ITEM) {
+            toolbar_title.setText(intent.getStringExtra(Transaction.ITEM_NAME));
+            toolbar_icon.setImageResource(R.drawable.ic_item);
+        }
+        else {
+            toolbar_title.setText("PHP"+intent.getStringExtra(Transaction.ITEM_NAME));
+            toolbar_icon.setImageResource(R.drawable.ic_money);
+        }
+
+
+
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
 
-//        btn_edit = findViewById(R.id.btn_edit);
-//        btn_edit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //TODO: allow edit of some things
-//            }
-//        });
-//
-//        btn_delete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                DeleteDialogFragment dialogFragment = new DeleteDialogFragment();
-//                dialogFragment.showDialog();
-//
-//            }
-//        });
 
         transaction = dbHelper.queryTransaction(trans_id);
+
         /* put trans_id into bundle to pass to fragment */
         Bundle bundle = new Bundle();
         bundle.putInt(Transaction.COLUMN_ID, trans_id);
 
+
         if(transaction.getClassification().contentEquals(Transaction.ITEM_TYPE)) {
-//            ItemTransaction itemTransaction = (ItemTransaction) dbHelper.queryTransaction(trans_id);
             itemFragment = new ViewTransactionItemFragment();
             itemFragment.setArguments(bundle);
             itemFragment.setOnFragmentInteractionListener(this);

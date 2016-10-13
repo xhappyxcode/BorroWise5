@@ -12,6 +12,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Path;
 import android.graphics.Rect;
+import android.media.Image;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,7 +51,7 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
 
     public interface OnButtonClickListener {
         // type is whether it is money or item
-        public void onButtonClick(int id, int type);
+        public void onButtonClick(int id, int type, String item_name);
     }
 
     public void setmOnClickListener(OnButtonClickListener m){
@@ -91,6 +93,7 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
                 ((BorrowedItemViewHolder)viewHolder).tv_account_item.setText(name);
                 ((BorrowedItemViewHolder)viewHolder).tv_duedate_val.setText(dueDate);
                 ((BorrowedItemViewHolder)viewHolder).tv_itemname.setText(transactionAttribute1);
+                ((BorrowedItemViewHolder)viewHolder).item_container.setTag(R.id.key_entry_item_name, transactionAttribute1);
                 ((BorrowedItemViewHolder)viewHolder).item_container.setTag(R.id.key_entry_id, id);
                 ((BorrowedItemViewHolder)viewHolder).item_container.setTag(R.id.key_entry_type, TYPE_ITEM);
                 ((BorrowedItemViewHolder)viewHolder).item_container.setOnClickListener(new OnClickListener() {
@@ -100,53 +103,44 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
 
                         int tran_id = Integer.parseInt(vh.item_container.getTag(R.id.key_entry_id).toString());
                         int tran_type = Integer.parseInt(vh.item_container.getTag(R.id.key_entry_type).toString());
-                        mOnClickListener.onButtonClick(tran_id, tran_type);
+                        String item_name = vh.item_container.getTag(R.id.key_entry_item_name).toString();
+                        mOnClickListener.onButtonClick(tran_id, tran_type, item_name);
                     }
                 });
 
                 if(daysleft < 0) {
                     /* if overdue, change label to overdue and text color to red*/
                     int daysOverdue = daysleft * -1;
-                    ((BorrowedItemViewHolder)viewHolder).tv_daysleft_val.setText(String.valueOf(daysOverdue));
-                    ((BorrowedItemViewHolder)viewHolder).tv_daysleft_val.setTextColor(Color.RED);
-                    ((BorrowedItemViewHolder)viewHolder).tv_daysleft.setText(R.string.lbl_overdue);
-                    ((BorrowedItemViewHolder)viewHolder).tv_daysleft.setTextColor(Color.RED);
+                    String message = "";
+
+                    if(daysOverdue == 1)
+                        message = daysOverdue +" day overdue";
+                    else
+                        message = daysOverdue +" days overdue";
+
+                    ((BorrowedItemViewHolder)viewHolder).img_item_day.setColorFilter(Color.RED);
+                    ((BorrowedItemViewHolder)viewHolder).tv_daysleftitem_val.setTextColor(Color.RED);
+                    ((BorrowedItemViewHolder)viewHolder).tv_daysleftitem_val.setText(message);
                 } else {
-                    ((BorrowedItemViewHolder)viewHolder).tv_daysleft_val.setText(String.valueOf(daysleft));
+                    String message = "";
+
+                    if(daysleft == 1)
+                        message = daysleft +" day left";
+                    else
+                        message = daysleft +" days left";
+
+                    ((BorrowedItemViewHolder)viewHolder).tv_daysleftitem_val.setText(message);
                 }
-
-
-                /* shift to list view caused button to be removed
-                ((BorrowedItemViewHolder)viewHolder).btn_returned.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        BorrowedItemViewHolder vh = (BorrowedItemViewHolder) viewHolder;
-
-                        int tran_id = Integer.parseInt(vh.item_container.getTag(R.id.key_entry_id).toString());
-                        int tran_type = Integer.parseInt(vh.item_container.getTag(R.id.key_entry_type).toString());
-                        mOnClickListener.onButtonClick(tran_id, tran_type, BTN_TYPE_RETURN);
-                    }
-                });
-                ((BorrowedItemViewHolder)viewHolder).btn_lost.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        BorrowedItemViewHolder vh = (BorrowedItemViewHolder) viewHolder;
-
-                        int tran_id = Integer.parseInt(vh.item_container.getTag(R.id.key_entry_id).toString());
-                        int tran_type = Integer.parseInt(vh.item_container.getTag(R.id.key_entry_type).toString());
-                        mOnClickListener.onButtonClick(tran_id, tran_type, BTN_TYPE_LOST);
-                    }
-                });
-*/                break;
+                break;
 
             case TYPE_MONEY:
-                ((BorrowedMoneyViewHolder)viewHolder).money_container.setTag(R.id.key_entry_id, id);
-                ((BorrowedMoneyViewHolder)viewHolder).money_container.setTag(R.id.key_entry_type, TYPE_MONEY);
+
                 ((BorrowedMoneyViewHolder)viewHolder).tv_account_money.setText(name);
                 ((BorrowedMoneyViewHolder)viewHolder).tv_duedate_val.setText(dueDate);
                 ((BorrowedMoneyViewHolder)viewHolder).tv_amount.setText(transactionAttribute2);
+                ((BorrowedMoneyViewHolder)viewHolder).money_container.setTag(R.id.key_entry_item_name, transactionAttribute2);
+                ((BorrowedMoneyViewHolder)viewHolder).money_container.setTag(R.id.key_entry_id, id);
+                ((BorrowedMoneyViewHolder)viewHolder).money_container.setTag(R.id.key_entry_type, TYPE_MONEY);
                 ((BorrowedMoneyViewHolder)viewHolder).money_container.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -154,44 +148,33 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
 
                         int tran_id = Integer.parseInt(vh.money_container.getTag(R.id.key_entry_id).toString());
                         int tran_type = Integer.parseInt(vh.money_container.getTag(R.id.key_entry_type).toString());
-                        mOnClickListener.onButtonClick(tran_id, tran_type);
+                        String item_name = vh.money_container.getTag(R.id.key_entry_item_name).toString();
+                        mOnClickListener.onButtonClick(tran_id, tran_type, item_name);
                     }
                 });
                 if(daysleft < 0) {
                     int daysOverdue = daysleft * -1;
-                    ((BorrowedMoneyViewHolder)viewHolder).tv_daysleft_val.setText(String.valueOf(daysOverdue));
-                    ((BorrowedMoneyViewHolder)viewHolder).tv_daysleft_val.setTextColor(Color.RED);
-                    ((BorrowedMoneyViewHolder)viewHolder).tv_daysleft.setText(R.string.lbl_overdue);
-                    ((BorrowedMoneyViewHolder)viewHolder).tv_daysleft.setTextColor(Color.RED);
+
+                    String message = "";
+                    if(daysOverdue == 1)
+                        message = daysOverdue +" day overdue";
+                    else
+                        message = daysOverdue +" days overdue";
+
+                    ((BorrowedMoneyViewHolder)viewHolder).img_money_day.setColorFilter(Color.RED);
+                    ((BorrowedMoneyViewHolder)viewHolder).tv_daysleftmoney_val.setTextColor(Color.RED);
+                    ((BorrowedMoneyViewHolder)viewHolder).tv_daysleftmoney_val.setText(message);
                 } else {
-                    ((BorrowedMoneyViewHolder)viewHolder).tv_daysleft_val.setText(String.valueOf(daysleft));
+
+                    String message = "";
+
+                    if(daysleft == 1)
+                        message = daysleft +" day overdue";
+                    else
+                        message = daysleft +" days overdue";
+                    ((BorrowedMoneyViewHolder)viewHolder).tv_daysleftmoney_val.setText(String.valueOf(daysleft));
                 }
-/*  when shifted to list view, button was removed
-                ((BorrowedMoneyViewHolder)viewHolder).btn_full.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        BorrowedMoneyViewHolder vh = (BorrowedMoneyViewHolder) viewHolder;
-
-                        int tran_id = Integer.parseInt(vh.money_container.getTag(R.id.key_entry_id).toString());
-                        int tran_type = Integer.parseInt(vh.money_container.getTag(R.id.key_entry_type).toString());
-                        mOnClickListener.onButtonClick(tran_id, tran_type, BTN_TYPE_RETURN);
-
-                    }
-                });
-                // ((BorrowedMoneyViewHolder)viewHolder).btn_partial.setTag(cursor.getInt(cursor.getColumnIndex(Transaction.COLUMN_ID)));
-                ((BorrowedMoneyViewHolder)viewHolder).btn_partial.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        BorrowedMoneyViewHolder vh = (BorrowedMoneyViewHolder) viewHolder;
-
-                        int tran_id = Integer.parseInt(vh.money_container.getTag(R.id.key_entry_id).toString());
-                        int tran_type = Integer.parseInt(vh.money_container.getTag(R.id.key_entry_type).toString());
-                        mOnClickListener.onButtonClick(tran_id, tran_type, BTN_TYPE_PARTIAL);
-                    }
-                });
-*/                break;
+                break;
         }
     }
 
@@ -214,9 +197,8 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
     public class BorrowedItemViewHolder extends RecyclerView.ViewHolder {
         // TODO
 
-        TextView tv_account_item, tv_itemname, tv_duedate_val, tv_daysleft_val, tv_daysleft;
-//        Button btn_lost, btn_returned;
-        ImageView img_item;
+        TextView tv_account_item, tv_itemname, tv_duedate_val, tv_daysleftitem_val;
+        ImageView img_item, img_item_day;
         View item_container;
 
         public BorrowedItemViewHolder(View itemView) {
@@ -224,8 +206,8 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
             tv_account_item = (TextView) itemView.findViewById(R.id.tv_account_item);
             tv_itemname = (TextView) itemView.findViewById(R.id.tv_itemname);
             tv_duedate_val = (TextView) itemView.findViewById(R.id.tv_duedateitem_val);
-            tv_daysleft_val = (TextView) itemView.findViewById(R.id.tv_daysleftitem_val);
-            tv_daysleft = (TextView) itemView.findViewById(R.id.tv_daysleftitem_label);
+            tv_daysleftitem_val = (TextView) itemView.findViewById(R.id.tv_daysleftitem_val);
+            img_item_day = (ImageView) itemView.findViewById(R.id.img_item_day);
 
             img_item = (ImageView) itemView.findViewById(R.id.img_item);
             img_item.setMaxWidth(img_item.getHeight());
@@ -241,16 +223,17 @@ public class TransactionsCursorAdapter extends CursorRecyclerViewAdapter<Recycle
     public class BorrowedMoneyViewHolder extends RecyclerView.ViewHolder{
         // TODO
 
-        TextView tv_account_money, tv_amount, tv_duedate_val, tv_daysleft_val, tv_daysleft;
+        TextView tv_account_money, tv_amount, tv_duedate_val, tv_daysleftmoney_val;
         View money_container;
+        ImageView img_money_day;
 
         public BorrowedMoneyViewHolder(View itemView) {
             super(itemView);
             tv_account_money = (TextView) itemView.findViewById(R.id.tv_account_money);
             tv_amount = (TextView) itemView.findViewById(R.id.tv_amount);
             tv_duedate_val = (TextView) itemView.findViewById(R.id.tv_duedatemoney_val);
-            tv_daysleft_val = (TextView) itemView.findViewById(R.id.tv_daysleftmoney_val);
-            tv_daysleft = (TextView) itemView.findViewById(R.id.tv_daysleftmoney_label);
+            tv_daysleftmoney_val = (TextView) itemView.findViewById(R.id.tv_daysleftmoney_val);
+            img_money_day = (ImageView) itemView.findViewById(R.id.img_money_day);
 
             money_container = itemView.findViewById(R.id.money_container);
         }

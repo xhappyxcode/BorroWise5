@@ -4,7 +4,8 @@
     android:layout_height="match_parent">
 
     <RatingBar
-        android:layout_width="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="266dp"
         android:layout_height="wrap_content"
         android:id="@+id/DialogRB"
         android:layout_gravity="center"

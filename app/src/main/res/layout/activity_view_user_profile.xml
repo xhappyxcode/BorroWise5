@@ -6,16 +6,37 @@
     android:orientation="vertical"
     tools:context="com.example.shayanetan.borrowise3.Activities.ViewUserProfileActivity">
 
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primaryColor"
+        android:theme="@style/CustomAppBarTheme"
+        android:popupTheme="@style/CustomAppBarTheme">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Profile"
+            android:textSize="@dimen/title_label"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_gravity = "center"
+            android:id="@+id/toolbar_title" />
+    </android.support.v7.widget.Toolbar>
+
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="160dp"
+        android:layout_height="80dp"
+        android:padding="5dp"
         android:orientation="horizontal"
-        android:background="@color/accentLightBlueColor">
+        android:background="@color/primaryColor">
         <ImageView
             android:id="@+id/img_userprofile"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="35dp"
+            android:tint="@android:color/white"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_account"/>
         <RelativeLayout
@@ -29,15 +50,16 @@
                 android:layout_height="wrap_content"
                 android:text="Shayane Tan"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/title_label"/>
+                android:textSize="20sp"/>
 
             <RatingBar
                 android:id="@+id/rb_userprofile_rating"
                 android:layout_below="@id/tv_userprofile_name"
                 android:layout_gravity="left"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="?android:attr/ratingBarStyleIndicator"
+                style="?android:attr/ratingBarStyleSmall"
                 android:numStars="5"
                 android:isIndicator="true"
                 android:stepSize="0.5"
@@ -48,7 +70,6 @@
                 android:layout_below="@id/tv_userprofile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="8dp"
                 android:text="3.5"
                 android:textSize="@dimen/subheading_label"
@@ -60,7 +81,7 @@
         android:id="@+id/sliding_tab_userprofile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primaryColor" />
+        android:background="@android:color/white" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager_userprofile"

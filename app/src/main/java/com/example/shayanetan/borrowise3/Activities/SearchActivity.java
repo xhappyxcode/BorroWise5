@@ -30,7 +30,7 @@ public class SearchActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        setTitle(R.string.title_activity_search);
+        setToolbar_title(R.string.title_activity_search);
 
         et_search = (EditText) findViewById(R.id.et_search);
         img_search = (ImageView) findViewById(R.id.img_search);

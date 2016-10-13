@@ -36,12 +36,10 @@ public class ViewTransactionMoneyFragment extends ViewTransactionAbstractFragmen
         tv_endDate = (TextView) layout.findViewById(R.id.tv_view_money_endDate);
         tv_type = (TextView) layout.findViewById(R.id.view_money_type);
 
+        tv_notif_settings = (TextView) layout.findViewById(R.id.tv_money_notif_settings);
         tv_amount = (TextView) layout.findViewById(R.id.tv_view_AMAmount);
         btn_add_payment = (ImageView) layout.findViewById(R.id.btn_add_payment_history);
         tv_total = (TextView) layout.findViewById(R.id.tv_view_total);
-
-        tv_notif_days = (TextView) layout.findViewById(R.id.tv_mnotif_days_before);
-        tv_notif_time = (TextView) layout.findViewById(R.id.tv_mnotif_time);
 
         paymentCursorAdapter = new PaymentCursorAdapter(getActivity().getBaseContext(), null);
         recyclerView = (RecyclerView) layout.findViewById(R.id.recyclerview_payment_history);

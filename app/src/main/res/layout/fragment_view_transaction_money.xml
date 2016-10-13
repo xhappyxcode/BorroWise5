@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".Fragments.ViewTransactionMoneyFragment">
 
     <RelativeLayout
@@ -9,9 +10,8 @@
         android:layout_height="200dp"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:background="@color/accentBlueColor"
+        android:background="@color/primaryColor"
         android:padding="5dp"
-        android:layout_marginBottom="10dp"
         android:id="@+id/view_money">
         <TextView
             android:id="@+id/tv_view_lbl_currency"
@@ -72,15 +72,14 @@
         <LinearLayout
             android:id="@+id/view_money_content_section"
             android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_marginTop="5dp"
+            android:padding="15dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -100,24 +99,23 @@
                         android:id="@+id/view_money_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/subheading_label"
+                        android:textSize="@dimen/caption_label"
                         android:text="@string/lent_to"/>
                     <TextView
                         android:id="@+id/tv_view_AMPersonName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter person name"
-                        android:textSize="@dimen/caption_label"/>
+                        android:textSize="@dimen/subheading_label"/>
                     <requestFocus />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_view_money_startDate"
-                android:layout_below="@id/layout_view_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="@dimen/navigation_icon_size"
@@ -134,119 +132,93 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/subheading_label"
-                        android:text="Start Date"/>
+                        android:textSize="@dimen/caption_label"
+                        android:text="@string/lbl_start"/>
                     <TextView
                         android:id="@+id/tv_view_money_startDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/caption_label"
-                        android:text="today"/>
+                        android:textSize="@dimen/subheading_label"
+                        android:text="Today"/>
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_view_money_endDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/navigation_icon_size"
+                    android:layout_height="@dimen/navigation_icon_size"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_calendar"
+                    android:tint="@color/text_primaryColor"/>
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/caption_label"
+                        android:text="@string/lbl_due"/>
+                    <TextView
+                        android:id="@+id/tv_view_money_endDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/subheading_label"
+                        android:text="Today"/>
+                </LinearLayout>
+
+            </LinearLayout>
+    <!--    add notification settings here  -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="10dp"
+                android:background="@color/dividerColor" />
+
+            <LinearLayout
+                android:id="@+id/layout_notif_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/navigation_icon_size"
+                    android:layout_height="@dimen/navigation_icon_size"
+                    android:layout_gravity="center_vertical"
+                    android:tint="@color/text_primaryColor"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_notif"/>
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/lbl_notif_settings"
+                        android:textSize="@dimen/caption_label"/>
+                    <TextView
+                        android:id="@+id/tv_money_notif_settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/subheading_label"
+                        android:text="Today"/>
+                </LinearLayout>
+
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_margin="10dp"
                 android:background="@color/dividerColor" />
-            <LinearLayout
-                android:id="@+id/layout_view_money_endDate"
-                android:layout_below="@id/layout_view_user_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="@dimen/navigation_icon_size"
-                    android:layout_height="@dimen/navigation_icon_size"
-                    android:layout_marginRight="15dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_calendar"
-                    android:tint="@color/text_primaryColor"/>
-                <LinearLayout
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/subheading_label"
-                        android:text="@string/lbl_due"/>
-                    <TextView
-                        android:id="@+id/tv_view_money_endDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/caption_label"
-                        android:text="today"/>
-                </LinearLayout>
-
-            </LinearLayout>
-    <!--    add notification settings here  -->
-            <LinearLayout
-                android:id="@+id/layout_notif_settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="5dp"
-                android:layout_below="@id/view_item_date_details" >
-
-                <ImageView
-                    android:layout_width="@dimen/navigation_icon_size"
-                    android:layout_height="@dimen/navigation_icon_size"
-                    android:layout_marginRight="15dp"
-                    android:layout_gravity="center_vertical"
-                    android:tint="@color/text_primaryColor"
-                    android:src="@drawable/ic_notif"/>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="8"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:text="Notification Settings"
-                    android:layout_gravity="center_vertical"
-                    android:textSize="@dimen/subheading_label">
-
-                </TextView>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp">
-                    <LinearLayout
-                        android:id="@+id/layout_notif_days_before"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:id="@+id/tv_mnotif_days_before"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/caption_label"
-                            android:text="0" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/caption_label"
-                            android:text=" days before due date"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/layout_notif_days_before"
-                        android:layout_centerHorizontal="true">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="at "/>
-                        <TextView
-                            android:id="@+id/tv_mnotif_time"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="12:00 pm" />
-                    </LinearLayout>
-                </RelativeLayout>
-            </LinearLayout>
-
             <LinearLayout
                 android:id="@+id/layout_payment_history"
                 android:layout_width="match_parent"
@@ -262,7 +234,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/subheading_label"
-                        android:text="Payment History: " />
+                        android:text="Payment History:" />
                     <ImageView
                         android:id="@+id/btn_add_payment_history"
                         android:layout_width="@dimen/navigation_icon_size"
@@ -273,12 +245,12 @@
                         android:src="@drawable/ic_add_plus"
                         android:tint="@android:color/white" />
                 </RelativeLayout>
+
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclerview_payment_history"
                     android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>
         </LinearLayout>

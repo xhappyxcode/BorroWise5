@@ -2,12 +2,19 @@ package com.example.shayanetan.borrowise3.Fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -15,6 +22,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.shayanetan.borrowise3.Activities.ViewTransactionActivity;
 import com.example.shayanetan.borrowise3.Adapters.ContactsCursorAdapter;
 import com.example.shayanetan.borrowise3.Models.CustomDate;
 import com.example.shayanetan.borrowise3.Models.Transaction;
@@ -30,6 +38,8 @@ import java.util.Date;
  *                        on 7/27/2016 removed img_btn_switch, onFragmentSwitch(),
  */
 public abstract class AddAbstractFragment extends Fragment {
+
+    protected Toolbar toolbar;
 
     protected int selected_contactID;
     protected String selected_name;
@@ -47,7 +57,23 @@ public abstract class AddAbstractFragment extends Fragment {
     protected OnFragmentInteractionListener mListener;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState);}
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case android.R.id.home:
+               // startActivity(new Intent(this.getContext(), ViewTransactionActivity.class));
+                getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
+        inflater.inflate(R.menu.menu_add_transaction, menu);
+    }
 
     @Override
     public  abstract View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);

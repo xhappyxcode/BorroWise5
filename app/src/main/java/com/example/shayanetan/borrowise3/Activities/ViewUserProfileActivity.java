@@ -3,6 +3,9 @@ package com.example.shayanetan.borrowise3.Activities;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -11,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.shayanetan.borrowise3.Adapters.HistoryCursorAdapter;
 import com.example.shayanetan.borrowise3.Adapters.ViewPagerAdapter;
+import com.example.shayanetan.borrowise3.Fragments.DeleteDialogFragment;
 import com.example.shayanetan.borrowise3.Fragments.ViewUserBorrowedFragment;
 import com.example.shayanetan.borrowise3.Fragments.ViewUserLentFragment;
 import com.example.shayanetan.borrowise3.Models.DatabaseOpenHelper;
@@ -18,9 +22,13 @@ import com.example.shayanetan.borrowise3.Models.User;
 import com.example.shayanetan.borrowise3.R;
 import com.example.shayanetan.borrowise3.Views.SlidingTabLayout;
 
-public class ViewUserProfileActivity extends BaseActivity
-        implements ViewUserBorrowedFragment.OnFragmentInteractionListener,
+public class ViewUserProfileActivity extends AppCompatActivity implements
+        ViewUserBorrowedFragment.OnFragmentInteractionListener,
         ViewUserLentFragment.OnFragmentInteractionListener{
+
+
+    private Toolbar toolbar;
+    private TextView toolbar_title;
 
     private ImageView imageView;
     private TextView tv_name, tv_ratingbar;
@@ -43,7 +51,14 @@ public class ViewUserProfileActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_user_profile);
-        setTitle(R.string.title_activity_view_user_profile);
+
+        toolbar = (Toolbar) findViewById(R.id.appbar);
+        setSupportActionBar(toolbar);
+        setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+
+        toolbar_title = (TextView) findViewById(R.id.toolbar_title);
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
         imageView = (ImageView) findViewById(R.id.img_userprofile);
@@ -92,19 +107,16 @@ public class ViewUserProfileActivity extends BaseActivity
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
-        return super.onOptionsItemSelected(item);
+        switch(item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

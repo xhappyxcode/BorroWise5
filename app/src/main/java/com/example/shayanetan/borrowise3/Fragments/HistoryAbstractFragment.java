@@ -38,19 +38,21 @@ public abstract class HistoryAbstractFragment extends Fragment {
 
         historyCursorAdapter.setmOnLongClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
             @Override
-            public void onButtonClick(int id, String type, String classification) {
+            public void onButtonClick(int id, String type, String classification, String item_name) {
                 mListener.deleteTransaction(historyCursorAdapter, id, type, classification);
             }
         });
 
         historyCursorAdapter.setmOnClickListener(new HistoryCursorAdapter.OnButtonClickListener() {
             @Override
-            public void onButtonClick(int id, String type, String classification) {
+            public void onButtonClick(int id, String type, String classification, String item_name) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), ViewHistoryActivity.class);
                 intent.putExtra(Transaction.COLUMN_ID, id);
                 intent.putExtra(Transaction.COLUMN_TYPE, type);
-
+                intent.putExtra(Transaction.COLUMN_TYPE, Transaction.BORROWED_ACTION);
+                intent.putExtra(Transaction.ITEM_NAME, item_name);
+                intent.putExtra(Transaction.TRANSACTION_ITEM_TYPE, classification);
                 startActivity(intent);
             }
         });

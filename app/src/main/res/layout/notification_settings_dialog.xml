@@ -2,14 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp">
+    android:background="@android:color/white">
 
     <!--NOTIFICATION SETTINGS-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
         <!--NOTIFICATION TITLE
@@ -95,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="15dp"
-                    android:text="Set days before due date"
+                    android:text="Set days before \ndue date"
                     android:textSize="@dimen/subheading_label"/>
 
                 <Spinner
@@ -122,9 +120,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@color/paleRedColor"
+                android:background="@android:color/white"
                 android:text="CANCEL"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/accentRedColor"
                 android:textSize="@dimen/subheading_label"
                 android:padding="12dp"
                 android:id="@+id/btn_cancel"/>
@@ -132,9 +130,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:background="@color/paleGreenColor"
+                android:background="@android:color/white"
                 android:text="SAVE"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/accentGreenColor"
                 android:textSize="@dimen/subheading_label"
                 android:padding="12dp"
                 android:id="@+id/btn_save" />

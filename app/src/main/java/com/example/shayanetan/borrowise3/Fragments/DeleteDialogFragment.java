@@ -58,6 +58,8 @@ public class DeleteDialogFragment extends DialogFragment {
                 .from(getActivity())
                 .inflate(R.layout.blank_dialog, null);
 
+        v.setBackgroundColor(Color.WHITE);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(R.string.delete_dialog)
                 .setTitle("Delete Transaction")
@@ -83,10 +85,8 @@ public class DeleteDialogFragment extends DialogFragment {
                 Button deleteButton = ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_POSITIVE);
                 Button cancelButton = ((AlertDialog)dialog).getButton(DialogInterface.BUTTON_NEGATIVE);
 
-                deleteButton.setBackgroundColor(getResources().getColor(R.color.paleGreenColor));
-                deleteButton.setTextColor(Color.WHITE);
-                cancelButton.setBackgroundColor(getResources().getColor(R.color.paleRedColor));
-                cancelButton.setTextColor(Color.WHITE);
+                deleteButton.setTextColor(getResources().getColor(R.color.accentGreenColor));
+                cancelButton.setTextColor(getResources().getColor(R.color.accentRedColor));
             }
         });
         return dialog;

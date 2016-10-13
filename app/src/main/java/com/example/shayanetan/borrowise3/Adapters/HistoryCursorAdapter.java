@@ -51,7 +51,7 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
     public void setmOnClickListener(OnButtonClickListener m) { this.mOnClickListener = m; }
 
     public interface OnButtonClickListener {
-        public void onButtonClick(int id, String type, String classification);
+        public void onButtonClick(int id, String type, String classification, String item_name);
     }
 
     @Override
@@ -110,25 +110,32 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
                 }
                 ((BorrowedItemViewHolder)viewHolder).tv_Haccount_item.setText(name);
 //                ((BorrowedItemViewHolder)viewHolder).tv_Hduedateitem_val.setText(dueDate);
+
                 ((BorrowedItemViewHolder)viewHolder).tv_Hitemname.setText(transactionAttribute1);
                 ((BorrowedItemViewHolder)viewHolder).tv_Hretdateitem_val.setText(returnDate);
 //                ((BorrowedItemViewHolder)viewHolder).tv_Hstartdateitem_val.setText(startDate);
 
                 ((BorrowedItemViewHolder)viewHolder).tv_Hstatusitem_val.setText(statusFinal);
                 ((BorrowedItemViewHolder)viewHolder).rb_Hratingitem.setRating((float) rating);
-
+                ((BorrowedItemViewHolder)viewHolder).item_container.setTag(R.id.key_entry_item_name, transactionAttribute1);
                 ((BorrowedItemViewHolder)viewHolder).item_container.setTag(cursor.getInt(cursor.getColumnIndex(Transaction.COLUMN_ID)));
                 ((BorrowedItemViewHolder)viewHolder).item_container.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        mOnLongClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.ITEM_TYPE);
+
+                        BorrowedItemViewHolder vh = (BorrowedItemViewHolder) viewHolder;
+                        String item_name = vh.item_container.getTag(R.id.key_entry_item_name).toString();
+
+                        mOnLongClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.ITEM_TYPE, item_name);
                         return true;
                     }
                 });
                 ((BorrowedItemViewHolder)viewHolder).item_container.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mOnClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.ITEM_TYPE);
+                        BorrowedItemViewHolder vh = (BorrowedItemViewHolder) viewHolder;
+                        String item_name = vh.item_container.getTag(R.id.key_entry_item_name).toString();
+                        mOnClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.ITEM_TYPE, item_name);
                     }
                 });
                 break;
@@ -141,18 +148,23 @@ public class HistoryCursorAdapter extends CursorRecyclerViewAdapter<RecyclerView
                 ((BorrowedMoneyViewHolder)viewHolder).tv_Hstatusmoney_val.setText(statusFinal);
                 ((BorrowedMoneyViewHolder)viewHolder).tv_Hamount.setText(transactionAttribute1);
                 ((BorrowedMoneyViewHolder)viewHolder).rb_Hratingmoney.setRating((float) rating);
+                ((BorrowedMoneyViewHolder)viewHolder).money_container.setTag(R.id.key_entry_item_name, transactionAttribute1);
                 ((BorrowedMoneyViewHolder)viewHolder).money_container.setTag(cursor.getInt(cursor.getColumnIndex(Transaction.COLUMN_ID)));
                 ((BorrowedMoneyViewHolder)viewHolder).money_container.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
-                        mOnLongClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE);
+                        BorrowedMoneyViewHolder vh = (BorrowedMoneyViewHolder) viewHolder;
+                        String item_name = vh.money_container.getTag(R.id.key_entry_item_name).toString();
+                        mOnLongClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE, item_name);
                         return true;
                     }
                 });
                 ((BorrowedMoneyViewHolder)viewHolder).money_container.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mOnClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE);
+                        BorrowedMoneyViewHolder vh = (BorrowedMoneyViewHolder) viewHolder;
+                        String item_name = vh.money_container.getTag(R.id.key_entry_item_name).toString();
+                        mOnClickListener.onButtonClick(Integer.parseInt(v.getTag().toString()), viewTypeFinal, Transaction.MONEY_TYPE, item_name);
                     }
                 });
                 break;

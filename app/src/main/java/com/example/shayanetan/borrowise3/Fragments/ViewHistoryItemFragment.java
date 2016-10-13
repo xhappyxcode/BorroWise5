@@ -43,7 +43,6 @@ public class ViewHistoryItemFragment extends ViewHistoryAbstractFragment {
         View layout = inflater.inflate(R.layout.fragment_view_history_item, container, false);
 
         img_camera = (ImageView) layout.findViewById(R.id.img_Hview_item);
-        tv_itemName = (TextView) layout.findViewById(R.id.tv_HviewItemName);
         tv_type = (TextView) layout.findViewById(R.id.Hview_item_type);
         tv_person_name = (TextView) layout.findViewById(R.id.tv_HviewPersonName);
         tv_startDate = (TextView) layout.findViewById(R.id.tv_Hview_item_startDate);
@@ -55,7 +54,7 @@ public class ViewHistoryItemFragment extends ViewHistoryAbstractFragment {
         init();
 
         itemTransaction = (ItemTransaction) dbHelper.queryTransaction(trans_id);
-        tv_itemName.setText(itemTransaction.getName());
+        //tv_itemName.setText(itemTransaction.getName());
         File imgFile = new  File(itemTransaction.getPhotoPath());
         if(imgFile.exists()){
             // ItemTransaction.bmpOptions.inSampleSize = 8;

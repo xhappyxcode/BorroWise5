@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.example.shayanetan.borrowise3.Activities.SearchActivity">
 
     <RelativeLayout
@@ -12,9 +13,10 @@
         android:padding="10dp">
         <ImageView
             android:id="@+id/img_search"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:src="@drawable/ic_search"
+            android:tint="@color/primaryDarkColor"
             android:layout_alignParentEnd="true"/>
         <EditText
             android:id="@+id/et_search"
@@ -22,7 +24,7 @@
             android:layout_height="wrap_content"
             android:hint="Search"
             android:textSize="@dimen/title_label"
-            android:layout_toLeftOf="@id/img_search"/>
+            android:layout_toStartOf="@+id/img_search" />
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_search"

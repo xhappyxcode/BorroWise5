@@ -11,6 +11,10 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,16 +50,24 @@ public class AddItemFragment extends AddAbstractFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_add_item, container, false);
+
+
         img_camera = (ImageView) layout.findViewById(R.id.img_camera);
-//        btn_addContact = (ImageView) layout.findViewById(R.id.btn_addContact);
-//        img_btn_switch = (FloatingActionButton) layout.findViewById(R.id.btn_ItemToMoney);
         et_AIItemName = (EditText) layout.findViewById(R.id.et_AIItemName);
         atv_person_name = (AutoCompleteTextView) layout.findViewById(R.id.atv_AIPersonName);
 
@@ -196,7 +208,7 @@ public class AddItemFragment extends AddAbstractFragment {
     public void clearAllFields(){
         et_AIItemName.setText("");
         atv_person_name.setText("");
-        img_camera.setImageResource(R.drawable.ic_camera_small);
+        img_camera.setImageResource(R.drawable.ic_camera);
         img_camera.setScaleType(ImageView.ScaleType.CENTER_CROP);
         setDateToCurrent();
     }
@@ -206,15 +218,14 @@ public class AddItemFragment extends AddAbstractFragment {
         // TODO Auto-generated method stub
 //        super.onActivityResult(requestCode, resultCode, data);
 
+
+        // CALL THIS
         //Bitmap bp = (Bitmap) data.getExtras().get("data");
         //iv.setImageBitmap(bp);
         if(requestCode == 0 && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             //imageView.setImageBitmap(photo);
-            //knop.setVisibility(Button.VISIBLE);
-
-
-            // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
+            //knop.setVisibility(Button.VISIBLE); METHOD TO GET THE URI FROM THE BITMAP
             Uri tempUri = getImageUri(getActivity().getApplicationContext(), photo);
 
             // CALL THIS METHOD TO GET THE ACTUAL PATH

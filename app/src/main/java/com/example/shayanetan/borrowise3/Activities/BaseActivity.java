@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.shayanetan.borrowise3.R;
 
@@ -30,10 +31,14 @@ public class BaseActivity extends AppCompatActivity implements
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
+
     private Toolbar toolbar;
+    private TextView toolbar_title;
+
     private ActionBarDrawerToggle drawerToggle;
     private FrameLayout activityContainer;
     private ListView listView;
+
     private int selectedNavItemId;
 
 
@@ -47,6 +52,8 @@ public class BaseActivity extends AppCompatActivity implements
 
         toolbar = (Toolbar) findViewById(R.id.appbar);
         setSupportActionBar(toolbar);
+        setTitle("");
+        toolbar_title = (TextView) findViewById(R.id.toolbar_title);
 
         navigationView = (NavigationView) findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -60,6 +67,10 @@ public class BaseActivity extends AppCompatActivity implements
 
         setUpNavView();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    protected void setToolbar_title(int title){
+        toolbar_title.setText(title);
     }
 
     private void selectDrawerItem(MenuItem menuItem) {

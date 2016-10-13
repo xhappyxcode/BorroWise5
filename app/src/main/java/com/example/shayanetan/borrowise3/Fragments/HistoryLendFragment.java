@@ -1,6 +1,8 @@
 package com.example.shayanetan.borrowise3.Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -48,15 +50,21 @@ public class HistoryLendFragment extends HistoryAbstractFragment {
         btn_HLend_item = (Button) layout.findViewById(R.id.btn_HLend_item);
         btn_HLend_money = (Button) layout.findViewById(R.id.btn_HLend_money);
 
+        btn_HLend_all.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_hover));
+        btn_HLend_all.setTextColor(Color.WHITE);
+
         btn_HLend_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 filterType = "All";
                 mListener.retrieveTransaction(historyCursorAdapter, HistoryCursorAdapter.TYPE_LEND);
 
-                btn_HLend_all.setBackgroundResource(R.color.accentBlueColor);
-                btn_HLend_money.setBackgroundResource(R.color.text_primaryColor);
-                btn_HLend_item.setBackgroundResource(R.color.text_primaryColor);
+                btn_HLend_all.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_hover));
+                btn_HLend_all.setTextColor(Color.WHITE);
+                btn_HLend_item.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_default));
+                btn_HLend_item.setTextColor(ContextCompat.getColor(getContext(), R.color.primaryColor));
+                btn_HLend_money.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_default));
+                btn_HLend_money.setTextColor(ContextCompat.getColor(getContext(), R.color.primaryColor));
             }
         });
 
@@ -66,9 +74,12 @@ public class HistoryLendFragment extends HistoryAbstractFragment {
                 filterType = Transaction.ITEM_TYPE;
                 mListener.retrieveTransaction(historyCursorAdapter, HistoryCursorAdapter.TYPE_LEND, Transaction.ITEM_TYPE);
 
-                btn_HLend_item.setBackgroundResource(R.color.accentBlueColor);
-                btn_HLend_all.setBackgroundResource(R.color.text_primaryColor);
-                btn_HLend_money.setBackgroundResource(R.color.text_primaryColor);
+                btn_HLend_item.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_hover));
+                btn_HLend_item.setTextColor(Color.WHITE);
+                btn_HLend_all.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_default));
+                btn_HLend_all.setTextColor(ContextCompat.getColor(getContext(), R.color.primaryColor));
+                btn_HLend_money.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_default));
+                btn_HLend_money.setTextColor(ContextCompat.getColor(getContext(), R.color.primaryColor));
             }
         });
 
@@ -78,9 +89,12 @@ public class HistoryLendFragment extends HistoryAbstractFragment {
                 filterType = Transaction.MONEY_TYPE;
                 mListener.retrieveTransaction(historyCursorAdapter, HistoryCursorAdapter.TYPE_LEND, Transaction.MONEY_TYPE);
 
-                btn_HLend_money.setBackgroundResource(R.color.accentBlueColor);
-                btn_HLend_item.setBackgroundResource(R.color.text_primaryColor);
-                btn_HLend_all.setBackgroundResource(R.color.text_primaryColor);
+                btn_HLend_money.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_hover));
+                btn_HLend_money.setTextColor(Color.WHITE);
+                btn_HLend_all.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_default));
+                btn_HLend_all.setTextColor(ContextCompat.getColor(getContext(), R.color.primaryColor));
+                btn_HLend_item.setBackground(ContextCompat.getDrawable(getContext(),R.drawable.round_button_default));
+                btn_HLend_item.setTextColor(ContextCompat.getColor(getContext(), R.color.primaryColor));
 
             }
         });

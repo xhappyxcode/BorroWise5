@@ -3,13 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
     tools:context="com.example.shayanetan.borrowise3.Fragments.HistoryLendFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:padding="10dp"
         android:orientation="horizontal">
         <Button
             android:id="@+id/btn_HLend_all"
@@ -19,8 +18,9 @@
             android:layout_height="@dimen/filter_button_size"
             android:text="@string/lbl_all"
             android:textSize="12dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/round_button"/>
+            android:textColor="@color/primaryColor"
+            android:background="@drawable/round_button"
+            style="?android:attr/borderlessButtonStyle"/>
         <Button
             android:id="@+id/btn_HLend_item"
             android:layout_width="0dp"
@@ -29,8 +29,9 @@
             android:layout_height="@dimen/filter_button_size"
             android:text="@string/lbl_item"
             android:textSize="12dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/round_button"/>
+            android:textColor="@color/primaryColor"
+            android:background="@drawable/round_button"
+            style="?android:attr/borderlessButtonStyle"/>
         <Button
             android:id="@+id/btn_HLend_money"
             android:layout_width="0dp"
@@ -38,8 +39,9 @@
             android:layout_height="@dimen/filter_button_size"
             android:text="@string/lbl_money"
             android:textSize="12dp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/round_button"/>
+            android:textColor="@color/primaryColor"
+            android:background="@drawable/round_button"
+            style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

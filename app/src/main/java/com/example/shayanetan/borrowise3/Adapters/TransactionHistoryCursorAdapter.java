@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Path;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -150,15 +151,29 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
                     }
                 });
 
+
                 if(daysleft < 0) {
                     /* if overdue, change label to overdue and text color to red*/
                     int daysOverdue = daysleft * -1;
-                    ((ItemTransactionViewHolder)viewHolder).tv_daysleft_val.setText(String.valueOf(daysOverdue));
+
+                    String message = "";
+
+                    if(daysOverdue > 1)
+                        message = daysOverdue+" days overdue";
+                    else
+                        message = "1 day overdue";
+                    ((ItemTransactionViewHolder)viewHolder).img_item_day.setColorFilter(Color.RED);
                     ((ItemTransactionViewHolder)viewHolder).tv_daysleft_val.setTextColor(Color.RED);
-                    ((ItemTransactionViewHolder)viewHolder).tv_daysleft.setText(R.string.lbl_overdue);
-                    ((ItemTransactionViewHolder)viewHolder).tv_daysleft.setTextColor(Color.RED);
+                    ((ItemTransactionViewHolder)viewHolder).tv_daysleft_val.setText(message);
                 } else {
-                    ((ItemTransactionViewHolder)viewHolder).tv_daysleft_val.setText(String.valueOf(daysleft));
+
+                    String message ="";
+                    if(daysleft > 1)
+                        message = daysleft+" days left";
+                    else
+                        message = "1 day left";
+
+                    ((ItemTransactionViewHolder)viewHolder).tv_daysleft_val.setText(message);
                 }
                 break;
             case TYPE_MONEY_TRANSACTION:
@@ -175,12 +190,25 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
                 });
                 if(daysleft < 0) {
                     int daysOverdue = daysleft * -1;
-                    ((MoneyTransactionViewHolder)viewHolder).tv_daysleft_val.setText(String.valueOf(daysOverdue));
+
+                    String message = "";
+
+                    if(daysOverdue == 1)
+                        message = daysOverdue +" day overdue";
+                    else
+                        message = daysOverdue +" days overdue";
+
+                    ((MoneyTransactionViewHolder)viewHolder).img_money_day.setColorFilter(Color.RED);
+                    ((MoneyTransactionViewHolder)viewHolder).tv_daysleft_val.setText(message);
                     ((MoneyTransactionViewHolder)viewHolder).tv_daysleft_val.setTextColor(Color.RED);
-                    ((MoneyTransactionViewHolder)viewHolder).tv_daysleft.setText(R.string.lbl_overdue);
-                    ((MoneyTransactionViewHolder)viewHolder).tv_daysleft.setTextColor(Color.RED);
                 } else {
-                    ((MoneyTransactionViewHolder)viewHolder).tv_daysleft_val.setText(String.valueOf(daysleft));
+
+                    String message = "";
+                    if(daysleft == 1)
+                        message = daysleft +" day left";
+                    else
+                        message = daysleft +" days left";
+                    ((MoneyTransactionViewHolder)viewHolder).tv_daysleft_val.setText(message);
                 }
                 break;
             case TYPE_ITEM_HISTORY:
@@ -259,8 +287,8 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
 
     public class ItemTransactionViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tv_account_item, tv_itemname, tv_duedate_val, tv_daysleft_val, tv_daysleft;
-        ImageView img_item;
+        TextView tv_account_item, tv_itemname, tv_duedate_val, tv_daysleft_val;
+        ImageView img_item, img_item_day;
         View item_container;
 
         public ItemTransactionViewHolder(View itemView) {
@@ -269,7 +297,8 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
             tv_itemname = (TextView) itemView.findViewById(R.id.tv_itemname);
             tv_duedate_val = (TextView) itemView.findViewById(R.id.tv_duedateitem_val);
             tv_daysleft_val = (TextView) itemView.findViewById(R.id.tv_daysleftitem_val);
-            tv_daysleft = (TextView) itemView.findViewById(R.id.tv_daysleftitem_label);
+
+            img_item_day = (ImageView) itemView.findViewById(R.id.img_item_day);
 
             img_item = (ImageView) itemView.findViewById(R.id.img_item);
             img_item.setMaxWidth(img_item.getHeight());
@@ -281,8 +310,9 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
 
     public class MoneyTransactionViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tv_account_money, tv_amount, tv_duedate_val, tv_daysleft_val, tv_daysleft;
+        TextView tv_account_money, tv_amount, tv_duedate_val, tv_daysleft_val;
         View money_container;
+        ImageView img_money_day;
 
         public MoneyTransactionViewHolder(View itemView) {
             super(itemView);
@@ -290,7 +320,7 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
             tv_amount = (TextView) itemView.findViewById(R.id.tv_amount);
             tv_duedate_val = (TextView) itemView.findViewById(R.id.tv_duedatemoney_val);
             tv_daysleft_val = (TextView) itemView.findViewById(R.id.tv_daysleftmoney_val);
-            tv_daysleft = (TextView) itemView.findViewById(R.id.tv_daysleftmoney_label);
+            img_money_day = (ImageView) itemView.findViewById(R.id.img_money_day);
 
             money_container = itemView.findViewById(R.id.money_container);
         }
@@ -312,6 +342,7 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
             tv_Hretdateitem_val = (TextView) itemView.findViewById(R.id.tv_Hretdateitem_val);
             tv_Hstatusitem_val = (TextView) itemView.findViewById(R.id.tv_Hstatusitem_val);
             rb_Hratingitem = (RatingBar) itemView.findViewById(R.id.rb_Hratingitem);
+            rb_Hratingitem.getProgressDrawable().setColorFilter(Color.parseColor("#f9a825"), PorterDuff.Mode.SRC_ATOP);
 
             img_Hitem = (ImageView) itemView.findViewById(R.id.img_Hitem);
             item_container = itemView.findViewById(R.id.Hitem_container);
@@ -331,6 +362,9 @@ public class TransactionHistoryCursorAdapter extends CursorRecyclerViewAdapter<R
             tv_Hamount = (TextView) itemView.findViewById(R.id.tv_Hamount);
             tv_Hretdatemoney_val = (TextView) itemView.findViewById(R.id.tv_Hretdatemoney_val);
             rb_Hratingmoney = (RatingBar) itemView.findViewById(R.id.rb_Hratingmoney);
+            rb_Hratingmoney.getProgressDrawable().setColorFilter(Color.parseColor("#f9a825"), PorterDuff.Mode.SRC_ATOP);
+
+
             money_container = itemView.findViewById(R.id.Hmoney_container);
             tv_Hstatusmoney_val = (TextView) itemView.findViewById(R.id.tv_Hstatusmoney_val);
         }

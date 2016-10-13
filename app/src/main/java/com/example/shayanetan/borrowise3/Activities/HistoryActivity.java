@@ -26,22 +26,19 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
     private ViewPagerAdapter viewPagerAdapter;
     private SlidingTabLayout slidingTabLayout;
 
-    private static String TITLE_TAB1 = "BORROWED FROM";
-    private static String TITLE_TAB2 = "LENT TO";
+    private static String TITLE_TAB1 = "Borrowed From";
+    private static String TITLE_TAB2 = "Lent To";
 
     private HistoryBorrowedFragment historyBorrowedFragment;
     private HistoryLendFragment historyLendFragment;
 
     private DatabaseOpenHelper dbHelper;
 
-    public HistoryActivity() {
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        setTitle(R.string.title_activity_history);
+        setToolbar_title(R.string.title_activity_view_history);
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
 
@@ -75,22 +72,9 @@ public class HistoryActivity extends BaseActivity  implements HistoryAbstractFra
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_history, menu);
+        getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
-
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-////        if (id == R.id.action_settings) {
-////            return true;
-////        }
-//        //menu.findItem(R.id.action_settings).setVisible(false);
-//        return super.onOptionsItemSelected(item);
-//    }
 
 
     @Override

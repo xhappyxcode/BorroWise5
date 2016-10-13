@@ -9,7 +9,7 @@
         android:id="@+id/sliding_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/primaryColor" />
+        android:background="@android:color/white" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
@@ -18,17 +18,6 @@
         android:layout_weight="1"
         android:layout_below="@id/sliding_tab"/>
 
-    <!--android.support.design.widget.AppBarLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:theme="@style/AppTheme.AppBarOverlay"/-->
-
-    <!--android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/AppTheme.PopupOverlay"/-->
 
     <View
         android:id="@+id/background_dimmer"
@@ -37,43 +26,54 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_add_transaction"
-        android:src="@drawable/ic_add_plus"
-        android:tint="@android:color/white"
-        app:fabSize="normal"
-        app:backgroundTint="@color/secondaryColor"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"/>
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_add_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_item"
-        app:elevation="6dp"
-        app:backgroundTint="@color/accentLightBlueColor"
-        android:layout_marginRight="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_above="@+id/fab_add_money"
-        android:visibility="invisible"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_add_money"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_money"
-        app:elevation="6dp"
-        app:backgroundTint="@color/paleGreenColor"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="10dp"
-        android:layout_above="@+id/fab_add_transaction"
-        android:visibility="invisible"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_add_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_item"
+            app:elevation="5dp"
+            style="?android:attr/borderlessButtonStyle"
+            app:backgroundTint="@color/accentLightBlueColor"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_above="@+id/fab_add_money"
+            android:visibility="invisible"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_add_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_money"
+            app:elevation="5dp"
+            app:backgroundTint="@color/accentGreenColor"
+            android:layout_marginRight="20dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_above="@+id/fab_add_transaction"
+            android:visibility="invisible"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_add_transaction"
+            android:src="@drawable/ic_add_plus"
+            android:tint="@android:color/white"
+            style="?android:attr/borderlessButtonStyle"
+            app:fabSize="normal"
+            android:elevation="10dp"
+            app:backgroundTint="@color/secondaryColor"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"/>
+    </LinearLayout>
 
 </RelativeLayout>

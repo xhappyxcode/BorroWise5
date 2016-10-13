@@ -37,25 +37,21 @@ public class ViewTransactionItemFragment extends ViewTransactionAbstractFragment
         // Inflate the layout for this fragment
         View layout = inflater.inflate(R.layout.fragment_view_transaction_item, container, false);
         img_camera = (ImageView) layout.findViewById(R.id.img_view_item);
-        tv_itemName = (TextView) layout.findViewById(R.id.tv_viewItemName);
         tv_person_name = (TextView) layout.findViewById(R.id.tv_viewPersonName);
 
         tv_endDate = (TextView) layout.findViewById(R.id.tv_view_item_endDate);
         tv_startDate = (TextView) layout.findViewById(R.id.tv_view_item_startDate);
 
         tv_type = (TextView) layout.findViewById(R.id.view_item_type);
+        tv_notif_settings =(TextView) layout.findViewById(R.id.tv_notif_settings);
 
         btn_lost = (Button) layout.findViewById(R.id.btn_lost);
         btn_returned = (Button) layout.findViewById(R.id.btn_returned);
-
-        tv_notif_days = (TextView) layout.findViewById(R.id.tv_notif_days_before);
-        tv_notif_time = (TextView) layout.findViewById(R.id.tv_notif_time);
 
         init(); // method found in abstact class
 
         itemTransaction = (ItemTransaction) dbHelper.queryTransaction(trans_id);
 
-        tv_itemName.setText(itemTransaction.getName());
         File imgFile = new  File(itemTransaction.getPhotoPath());
         if(imgFile.exists()){
             // ItemTransaction.bmpOptions.inSampleSize = 8;

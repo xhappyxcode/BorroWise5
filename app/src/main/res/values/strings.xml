@@ -3,23 +3,26 @@
     <string name="action_settings">Settings</string>
 
     <string name="lbl_duedate">Due:</string>
-    <string name="lbl_retdate">Retd:</string>
+    <string name="lbl_daysLeft">Days Left:</string>
+    <string name="lbl_daysOverdue">Days Overdue:</string>
+    <string name="lbl_retdate">Return Date:</string>
     <string name="lbl_status">Status:</string>
+    <string name="lbl_rating">Rating: </string>
 
-    <string name="lbl_start">Start Date</string>
-    <string name="lbl_due">Due Date</string>
-    <string name="lbl_ret">Return Date</string>
-    <string name="lbl_rating">Rating:</string>
+    <string name="lbl_start">START DATE</string>
+    <string name="lbl_due">DUE DATE</string>
+    <string name="lbl_ret">RETURN DATE</string>
+    <string name="lbl_notif_settings">NOTIFICATION SETTINGS</string>
 
-    <string name="lbl_item">ITEM</string>
-    <string name="lbl_money">MONEY</string>
-    <string name="lbl_all">ALL</string>
+    <string name="lbl_item">Item</string>
+    <string name="lbl_money">Money</string>
+    <string name="lbl_all">All</string>
 
-    <string name="btn_borrowed">BORROWED</string>
-    <string name="btn_lent">LENT</string>
+    <string name="btn_borrowed">Borrowed</string>
+    <string name="btn_lent">Lent</string>
 
-    <string name="btn_lost">LOST</string>
-    <string name="btn_returned">RETURNED</string>
+    <string name="btn_lost">Lost</string>
+    <string name="btn_returned">Returned</string>
 
     <!-- added strings -->
     <string name="lbl_dayleft">day/s left</string>
@@ -43,7 +46,7 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="title_activity_add_transaction">Transaction</string>
+    <string name="title_activity_add_transaction">Add a Transaction</string>
 
     <string name="title_activity_view_user">People</string>
     <string name="title_activity_home">Add Transaction</string>
@@ -55,26 +58,26 @@
     <string name="title_activity_view_user_profile">User Profile</string>
 
     <!-- added activity titles -->
-    <string name="title_activity_view_transaction">View Transaction</string>
-    <string name="title_activity_view_history">View History</string>
+    <string name="title_activity_view_transaction">Transaction</string>
+    <string name="title_activity_view_history">History</string>
 
     <!-- delete transaction dialog text -->
     <string name="delete_dialog">Are you sure you want to delete transaction?</string>
-    <string name="dialog_delete">DELETE</string>
-    <string name="dialog_cancel">CANCEL</string>
+    <string name="dialog_delete">Delete</string>
+    <string name="dialog_cancel">Cancel</string>
     <!-- add transaction dialog text -->
     <string name="add_transaction_dialog">What kind of transaction do you want to add?</string>
-    <string name="dialog_item">ITEM</string>
-    <string name="dialog_money">MONEY</string>
+    <string name="dialog_item">Item</string>
+    <string name="dialog_money">Money</string>
 
     <string name="payment_error_dialog">The payment is greater than the balance needed to be paid!</string>
 
-    <string name="menu_edit">EDIT</string>
-    <string name="menu_delete">DELETE</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_delete">Delete</string>
 
-    <string name="lent_to">Lent To: </string>
-    <string name="borrowed_from">Borrowed From: </string>
-    <string name="total_amt">Original: </string>
+    <string name="lent_to">LENT TO </string>
+    <string name="borrowed_from">BORROWED FROM </string>
+    <string name="total_amt">ORIGINAL </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

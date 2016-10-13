@@ -17,6 +17,8 @@ public abstract class Transaction {
     public static final String COLUMN_ALARM_TIME = "alarm_time"; /*added this*/
     public static final String COLUMN_DAYS_LEFT = "days_left"; /*added this*/
 
+    public static final String TRANSACTION_ITEM_TYPE ="item_type";
+    public static final String ITEM_NAME = "item_name";
     public static final String ITEM_TYPE = "Item";
     public static final String MONEY_TYPE = "Money";
 

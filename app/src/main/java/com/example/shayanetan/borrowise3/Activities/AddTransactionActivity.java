@@ -7,14 +7,19 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shayanetan.borrowise3.Adapters.TransactionsCursorAdapter;
 import com.example.shayanetan.borrowise3.Fragments.AddAbstractFragment;
 import com.example.shayanetan.borrowise3.Fragments.AddItemFragment;
 import com.example.shayanetan.borrowise3.Fragments.AddMoneyFragment;
+import com.example.shayanetan.borrowise3.Fragments.DeleteDialogFragment;
 import com.example.shayanetan.borrowise3.Fragments.SettingsDialogFragment;
 import com.example.shayanetan.borrowise3.Fragments.TimePickerFragment;
 import com.example.shayanetan.borrowise3.Models.DatabaseOpenHelper;
@@ -41,6 +46,9 @@ public class AddTransactionActivity extends BaseActivity implements
         SettingsDialogFragment.OnFragmentInteractionListener,
         TimePickerFragment.OnFragmentInteractionListener{
 
+    private Toolbar toolbar;
+    private TextView toolbar_title;
+
     private DatabaseOpenHelper dbHelper;
 
     final static String SP_KEY_BORROW_TIME = "BORROWTIME";
@@ -57,10 +65,12 @@ public class AddTransactionActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_transaction);
-        setTitle(R.string.title_activity_add_transaction);
+        setToolbar_title(R.string.title_activity_add_transaction);
 
         Intent intent = getIntent();
         int transactionType = intent.getIntExtra(Transaction.COLUMN_TYPE, TransactionsCursorAdapter.TYPE_ITEM);
+
+
 
         dbHelper = DatabaseOpenHelper.getInstance(getBaseContext());
 
@@ -263,6 +273,16 @@ public class AddTransactionActivity extends BaseActivity implements
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     public void updateNotification(String alarmTime, int daysLeft) {
         if(itemFragment != null) {
